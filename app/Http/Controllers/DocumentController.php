@@ -7,29 +7,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class DocumentController extends Controller {
+    
     /**
-     * Show the profile for the given user.
+     * Load IEEE data
      *
-     * @param  int  $id
+     * @param  void
      * @return Response
      */
     public function ieee() {
         
-    
-        $search_string = null;
         $path = "ieee/";
-        $files = scandir($path);
-
+        
+        $files = $this->loadFiles($path);
         foreach($files as $file) {
-
-            // ignore when directory
-            $dir = array_search($file, array(".", ".."));
-            if ($dir === 0 || $dir === 1) continue;
 
             $search_string = null;
 
             // load file
-            $documents = file($path . $file);
+            $documents = file($file);
             foreach($documents as $key => $document) {
 
                 if (empty($search_string)) {
@@ -81,4 +76,88 @@ class DocumentController extends Controller {
         }
     }
 
+    /**
+     * Load ACM data
+     *
+     * @param  void
+     * @return Response
+     */
+    public function acm() {
+        
+        $path = "acm/";
+        $files = $this->loadFiles($path);
+        foreach($files as $file) {
+
+            $search_string = null;
+
+            // load file
+            $documents = file($file);
+            foreach($documents as $key => $document) {
+
+                if (empty($search_string)) {
+                    $search_string = trim($document);
+                }
+                if ($key < 2) continue;
+
+                $data = explode("\",\"", $document);                
+                $authors = trim($data[2]);
+                $title = trim($data[6]);
+                $type = trim($data[0]);
+                if (empty($authors)) continue;            
+                if (strpos($title, "\"") === 0) {
+                    $title = substr($title, 1);
+                }
+                if (strpos($type, "\"") === 0) {
+                    $type = substr($type, 1);
+                }
+                $title_slug = self::slug($title, "-");
+                $document = Document::where('title_slug', $title_slug)->first();
+
+                $duplicate = 0;
+                $duplicate_id = null;                
+                if (!empty($document)) {
+                    $duplicate = 1;
+                    $duplicate_id = $document->id;
+                }
+                
+                $document_new = new Document;
+                $document_new->type             = $type;
+                $document_new->source_id        = trim($data[1]);
+                $document_new->title            = $title;
+                $document_new->title_slug       = $title_slug;
+                $document_new->abstract         = null;
+                $document_new->authors          = $authors;
+                $document_new->year             = $data[18];
+                $document_new->volume           = (empty(trim($data[14]))) ? null:trim($data[14]);
+                $document_new->issue            = (empty(trim($data[15]))) ? null:trim($data[15]);
+                $document_new->issn             = (empty(trim($data[19]))) ? null:trim($data[19]);
+                $document_new->isbns            = (empty(trim($data[23]))) ? null:trim($data[23]);
+                $document_new->doi              = (empty(trim($data[11]))) ? null:trim($data[11]); // https://doi.org/
+                $document_new->pdf_link         = null;
+                $document_new->keywords         = (empty(trim($data[10]))) ? null:trim($data[10]);
+                $document_new->published_in     = $data[20] . " - " . $data[21];
+                $document_new->numpages         = $data[9];
+                $document_new->pages            = $data[7];
+                $document_new->publisher        = $data[25];
+                $document_new->source           = "acm";
+                $document_new->search_string    = $search_string;
+                $document_new->duplicate        = $duplicate;
+                $document_new->duplicate_id     = $duplicate_id;
+                $document_new->save();
+            }            
+        }
+    }
+
+    private function loadFiles($path) {
+        $arrFiles = array();
+        $files = scandir($path);
+        foreach($files as $file) {
+            // ignore when directory
+            $dir = array_search($file, array(".", ".."));
+            if ($dir === 0 || $dir === 1) continue;
+
+            $arrFiles[] = $path . $file;
+        }
+        return $arrFiles;
+    }
 }

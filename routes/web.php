@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('import-ieee', 'DocumentController@ieee');
+Route::get('import-acm', 'DocumentController@acm');
 
