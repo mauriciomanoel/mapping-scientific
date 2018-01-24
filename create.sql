@@ -1,8 +1,8 @@
--- Copiando estrutura do banco de dados para doutorado
+
+DROP DATABASE IF EXISTS `mapping-scientific`;
 CREATE DATABASE IF NOT EXISTS `mapping-scientific` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `mapping-scientific`;
 
--- Copiando estrutura para tabela doutorado.document
 CREATE TABLE `document` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) DEFAULT NULL,
@@ -21,7 +21,8 @@ CREATE TABLE `document` (
   `published_in` varchar(255) DEFAULT NULL,
   `numpages` varchar(255) DEFAULT NULL,
   `pages` varchar(255) DEFAULT NULL,
-  `publisher` varchar(255) DEFAULT NULL COMMENT 'Bases',
+  `publisher` varchar(255) DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL COMMENT 'Bases',
   `search_string` varchar(255) DEFAULT NULL,
   `duplicate` smallint(6) DEFAULT '0',
   `duplicate_id` int(11) DEFAULT NULL,
@@ -29,5 +30,5 @@ CREATE TABLE `document` (
   `full_text` text,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=2923 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
