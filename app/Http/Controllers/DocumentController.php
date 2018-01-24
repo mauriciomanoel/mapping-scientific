@@ -22,7 +22,8 @@ class DocumentController extends Controller {
 
         foreach($files as $file) {
 
-            if (array_search($file, array(".", "..")) === 0) continue;
+            $dir = array_search($file, array(".", ".."));
+            if ($dir === 0 || $dir === 1) continue;
 
             $documents = file($path . $file);
             foreach($documents as $key => $document) {
@@ -60,13 +61,14 @@ class DocumentController extends Controller {
                 $document_new->issue            = (empty(trim($data[7]))) ? null:trim($data[7]);
                 $document_new->issn             = (empty(trim($data[11]))) ? null:trim($data[11]);
                 $document_new->isbns            = (empty(trim($data[12]))) ? null:trim($data[12]);
-                $document_new->doi              = (empty(trim($data[13]))) ? null:trim($data[13]);                  // https://doi.org/
+                $document_new->doi              = (empty(trim($data[13]))) ? null:trim($data[13]); // https://doi.org/
                 $document_new->pdf_link         = $data[15];
                 $document_new->keywords         = (empty(trim($data[16]))) ? null:trim($data[16]);
                 $document_new->published_in     = $data[3];
                 $document_new->numpages         = $data[8] . "-" . $data[9];
                 $document_new->pages            = null;
                 $document_new->publisher        = $data[29];
+                $document_new->source           = "ieeexplore";
                 $document_new->search_string    = $search_string;
                 $document_new->duplicate        = $duplicate;
                 $document_new->duplicate_id     = $duplicate_id;
