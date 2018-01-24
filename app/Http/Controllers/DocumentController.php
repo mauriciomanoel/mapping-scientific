@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Document;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,21 +13,69 @@ class DocumentController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function ieee()
-    {
-        // return "Ola mundo...";
+    public function ieee() {
+        
+    
+        $search_string = null;
+        $path = "ieee/";
+        $files = scandir($path);
 
-        $documents = file("ieeee_export2018.01.23-18.47.04.csv");
-        foreach($documents as $document) {
-            $data = explode("\",\"", $document);
-            echo "<pre>"; var_dump($data); exit;
+        foreach($files as $file) {
+
+            if (array_search($file, array(".", "..")) === 0) continue;
+
+            $documents = file($path . $file);
+            foreach($documents as $key => $document) {
+
+                if (empty($search_string)) {
+                    $search_string = trim($document);
+                }
+                if ($key < 2) continue;
+
+                $data = explode("\",\"", $document);
+                $authors = trim($data[1]);
+                $title = trim($data[0]);
+                if (empty($authors)) continue;            
+                if (strpos($title, "\"") === 0) {
+                    $title = substr($title, 1);
+                }
+                $title_slug = self::slug($title, "-");
+                $duplicate = 0;
+                $duplicate_id = null;
+
+                $document = Document::where('title_slug', $title_slug)->first();
+                
+                if (!empty($document)) {
+                    $duplicate = 1;
+                    $duplicate_id = $document->id;
+                }
+                
+                $document_new = new Document;
+                $document_new->type             = "article";
+                $document_new->title            = $title;
+                $document_new->title_slug       = $title_slug;
+                $document_new->abstract         = $data[10];
+                $document_new->authors          = $authors;
+                $document_new->year             = $data[5];
+                $document_new->volume           = $data[6];
+                $document_new->issue            = $data[7];
+                $document_new->issn             = $data[11];
+                $document_new->isbns            = $data[12];
+                $document_new->doi              = (empty(trim($data[13]))) ? null:trim($data[13]);                  // https://doi.org/
+                $document_new->pdf_link         = $data[15];
+                $document_new->keywords         = $data[16];
+                $document_new->published_in     = $data[3];
+                $document_new->numpages         = $data[8] . "-" . $data[9];
+                $document_new->pages            = "";
+                $document_new->publisher        = $data[29];
+                $document_new->search_string    = $search_string;
+                $document_new->duplicate        = $duplicate;
+                $document_new->duplicate_id     = $duplicate_id;
+                $document_new->save();
+                var_dump($title_slug, $document); exit;
+                // if ($key == 1) exit;
+            }
         }
-
-        exit;
-        $result = array("status"=>"ok", "result"=>array()); 
-        return response('Hello World', 200)
-                  ->header('Content-Type', 'text/plain');
     }
-}
 
-?>
+}
