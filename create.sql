@@ -25,7 +25,9 @@ CREATE TABLE `document` (
   `search_string` varchar(255) DEFAULT NULL,
   `duplicate` smallint(6) DEFAULT '0',
   `duplicate_id` int(11) DEFAULT NULL,
+  `cited` int(11) DEFAULT NULL,
+  `full_text` text,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2923 DEFAULT CHARSET=utf8;
 

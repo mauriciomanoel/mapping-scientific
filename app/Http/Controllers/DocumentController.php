@@ -40,11 +40,10 @@ class DocumentController extends Controller {
                     $title = substr($title, 1);
                 }
                 $title_slug = self::slug($title, "-");
-                $duplicate = 0;
-                $duplicate_id = null;
-
                 $document = Document::where('title_slug', $title_slug)->first();
-                
+
+                $duplicate = 0;
+                $duplicate_id = null;                
                 if (!empty($document)) {
                     $duplicate = 1;
                     $duplicate_id = $document->id;
@@ -57,24 +56,24 @@ class DocumentController extends Controller {
                 $document_new->abstract         = $data[10];
                 $document_new->authors          = $authors;
                 $document_new->year             = $data[5];
-                $document_new->volume           = $data[6];
-                $document_new->issue            = $data[7];
-                $document_new->issn             = $data[11];
-                $document_new->isbns            = $data[12];
+                $document_new->volume           = (empty(trim($data[6]))) ? null:trim($data[6]);
+                $document_new->issue            = (empty(trim($data[7]))) ? null:trim($data[7]);
+                $document_new->issn             = (empty(trim($data[11]))) ? null:trim($data[11]);
+                $document_new->isbns            = (empty(trim($data[12]))) ? null:trim($data[12]);
                 $document_new->doi              = (empty(trim($data[13]))) ? null:trim($data[13]);                  // https://doi.org/
                 $document_new->pdf_link         = $data[15];
-                $document_new->keywords         = $data[16];
+                $document_new->keywords         = (empty(trim($data[16]))) ? null:trim($data[16]);
                 $document_new->published_in     = $data[3];
                 $document_new->numpages         = $data[8] . "-" . $data[9];
-                $document_new->pages            = "";
+                $document_new->pages            = null;
                 $document_new->publisher        = $data[29];
                 $document_new->search_string    = $search_string;
                 $document_new->duplicate        = $duplicate;
                 $document_new->duplicate_id     = $duplicate_id;
                 $document_new->save();
-                var_dump($title_slug, $document); exit;
-                // if ($key == 1) exit;
+                
             }
+            $search_string = null;
         }
     }
 
