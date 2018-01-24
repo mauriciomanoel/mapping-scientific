@@ -22,9 +22,13 @@ class DocumentController extends Controller {
 
         foreach($files as $file) {
 
+            // ignore when directory
             $dir = array_search($file, array(".", ".."));
             if ($dir === 0 || $dir === 1) continue;
 
+            $search_string = null;
+
+            // load file
             $documents = file($path . $file);
             foreach($documents as $key => $document) {
 
@@ -73,9 +77,7 @@ class DocumentController extends Controller {
                 $document_new->duplicate        = $duplicate;
                 $document_new->duplicate_id     = $duplicate_id;
                 $document_new->save();
-                
-            }
-            $search_string = null;
+            }            
         }
     }
 
