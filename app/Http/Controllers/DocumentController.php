@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Document;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Support\WebService;
+use Config;
 
 class DocumentController extends Controller {
     
@@ -49,8 +51,23 @@ class DocumentController extends Controller {
                     $duplicate_id = $document->id;
                 }
                 
+                $type = "article";
+                if (strpos($title, "\"") === 0) {
+                    $title = substr($title, 1);
+                }
+                
+                $sources = preg_split('/[^0-9]/', $data[15], -1, PREG_SPLIT_NO_EMPTY); // filter number only
+                $source_id = (!empty($sources)) ? $sources[0]:null;
+                $pdf_link = $data[15];
+
+                if (strpos($data[15], "pdfType=chapter") !== false) {
+                    $pdf_link = "http://ieeexplore.ieee.org/xpl/abstractSimilar.jsp?arnumber=" . $source_id;
+                    $type = "ebook";
+                }
+
                 $document_new = new Document;
-                $document_new->type             = "article";
+                $document_new->type             = $type;
+                $document_new->source_id        = $source_id;
                 $document_new->title            = $title;
                 $document_new->title_slug       = $title_slug;
                 $document_new->abstract         = $data[10];
@@ -61,7 +78,7 @@ class DocumentController extends Controller {
                 $document_new->issn             = (empty(trim($data[11]))) ? null:trim($data[11]);
                 $document_new->isbns            = (empty(trim($data[12]))) ? null:trim($data[12]);
                 $document_new->doi              = (empty(trim($data[13]))) ? null:trim($data[13]); // https://doi.org/
-                $document_new->pdf_link         = $data[15];
+                $document_new->pdf_link         = $pdf_link;
                 $document_new->keywords         = (empty(trim($data[16]))) ? null:trim($data[16]);
                 $document_new->published_in     = $data[3];
                 $document_new->numpages         = $data[8] . "-" . $data[9];
@@ -72,6 +89,7 @@ class DocumentController extends Controller {
                 $document_new->duplicate        = $duplicate;
                 $document_new->duplicate_id     = $duplicate_id;
                 $document_new->save();
+
             }            
         }
     }
@@ -83,7 +101,7 @@ class DocumentController extends Controller {
      * @return Response
      */
     public function acm() {
-        
+
         $path = "acm/";
         $files = $this->loadFiles($path);
         foreach($files as $file) {
@@ -119,13 +137,17 @@ class DocumentController extends Controller {
                     $duplicate = 1;
                     $duplicate_id = $document->id;
                 }
+
+                $source_id                      = trim($data[1]);
+                $abstract                       = "";
+                $abstract                       = trim(strip_tags(WebService::loadUrl(Config::get('constants.URL_ACM_ABSTRACT') . $source_id))); // load abstract 
                 
                 $document_new = new Document;
                 $document_new->type             = $type;
-                $document_new->source_id        = trim($data[1]);
+                $document_new->source_id        = $source_id;
                 $document_new->title            = $title;
                 $document_new->title_slug       = $title_slug;
-                $document_new->abstract         = null;
+                $document_new->abstract         = (empty(trim($abstract))) ? null:trim($abstract);
                 $document_new->authors          = $authors;
                 $document_new->year             = $data[18];
                 $document_new->volume           = (empty(trim($data[14]))) ? null:trim($data[14]);
@@ -134,6 +156,7 @@ class DocumentController extends Controller {
                 $document_new->isbns            = (empty(trim($data[23]))) ? null:trim($data[23]);
                 $document_new->doi              = (empty(trim($data[11]))) ? null:trim($data[11]); // https://doi.org/
                 $document_new->pdf_link         = null;
+                $document_new->document_url     = Config::get('constants.URL_ACM_CITATION') . $source_id;
                 $document_new->keywords         = (empty(trim($data[10]))) ? null:trim($data[10]);
                 $document_new->published_in     = $data[20] . " - " . $data[21];
                 $document_new->numpages         = $data[9];
