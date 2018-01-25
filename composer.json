@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "bibliophile/bibtexparse": "1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -20,10 +21,7 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        },
-        "files": [
-            "app/constants.php"
-        ]       
+        }    
     },
     "autoload-dev": {
         "psr-4": {
@@ -50,5 +48,24 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "bibliophile/bibtexparse",
+                "version": "1.0",
+                "source": {
+                    "url": "https://github.com/mauriciomanoel/bibtexParse.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0" : {
+                        "Bibliophile\\BibtexParse" : "src"
+                    }
+                }
+            }
+        }
+    ]
 }
