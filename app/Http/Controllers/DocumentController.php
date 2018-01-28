@@ -178,21 +178,13 @@ class DocumentController extends Controller {
         $parse->expandMacro = FALSE;
         $parse->removeDelimit = TRUE;
         $parse->fieldExtract = TRUE;
-        $parse->openBib("elsevier/science-Health.bib");
+        // $parse->openBib("elsevier/science-Health.bib");
+        $parse->openBib("periodicos-capes/periodicos_capes_Internet_of_Things_and_health.bib");
         $parse->extractEntries();
         $parse->closeBib();
 
-        var_dump($parse->returnArrays()); exit;
+        echo "<pre>"; var_dump($parse->returnArrays()); exit;
         
-//         $bibtex = str_replace(array("’", "|"), "", $bibtex);
-//         $parser = new Parser();          // Create a Parser
-//         $listener = new Listener();      // Create and configure a Listener
-//         $parser->addListener($listener); // Attach the Listener to the Parser
-//         $parser->parseString($bibtex);   // or parseFile('/path/to/file.bib')
-//         $entries = $listener->export();  // Get processed data from the Listener
-// var_dump($entries); exit;
-//         print_r($entries);
-
     }
 
     private function loadFiles($path) {
