@@ -187,6 +187,21 @@ class DocumentController extends Controller {
         
     }
 
+    public function google_scholar() {
+
+        $parse = new ParseEntries();
+        $parse->expandMacro = FALSE;
+        $parse->removeDelimit = TRUE;
+        $parse->fieldExtract = TRUE;
+        // $parse->openBib("elsevier/science-Health.bib");
+        $parse->openBib("google-scholar/google_scholar_health_IoT.bib");
+        $parse->extractEntries();
+        $parse->closeBib();
+
+        echo "<pre>"; var_dump($parse->returnArrays()); exit;
+        
+    }
+
     private function loadFiles($path) {
         $arrFiles = array();
         $files = scandir($path);

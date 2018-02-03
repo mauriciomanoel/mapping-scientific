@@ -1,0 +1,3720 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset>
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Med Internet Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Med. Internet Res</journal-id>
+      <journal-id journal-id-type="publisher-id">JMIR</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of Medical Internet Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1439-4456</issn>
+      <issn pub-type="epub">1438-8871</issn>
+      <publisher>
+        <publisher-name>JMIR Publications</publisher-name>
+        <publisher-loc>Toronto, Canada</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28473306</article-id>
+      <article-id pub-id-type="pmc">5438463</article-id>
+      <article-id pub-id-type="publisher-id">v19i5e150</article-id>
+      <article-id pub-id-type="doi">10.2196/jmir.7131</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Paper</subject>
+        </subj-group>
+        <subj-group subj-group-type="article-type">
+          <subject>Original Paper</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Using a Medical Intranet of Things System to Prevent Bed Falls in an Acute Care Hospital: A Pilot Study</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Keepanasseril</surname>
+            <given-names>Arun</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <contrib-group>
+        <contrib contrib-type="reviewer">
+          <name>
+            <surname>Wray</surname>
+            <given-names>Tyler</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="reviewer">
+          <name>
+            <surname>Saleem</surname>
+            <given-names>Kashif</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <contrib-group>
+        <contrib id="contrib1" contrib-type="author" corresp="yes">
+          <name>
+            <surname>Balaguera</surname>
+            <given-names>Henri U</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <address>
+            <institution>Lahey Hospital and Medical Center</institution>
+            <addr-line>41 Mall Road</addr-line>
+            <addr-line>Burlington, MA, 01805</addr-line>
+            <country>United States</country>
+            <phone>1 781 744 3939</phone>
+            <fax>1 781 744 1597</fax>
+            <email>balaguera@gmail.com</email>
+          </address>
+          <xref ref-type="aff" rid="aff2">2</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-5604-5767</contrib-id>
+        </contrib>
+        <contrib id="contrib2" contrib-type="author">
+          <name>
+            <surname>Wise</surname>
+            <given-names>Diana</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">3</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-1092-228X</contrib-id>
+        </contrib>
+        <contrib id="contrib3" contrib-type="author">
+          <name>
+            <surname>Ng</surname>
+            <given-names>Chun Yin</given-names>
+          </name>
+          <degrees>MBA, MPH</degrees>
+          <xref ref-type="aff" rid="aff3">3</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-2340-3905</contrib-id>
+        </contrib>
+        <contrib id="contrib4" contrib-type="author">
+          <name>
+            <surname>Tso</surname>
+            <given-names>Han-Wen</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="aff4">4</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-8637-8615</contrib-id>
+        </contrib>
+        <contrib id="contrib5" contrib-type="author">
+          <name>
+            <surname>Chiang</surname>
+            <given-names>Wan-Lin</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="aff4">4</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-7205-9616</contrib-id>
+        </contrib>
+        <contrib id="contrib6" contrib-type="author">
+          <name>
+            <surname>Hutchinson</surname>
+            <given-names>Aimee M</given-names>
+          </name>
+          <degrees>RN, MSN</degrees>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-2629-8162</contrib-id>
+        </contrib>
+        <contrib id="contrib7" contrib-type="author">
+          <name>
+            <surname>Galvin</surname>
+            <given-names>Tracy</given-names>
+          </name>
+          <degrees>MSN</degrees>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-8821-7367</contrib-id>
+        </contrib>
+        <contrib id="contrib8" contrib-type="author">
+          <name>
+            <surname>Hilborne</surname>
+            <given-names>Lee</given-names>
+          </name>
+          <degrees>MPH, MD</degrees>
+          <xref ref-type="aff" rid="aff5">5</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-7246-7847</contrib-id>
+        </contrib>
+        <contrib id="contrib9" contrib-type="author">
+          <name>
+            <surname>Hoffman</surname>
+            <given-names>Cathy</given-names>
+          </name>
+          <degrees>MHA</degrees>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-9062-1318</contrib-id>
+        </contrib>
+        <contrib id="contrib10" contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Chi-Cheng</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <xref ref-type="aff" rid="aff2">2</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-1669-5479</contrib-id>
+        </contrib>
+        <contrib id="contrib11" contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>C Jason</given-names>
+          </name>
+          <degrees>MD, PhD</degrees>
+          <xref ref-type="aff" rid="aff6">6</xref>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-6278-4889</contrib-id>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+        <sup>1</sup>
+        <institution>Lahey Hospital and Medical Center</institution>
+        <addr-line>Burlington, MA</addr-line>
+        <country>United States</country>
+      </aff>
+      <aff id="aff2">
+        <sup>2</sup>
+        <institution>Tufts University School of Medicine</institution>
+        <addr-line>Boston, MA</addr-line>
+        <country>United States</country>
+      </aff>
+      <aff id="aff3">
+        <sup>3</sup>
+        <institution>MedicusTek USA Corporation</institution>
+        <addr-line>Newport Beach, CA</addr-line>
+        <country>United States</country>
+      </aff>
+      <aff id="aff4">
+        <sup>4</sup>
+        <institution>MedicusTek, Inc</institution>
+        <addr-line>Taipei</addr-line>
+        <country>Taiwan</country>
+      </aff>
+      <aff id="aff5">
+        <sup>5</sup>
+        <institution>David Geffen School of Medicine at UCLA</institution>
+        <institution>Department of Pathology and Laboratory Medicine</institution>
+        <addr-line>Los Angeles, CA</addr-line>
+        <country>United States</country>
+      </aff>
+      <aff id="aff6">
+        <sup>6</sup>
+        <institution>Stanford University School of Medicine</institution>
+        <addr-line>Stanford, CA</addr-line>
+        <country>United States</country>
+      </aff>
+      <author-notes>
+        <corresp>Corresponding Author: Henri U Balaguera
+<email>balaguera@gmail.com</email></corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <month>5</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>04</day>
+        <month>5</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>19</volume>
+      <issue>5</issue>
+      <elocation-id>e150</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>7</day>
+          <month>2</month>
+          <year>2017</year>
+        </date>
+        <date date-type="rev-request">
+          <day>6</day>
+          <month>3</month>
+          <year>2017</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>2</day>
+          <month>4</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>4</day>
+          <month>4</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9;Henri U Balaguera, Diana Wise, Chun Yin Ng, Han-Wen Tso, Wan-Lin Chiang, Aimee M Hutchinson, Tracy Galvin, Lee Hilborne, Cathy Hoffman, Chi-Cheng Huang, C Jason Wang. Originally published in the Journal of Medical Internet Research (http://www.jmir.org), 04.05.2017.</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+          <license-p><!--CREATIVE COMMONS-->This is an open-access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/2.0/">http://creativecommons.org/licenses/by/2.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work, first published in the Journal of Medical Internet Research, is properly cited. The complete bibliographic information, a link to the original publication on <ext-link ext-link-type="uri" xlink:href="http://www.jmir.org/,">http://www.jmir.org/,</ext-link> as well as this copyright and license information must be included.</license-p>
+        </license>
+      </permissions>
+      <self-uri xlink:type="simple" xlink:href="http://www.jmir.org/2017/5/e150/"/>
+      <abstract>
+        <sec sec-type="background">
+          <title>Background</title>
+          <p>Hospitalized patients in the United States experience falls at a rate of 2.6 to 17.1 per 1000 patient-days, with the majority occurring when a patient is moving to, from, and around the bed. Each fall with injury costs an average of US $14,000.</p>
+        </sec>
+        <sec sec-type="objective">
+          <title>Objective</title>
+          <p>The aim was to conduct a technology evaluation, including feasibility, usability, and user experience, of a medical sensor-based Intranet of things (IoT) system in facilitating nursing response to bed exits in an acute care hospital.</p>
+        </sec>
+        <sec sec-type="methods">
+          <title>Methods</title>
+          <p>Patients 18 years and older with a Morse fall score of 45 or greater were recruited from a 35-bed medical-surgical ward in a 317-bed Massachusetts teaching hospital. Eligible patients were recruited between August 4, 2015 and July 31, 2016. Participants received a sensor pad placed between the top of their mattress and bed sheet. The sensor pad was positioned to monitor movement from patients&#x2019; shoulders to their thighs. The SensableCare System was evaluated for monitoring patient movement and delivering timely alerts to nursing staff via mobile devices when there appeared to be a bed-exit attempt. Sensor pad data were collected automatically from the system. The primary outcomes included number of falls, time to turn off bed-exit alerts, and the number of attempted bed-exit events. Data on patient falls were collected by clinical research assistants and confirmed with the unit nurse manager. Explanatory variables included room locations (zones 1-3), day of the week, nursing shift, and Morse Fall Scale (ie, positive fall history, positive secondary diagnosis, positive ambulatory aid, weak impaired gait/transfer, positive IV/saline lock, mentally forgets limitations). We also assessed user experience via nurse focus groups. Qualitative data regarding staff interactions with the system were collected during two focus groups with 25 total nurses, each lasting approximately 1.5 hours.</p>
+        </sec>
+        <sec sec-type="results">
+          <title>Results</title>
+          <p>A total of 91 patients used the system for 234.0 patient-days and experienced no bed falls during the study period. On average, patients were assisted/returned to bed 46 seconds after the alert system was triggered. Response times were longer during the overnight nursing shift versus day shift (<italic>P</italic>=.005), but were independent of the patient&#x2019;s location on the unit. Focus groups revealed that nurses found the system integrated well into the clinical nursing workflow and the alerts were helpful in patient monitoring.</p>
+        </sec>
+        <sec sec-type="conclusions">
+          <title>Conclusions</title>
+          <p>A medical IoT system can be integrated into the existing nursing workflow and may reduce patient bed fall risk in acute care hospitals, a high priority but an elusive patient safety challenge. By using an alerting system that sends notifications directly to nurses&#x2019; mobile devices, nurses can equally respond to unassisted bed-exit attempts wherever patients are located on the ward. Further study, including a fully powered randomized controlled trial, is needed to assess effectiveness across hospital settings.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>accidental falls</kwd>
+        <kwd>acute care</kwd>
+        <kwd>nursing</kwd>
+        <kwd>patient safety</kwd>
+        <kwd>patient-centered care</kwd>
+        <kwd>sensor devices and platforms</kwd>
+        <kwd>health care technology</kwd>
+        <kwd>mobile apps</kwd>
+        <kwd>patient monitoring</kwd>
+        <kwd>health technology assessment</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="introduction">
+      <title>Introduction</title>
+      <p>Each year in the United States, between 700,000 and 1,000,000 hospitalized patients fall [<xref rid="ref1" ref-type="bibr">1</xref>]. Studies report fall rates between 2.6 and 17.1 per 1000 patient-days with 30% to 50% resulting in injury [<xref rid="ref2" ref-type="bibr">2</xref>-<xref rid="ref6" ref-type="bibr">6</xref>]. Several observational studies report that 60% to 80% of in-hospital falls occur when a patient is moving to, from, and around the bed, and 80% of falls are unassisted [<xref rid="ref7" ref-type="bibr">7</xref>-<xref rid="ref9" ref-type="bibr">9</xref>]. Cost analysis studies estimate inpatient falls add approximately US $3500 to US $14,000 per patient stay, depending on whether there is serious injury [<xref rid="ref5" ref-type="bibr">5</xref>,<xref rid="ref10" ref-type="bibr">10</xref>]. The US Centers for Medicare and Medicaid Services (CMS) lists falls as one of 14 categories of preventable hospital-acquired conditions. Since 2008, CMS no longer pays for the extra health care costs associated with hospital-acquired falls, shifting the cost burden to hospitals [<xref rid="ref2" ref-type="bibr">2</xref>,<xref rid="ref11" ref-type="bibr">11</xref>,<xref rid="ref12" ref-type="bibr">12</xref>].</p>
+      <p>Fall prevention strategies using innovative medical technology can potentially improve health care delivery and patient safety [<xref rid="ref13" ref-type="bibr">13</xref>]. A range of medical-alerting devices have already begun using wireless sensor technologies to target pressure injuries and vital sign monitoring; however, only a few have published their results [<xref rid="ref14" ref-type="bibr">14</xref>-<xref rid="ref15" ref-type="bibr">15</xref>].</p>
+      <p>Although alerting technology can help nurses, inaccurate or false alarms can have the opposite effect on both caregivers and patients. Studies show 80% to 99% of monitor alarms are false or clinically insignificant [<xref rid="ref16" ref-type="bibr">16</xref>-<xref rid="ref18" ref-type="bibr">18</xref>]. With low positive predictive value (PPV) for monitoring alerts, nurses may experience alarm fatigue. Repeated false alarms leads to desensitization and true alarms requiring intervention could be ignored [<xref rid="ref19" ref-type="bibr">19</xref>]. An alert monitoring system with a high PPV, routed to the appropriate caregiver or clinician, is needed to provide alerts that will lead to timely action. Furthermore, increasing alert PPV could minimize sleep disruption and positively affect recovery for patients [<xref rid="ref20" ref-type="bibr">20</xref>].</p>
+      <p>We report the use of a medical Intranet of things (IoT) system to assess how quickly nurses respond to bed exits in an acute care hospital setting where an automated bed sensor pad system was used to analyze real-time patient movement data and provide timely alerts to nursing staff, with the potential to ultimately reduce bed falls (see <xref ref-type="fig" rid="figure1">Figure 1</xref> for system setup in the hospital setting).</p>
+      <fig id="figure1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p>Components of the SensableCare System.</p>
+        </caption>
+        <graphic xlink:href="jmir_v19i5e150_fig1"/>
+      </fig>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Setting</title>
+        <p>This study was conducted at a 317-bed suburban Massachusetts teaching hospital for 12 months from August 4, 2015 to July 31, 2016. Patients were recruited from a 35-bed medical-surgical ward. Patients 18 years and older and deemed a high fall risk (Morse Fall Scale score &#x2265;45) were eligible for inclusion in the study [<xref rid="ref21" ref-type="bibr">21</xref>]. Vulnerable populations (eg, prisoners, patients undergoing stem cell transplant) were excluded. Patients were placed throughout the ward; high fall risk patients (eg, those with encephalopathy) were generally placed in rooms in zone 1 (within 40 feet of the nursing station). Zones 2 and 3 rooms were 41 to 85 feet and 86 to 110 feet away from the nursing station, respectively.</p>
+        <sec>
+          <title>Patient Consent</title>
+          <p>Clinical research assistants talked with eligible patients about the study when they were first admitted to the ward. Patients interested in participating signed a written consent form. For patients who could not readily consent on their own, family members and legal representatives could consent on behalf of the patient (see <xref ref-type="fig" rid="figure2">Figure 2</xref>). Basic demographic information was collected from eligible patients along with their Morse Fall Scale to confirm eligibility. This study was approved by the Lahey Hospital and Medical Center Institutional Review Board (IRB).</p>
+          <fig id="figure2" position="float">
+            <label>Figure 2</label>
+            <caption>
+              <p>Recruitment methodology.</p>
+            </caption>
+            <graphic xlink:href="jmir_v19i5e150_fig2"/>
+          </fig>
+        </sec>
+        <sec>
+          <title>Medical Intranet of Things System Setup</title>
+          <p>The study tested the SensableCare System for reducing bed falls. A pressure-sensing pad was placed between the mattress surface and the bed sheet (<xref ref-type="fig" rid="figure3">Figure 3</xref>). The sensor pad was positioned so it monitored movement from the patients&#x2019; shoulder to thighs. The pad is approximately 46 inches by 30 inches and encased in a waterproof nylon cover that is coated to provide bacterial resistance. It covered 49.3% of the bed and reached 2.5 inches from the edge of the bed. The pad sensor array detects when pressure is applied. When the system recognizes an increased probability of a bed exit, the system&#x2019;s software algorithm alerts the nursing staff via an app on a mobile device (ie, mobile phone) that nurses carry and to a dashboard at the nursing station. When the patient attempts to leave the bed, an audible message comes from a control box next to the patient&#x2019;s bed reminding the patient not to leave and that a nurse will arrive shortly. Concurrently, nurses receive the alerts at a dashboard and through their mobile phone via audible, vibratory, and visual alerts to prompt them for rapid response. All the system components are connected to the Intranet, allowing caregivers to receive actionable alerts whenever their mobile device is online. Each device on the network is identified by its IP address or MAC address.</p>
+          <p>The SensableCare System allows nurses to visualize how the patient is positioned in bed at the time of the alert, from which room number the alert is being generated, and informs other nurses when a patient is being assisted. Using a predictive algorithm, the system can also identify patients&#x2019; activities in bed (eg, whether a patient begins to stir in bed, sits up in bed), before the patient attempts to leave the bed, or is already out of bed.</p>
+          <p>Nurses are able to customize each individual patient&#x2019;s alert settings. Nurses receive bed-leaving alerts when the system detects the patient attempting to leave the bed or is out of the bed. Nurses can also choose to receive alerts earlier, when a patient is stirring after being still for longer than 20 minutes and/or when a patient is sitting up in bed. Both the nurse and nurse aide responsible for an enrolled patient would receive alerts directly through their mobile phones via a real-time push notification. The charge nurse at the nursing station would also receive alerts through the SensableCare app on the dashboard. Nurses respond to the alert by tapping the control box in the patient&#x2019;s room or returning the patient back to bed, in order to turn off the alerts at the dashboard and on other nurses&#x2019; mobile phones (ie, Apple iPhone for this trial).</p>
+          <p>As a condition for the trial, the hospital&#x2019;s existing bed alarm (Stryker Secure II hospital bed with a bed-exit system) was maintained and used concurrently with the SensableCare System for patients who consented to the study. Those who did not consent to the study only used the existing Stryker bed alarm. The Stryker bed signals when a patient is exiting the bed via an audible alert. A high-pitched sound signifies the patient is leaving or is out of bed. A hallway light outside the patient room flashes in conjunction with the audible alert. The nurses would listen for the sound and go to the room with the flashing hallway light to assist the patient. Patients not participating in the study continued to only use the hospital&#x2019;s existing bed fall alarms.</p>
+          <fig id="figure3" position="float">
+            <label>Figure 3</label>
+            <caption>
+              <p>Intranet of things architecture of the SensableCare System. The sensor pad sends data through a cable to the control box located at the patient&#x2019;s bedside. The control box wirelessly transmits this data to the Bluetooth routers located throughout the ward. This information then travels through the hospital network to the dashboard and docking server where the data is analyzed. When an alert is sent to the nurse via an app on their mobile phone, it is wirelessly transmitted through the hospital&#x2019;s Wi-Fi network.</p>
+            </caption>
+            <graphic xlink:href="jmir_v19i5e150_fig3"/>
+          </fig>
+        </sec>
+        <sec>
+          <title>Bed Fall Alerts and Patient Positioning Data</title>
+          <p>Sensor pad data were collected automatically from the system. These data included patient positioning data, the times the alert was sent to nursing staff, time to turn off bed-exit alerts, when a patient returned to bed, and the duration a patient spent out of bed. Data on patient falls were collected by the clinical research assistants and confirmed with the nurse manager of the unit.</p>
+          <p>In a previous engineering validation study of 47 patients in a hospital using a low-resolution camera to match movement captured with the sensor pad data, the PPV was 78.5% (unpublished data). System specificity is difficult to calculate in this system because it refers to the true negative rate in which a patient did not leave the bed and the system did not generate an alert. In this study, we calculated the PPV as it was implemented at Lahey Hospital and Medical Center. Because this was a 1-year pilot study approved to understand the integration of medical technology into hospital workflow, sample size calculation was not performed prior to the study. However, the fall rates using the SensableCare System can be compared to the study unit&#x2019;s historical fall rate with the existing bed alarm during a 12-month period before the trial. The historical unit fall rate during the 12-month period prior to the study was 2.4 falls per 1000 patient-days.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Quantitative Data Analysis</title>
+        <sec>
+          <title>Independent and Dependent Variables</title>
+          <p>The primary dependent variable of this study was nurse response time to alerts. Time-to-response data were calculated for all events when a nurse responded to an alert within 5 minutes; alarms turned off after 5 minutes were excluded because they were observed to be situations in which patients were assisted without the nurse first disabling the alarm.</p>
+          <p>To assess possible factors that may predict nurses&#x2019; response times to alerts, this study included the following independent variables: demographic characteristics of patients (sex, age, weight, and fall risk factors) and characteristics of alerts (alert room, alert day, and alert time). Alert room was categorized as follows: zone 1, which is closest to the nursing station (within 40 feet from nursing station); zone 2, rooms further from the nursing station (41-85 feet away); and zone 3, rooms furthest from nursing station (86-110 feet away). Alert day was classified as &#x201C;weekday&#x201D; or &#x201C;weekend.&#x201D; Alert time was divided into three groups: day shift, evening shift, and overnight shift.</p>
+          <p>We conducted descriptive analyses to provide a sociodemographic profile of patients and the correlations of alert characteristics and nurses&#x2019; response times to alerts. After descriptive analysis, linear regression with generalized estimating equations (GEE) was used to examine the relationship among various factors and the alert response time. All <italic>P</italic> values were two-sided. Analyses were done using SAS version 9.4 (SAS Institute Inc, Cary, NC, USA).</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Qualitative Study With Focus Groups</title>
+        <p>Qualitative data regarding staff interactions with the system were collected during two focus group sessions with a total of 25 nurses, each lasting approximately 1.5 hours. The focus groups were held on consecutive days to allow nurses separate opportunities to attend. Two research staff conducted the focus group with one serving as moderator and the other as note taker. Nurse managers invited all hospital staff working in the ward to voluntarily participate without monetary compensation. Research staff used a prepared list of questions approved by the IRB to facilitate focus group discussion. Detailed transcriptions were analyzed for themes related to barriers and facilitators for integrating the system into nurses&#x2019; clinical workflow.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>Falls and Response to Alerts</title>
+        <p>During the study period, 91 patients used the system for 234.0 patient-days and experienced no bed falls. Both male and female patients with a range of ages, weights, and Morse fall scores participated in the trial (<xref ref-type="table" rid="table1">Table 1</xref>).</p>
+        <table-wrap id="table1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p>Patient profiles (N=91).</p>
+          </caption>
+          <table frame="hsides" rules="groups" width="579" cellpadding="7" cellspacing="0" border="1">
+            <col width="1" span="1"/>
+            <col width="2" span="1"/>
+            <col width="335" span="1"/>
+            <col width="1" span="1"/>
+            <col width="183" span="1"/>
+            <thead>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">Characteristics</td>
+                <td colspan="2" rowspan="1">Participants</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Sex, n (%)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Male</td>
+                <td colspan="2" rowspan="1">44 (48)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Female</td>
+                <td colspan="2" rowspan="1">47 (52)</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Age (years), n (%)</bold>
+                </td>
+                <td colspan="2" rowspan="1">&#xA0;</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">&lt;65</td>
+                <td colspan="2" rowspan="1">20 (22)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">65-74</td>
+                <td colspan="2" rowspan="1">22 (24)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">&#x2265;75</td>
+                <td colspan="2" rowspan="1">49 (54)</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Weight (lb), n (%)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">&lt;150</td>
+                <td colspan="2" rowspan="1">24 (26)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">150-199</td>
+                <td colspan="2" rowspan="1">37 (41)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">&#x2265;200</td>
+                <td colspan="2" rowspan="1">26 (29)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Missing<sup>a</sup></td>
+                <td colspan="2" rowspan="1">4 (4)</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Morse Fall Score, n (%)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">45-60</td>
+                <td colspan="2" rowspan="1">41 (45)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">65-80</td>
+                <td colspan="2" rowspan="1">20 (22)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">85-125</td>
+                <td colspan="2" rowspan="1">30 (33)</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Zone,<sup>b</sup></bold>
+                  <bold>n (%)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Zone 1</td>
+                <td colspan="2" rowspan="1">29 (32)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Zone 2</td>
+                <td colspan="2" rowspan="1">29 (32)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Zone 3</td>
+                <td colspan="2" rowspan="1">33 (36)</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Patient-days on trial</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Total, n</td>
+                <td colspan="2" rowspan="1">234.0</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Per patient, mean (SD)</td>
+                <td colspan="2" rowspan="1">2.6 (2.1)</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="3" rowspan="1">
+                  <bold>Morse Fall Score items (Morse Fall Score points), n (%)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <bold>Falls history</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">No (0)</td>
+                <td rowspan="1" colspan="1">39 (43)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Yes (25)</td>
+                <td rowspan="1" colspan="1">52 (57)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <bold>Secondary diagnosis</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">No (0)</td>
+                <td rowspan="1" colspan="1">2 (2)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Yes (15)</td>
+                <td rowspan="1" colspan="1">89 (98)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <bold>Ambulatory aid</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Bed rest/nurse assist (0)</td>
+                <td rowspan="1" colspan="1">43 (47)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Crutches/cane/walker (15)</td>
+                <td rowspan="1" colspan="1">48 (53)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Furniture (30)</td>
+                <td rowspan="1" colspan="1">0 (0)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <bold>IV/saline lock</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">No (0)</td>
+                <td rowspan="1" colspan="1">2 (2)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Yes (20)</td>
+                <td rowspan="1" colspan="1">89 (98)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <bold>Gait/Transferring</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Normal/bedrest/immobile (0)</td>
+                <td rowspan="1" colspan="1">13 (14)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Weak (10)</td>
+                <td rowspan="1" colspan="1">74 (81)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Impaired (20)</td>
+                <td rowspan="1" colspan="1">4 (4)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <bold>Mental status</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Oriented to own ability (0)</td>
+                <td rowspan="1" colspan="1">74 (81)</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="2" rowspan="1">Forgets limitations (15)</td>
+                <td rowspan="1" colspan="1">17 (19)</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn id="table1fn1">
+              <p><sup>a</sup> Weights were not recorded in the electronic health record.</p>
+            </fn>
+            <fn id="table1fn2">
+              <p><sup>b</sup> Zone 1: closest to nursing station (within 40 feet from nursing station); zone 2: rooms further from nurse station (41-85 feet from nursing station); zone 3: rooms furthest from nursing station (86-110 feet from nursing station).</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>Nursing staff responded to alerts on average within a mean 45.9 (SD 64.7) seconds (<xref ref-type="table" rid="table2">Table 2</xref>). The SensableCare System bed alarm&#x2019;s PPV was 62.1% (260 positive bed-leaving attempts/419 total bed alerts). The alert reset times among the three shifts were mean 42.3 (SD 62.4) seconds for day shift; mean 43.7 (SD 61.2) seconds for night shift, and mean 57.1 (SD 74.0) seconds for overnight shift; the overnight shift required more time to respond to alerts (<italic>P</italic>=.004; see <xref ref-type="table" rid="table2">Table 2</xref>).</p>
+        <table-wrap id="table2" position="float">
+          <label>Table 2</label>
+          <caption>
+            <p>Alert characteristics and response.</p>
+          </caption>
+          <table frame="hsides" rules="groups" width="650" cellpadding="7" cellspacing="0" border="1">
+            <col width="15" span="1"/>
+            <col width="90" span="1"/>
+            <col width="45" span="1"/>
+            <col width="60" span="1"/>
+            <col width="60" span="1"/>
+            <col width="45" span="1"/>
+            <thead>
+              <tr valign="top">
+                <td colspan="2" rowspan="1">Alert characteristics</td>
+                <td rowspan="1" colspan="1">Events, n</td>
+                <td rowspan="1" colspan="1">Alerts reset (within 5 min),<sup>a</sup> n</td>
+                <td rowspan="1" colspan="1">Time to turn off alert (sec), mean (SD)</td>
+                <td rowspan="1" colspan="1">
+                  <italic>P</italic>
+                  <sup>b</sup>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td colspan="2" rowspan="1">Total events (bed leaving/out of bed)</td>
+                <td rowspan="1" colspan="1">1645</td>
+                <td rowspan="1" colspan="1">1416</td>
+                <td rowspan="1" colspan="1">45.9 (64.7)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td colspan="2" rowspan="1">
+                  <bold>Alert room<sup>c</sup></bold>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">.002</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Zone 1</td>
+                <td rowspan="1" colspan="1">710</td>
+                <td rowspan="1" colspan="1">628</td>
+                <td rowspan="1" colspan="1">41.3 (58.3)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Zone 2</td>
+                <td rowspan="1" colspan="1">413</td>
+                <td rowspan="1" colspan="1">363</td>
+                <td rowspan="1" colspan="1">42.8 (61.1)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Zone 3</td>
+                <td rowspan="1" colspan="1">522</td>
+                <td rowspan="1" colspan="1">425</td>
+                <td rowspan="1" colspan="1">55.2 (75.0)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td colspan="2" rowspan="1">
+                  <bold>Alert day</bold>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">.17</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Weekday</td>
+                <td rowspan="1" colspan="1">1200</td>
+                <td rowspan="1" colspan="1">1040</td>
+                <td rowspan="1" colspan="1">47.2 (66.3)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Weekend</td>
+                <td rowspan="1" colspan="1">445</td>
+                <td rowspan="1" colspan="1">376</td>
+                <td rowspan="1" colspan="1">42.1 (59.9)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td colspan="2" rowspan="1">
+                  <bold>Alert time<sup>d</sup></bold>
+                  <bold>(by shift)</bold>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">.004</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Day shift</td>
+                <td rowspan="1" colspan="1">703</td>
+                <td rowspan="1" colspan="1">581</td>
+                <td rowspan="1" colspan="1">42.3 (62.4)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Night shift</td>
+                <td rowspan="1" colspan="1">612</td>
+                <td rowspan="1" colspan="1">543</td>
+                <td rowspan="1" colspan="1">43.7 (61.2)</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Overnight shift</td>
+                <td rowspan="1" colspan="1">330</td>
+                <td rowspan="1" colspan="1">292</td>
+                <td rowspan="1" colspan="1">57.1 (74.0)&#xA0;</td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn id="table2fn1">
+              <p><sup>a</sup> If alert was reset or patient return to bed was &gt;5 minutes, they were considered unaddressed alerts and not included in this table.</p>
+            </fn>
+            <fn id="table2fn2">
+              <p><sup>b</sup> Using <italic>t</italic> test (two groups) or ANOVA (three groups).</p>
+            </fn>
+            <fn id="table2fn3">
+              <p><sup>c</sup> Zone1: within 40 feet of nursing station; zone2: within 40-85 feet of nursing station; zone 3: within 85-110 feet of nursing station.</p>
+            </fn>
+            <fn id="table2fn4">
+              <p><sup>d</sup> Day shift: 07:00-14:59; evening shift: 15:00-22:59; overnight shift: 23:00-06:59 #</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>In multivariate linear regression using GEE (<xref ref-type="table" rid="table3">Table 3</xref>), response times were longer during the overnight nursing shift (beta=14.22, <italic>P</italic>=.005) compared to the day shift. Patient characteristics, alert room, and alert day were not significantly associated with alert response time.</p>
+        <table-wrap id="table3" position="float">
+          <label>Table 3</label>
+          <caption>
+            <p>Factors predicting response time: multivariate linear regression using GEE.</p>
+          </caption>
+          <table frame="hsides" rules="groups" width="627" cellpadding="7" cellspacing="0" border="1">
+            <col width="15" span="1"/>
+            <col width="8" span="1"/>
+            <col width="362" span="1"/>
+            <col width="1" span="1"/>
+            <col width="125" span="1"/>
+            <col width="1" span="1"/>
+            <col width="68" span="1"/>
+            <thead>
+              <tr valign="top">
+                <td colspan="4" rowspan="1">Response time factors</td>
+                <td colspan="2" rowspan="1">Beta (SE)</td>
+                <td rowspan="1" colspan="1">
+                  <italic>P</italic>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td colspan="4" rowspan="1">
+                  <bold>Patient characteristics</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Sex (ref: female)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Male</td>
+                <td colspan="2" rowspan="1">&#x2013;5.07 (6.44)</td>
+                <td colspan="2" rowspan="1">.43</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Age, year (ref: &lt;65)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">65-74</td>
+                <td colspan="2" rowspan="1">7.58 (10.10)</td>
+                <td colspan="2" rowspan="1">.45</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">&#x2265;75</td>
+                <td colspan="2" rowspan="1">6.63 (8.34)</td>
+                <td colspan="2" rowspan="1">.43</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Weight, lb (ref: 150-199)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">&lt;150</td>
+                <td colspan="2" rowspan="1">&#x2013;11.88 (6.45)</td>
+                <td colspan="2" rowspan="1">.07</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">&#x2265;200</td>
+                <td colspan="2" rowspan="1">13.01 (9.52)</td>
+                <td colspan="2" rowspan="1">.17</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Falls history (ref: no)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Yes</td>
+                <td colspan="2" rowspan="1">8.93 (5.07)</td>
+                <td colspan="2" rowspan="1">.08</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Ambulatory aid (ref: bed rest/nurse assist)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Crutches/cane/walker</td>
+                <td colspan="2" rowspan="1">&#x2013;4.69 (5.39)</td>
+                <td colspan="2" rowspan="1">.38</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Gait/Transferring (ref: normal/bedrest/immobile)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Weak/impaired</td>
+                <td colspan="2" rowspan="1">&#x2013;5.05 (8.79)</td>
+                <td colspan="2" rowspan="1">.57</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Mental status (ref: oriented to own ability)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Forgets limitations</td>
+                <td colspan="2" rowspan="1">&#x2013;1.77 (5.94)</td>
+                <td colspan="2" rowspan="1">.77</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="4" rowspan="1">
+                  <bold>Alert characteristics</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Alert room (ref: zone 2+3)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Zone 1</td>
+                <td colspan="2" rowspan="1">&#x2013;0.62 (4.76)</td>
+                <td colspan="2" rowspan="1">.90</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Alert day (ref: weekend)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Weekday</td>
+                <td colspan="2" rowspan="1">0.99 (3.84)</td>
+                <td colspan="2" rowspan="1">.80</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td colspan="3" rowspan="1">
+                  <bold>Alert time (ref: day shift)</bold>
+                </td>
+                <td colspan="2" rowspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Evening shift</td>
+                <td colspan="2" rowspan="1">0.65 (4.00)</td>
+                <td colspan="2" rowspan="1">.87</td>
+              </tr>
+              <tr valign="top">
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">
+                  <break/>
+                </td>
+                <td rowspan="1" colspan="1">Overnight shift</td>
+                <td colspan="2" rowspan="1">14.22 (5.08)</td>
+                <td colspan="2" rowspan="1">.005</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <sec>
+          <title>User Experience</title>
+          <p>Focus group participants found the SensableCare System easy to use and valued it as an effective technology for reducing bed falls: &#x201C;It is helpful for really weak and unsteady patients,&#x201D; reported one participant. Participants were satisfied overall with the user interface, system design, and mobile phone notifications: &#x201C;...instead of browsing, you can see [in] which room [the alarm] is going off...notifications on the phone instead of browsing through the hallway...I find it positive, takes you less time.&#x201D; Specific alerts on patient statuses (ie, stirring, sitting up, leaving, out of bed) were informative in understanding patient behaviors and comfort levels: &#x201C;I like to know that [the patient] has moved in bed, my patient attempted to get out of bed, etc&#x201D; and &#x201C;Stirring shows patient is a little uncomfortable in the bed so check on them anyway.&#x201D; There were self-reported instances in which nurses did not respond to an alert (ie, nurses were not carrying their mobile phones, when they were caring for another patient, or when they were busy and otherwise unable to check the phone): &#x201C;Sometimes I can&#x2019;t drop what I am doing to check the phone.&#x201D; Nurses generally found the current SensableCare System useful and integrated well into their nursing workflow. Participants expressed that they could envision the system in multiple hospital settings.</p>
+          <p>When there were false alerts, nurses expressed that the system sometimes would sound when the patient was going back to bed. This was quickly remedied by tapping the control box when the nurse was at the patient bedside. Patients who rolled over toward the edge of the bed could also trigger a leaving alert. However, in those instances, nurses expressed that it was a minor inconvenience to have the ability to prevent bed falls for their patients.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>To our knowledge, this is the first study using a predictive algorithm with data collected from sensors to proactively reduce the fall risk in an acute care setting. By providing nurses with alerts to unassisted bed exits, the study looked at whether nurses responded quickly using this system. The ability for such a bed alert system to help prevent unassisted bed-leaving events might depend on at least three key technology factors: increased time for nursing/caregiver response, enabling nurses to respond from wherever they are, and eliciting a specific response to prevent bed falls.</p>
+      <p>On average, nurses reset the alarm approximately 46 seconds after an alert was triggered. Because the system&#x2019;s software algorithm enables an alert to nursing staff&#x2019;s mobile device directly when a patient is initiating a departure from bed, they have more time to respond, hence decreasing the likelihood of bed falls. Furthermore, nurses can choose to receive earlier notifications (eg, patients stirring, sitting up), creating a graduated sequence of potential bed-exit notifications. Giving nurses additional time to respond to a potential bed exit allows them to respond in an appropriate and timely manner. Because nurses must balance multiple patient care responsibilities, it may take some time to drop what they are currently doing to address an immediate patient safety risk. Furthermore, once nurses arrive at the bedside, they are likely to assist the patient first before turning off the sounding alarm. This sequence of events may increase the observed response time recorded by our system.</p>
+      <p>Currently, high fall risk patients are placed in zones closest to the nursing station for better monitoring and responsiveness to bed-leaving events. Our study found there is no significant correlation between a patient&#x2019;s location on the ward and nursing response time. This may suggest that by using an alerting system that sends notifications directly to nurses&#x2019; mobile devices, nurses can equally respond to unassisted bed exits wherever patients are located on the ward. Nurses may no longer have to move patients to a room closer to the nursing station.</p>
+      <p>The PPV with the SensableCare System in this study is 62.1%. One multicenter study found that alarms from a typical physiologic monitor have PPVs of 27% [<xref rid="ref22" ref-type="bibr">22</xref>]; the same study saw only 5.9% of the monitor alarms led to a nurse&#x2019;s response [<xref rid="ref22" ref-type="bibr">22</xref>]. Alarm fatigue may cause health care professionals to lower the alarm volume, adjust alarm settings to a point that is unsafe for the patient, or even ignore or deactivate the alarm. One study found that desensitization to alarms and missing alarms have been attributed to patient deaths [<xref rid="ref23" ref-type="bibr">23</xref>]. SensableCare System&#x2019;s high PPV may have reduced concerns for false alarms.</p>
+      <p>A medical IoT system may provide information that is helpful in improving hospital operations. Comparing unit alert response times to fall rates may give administrators a metric for potentially reducing bed falls. Nurses can use the number of alerts generated during a particular shift to think about staffing levels and whether they are adequate to address potential bed fall events in a timely manner. Moreover, patient experience will improve with less noise on the ward when alerts are sent to specific nurses.</p>
+      <p>In summary, we have demonstrated that the SensableCare System is feasible and can be integrated to acute care hospitals. Nurses responded to the system bed alerts quickly and saw no falls for patients who participated during the pilot study. Further work to understand the total cost of ownership to operate a medical IoT can help hospital administrators calculate the cost benefits of using such a system. These costs can be determined if a hospital uses the SensableCare System to optimize nurse staffing or uses a dedicated staff member to carry a mobile device to quickly respond and help patients in a ward.</p>
+      <p>There are some limitations to this pilot study, including the small number of patients, recruitment of only high fall risk patients, and data from a single hospital unit. Moreover, the standard of care for preventing bed falls, which was the hospital&#x2019;s existing bed alarm, was turned on while the study was taking place on the same beds. This could underestimate the effect of the system if used alone. Also, because nurses were aware that fall risk and the SensableCare System were being studied, they may have been more vigilant (ie, Hawthorne effect) when using the system.</p>
+      <p>In conclusion, the preliminary evidence suggests that a technological solution using IoT may mitigate the long-standing patient safety fall risk in acute care hospitals while providing hospitals with baseline information for quality improvement, including response time from alarm to assist. Further study is necessary to fully assess the effectiveness of such systems in hospital settings.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>Rosemary Tin, MSM, Lahey Hospital and Medical Center, provided hospital data for comparison. Mark Anderson, PhD, MedicusTek USA, contributed to the analysis of sensor data, and reviewed the manuscript. Paul Wise, MD, MPH, of Stanford University, Stanford, CA, critically reviewed the manuscript.</p>
+      <p>MedicusTek USA Corporation was the sponsor and source of funding for this study. The sponsor reviewed and approved the manuscript for publication.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p>Conflicts of Interest: MedicusTek, the maker of the medical sensor-based Intranet of things, was the sponsor for this study at Lahey Hospital and Medical Center. Several of the authors are affiliated with MedicusTek: Diana Wise, Chun Yin Ng, Han-Wen Tso, and Wan-Lin Chiang are employed by MedicusTek. Drs C Jason Wang, Lee Hilborne, and Chi-Cheng Huang are scientific advisors at MedicusTek.</p>
+      </fn>
+    </fn-group>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term id="abb1">GEE</term>
+          <def>
+            <p>generalized estimating equation</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="abb2">IoT</term>
+          <def>
+            <p>Intranet of things</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="abb3">IRB</term>
+          <def>
+            <p>Institutional Review Board</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="abb4">PPV</term>
+          <def>
+            <p>positive predictive value</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ref-list>
+      <ref id="ref1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Butcher</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>The no-fall zone</article-title>
+          <source>Hosp Health Netw</source>
+          <year>2013</year>
+          <month>6</month>
+          <volume>87</volume>
+          <issue>6</issue>
+          <fpage>26</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="medline">23885481</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bouldin</surname>
+              <given-names>EL</given-names>
+            </name>
+            <name>
+              <surname>Andresen</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Dunton</surname>
+              <given-names>NE</given-names>
+            </name>
+            <name>
+              <surname>Simon</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Waters</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Daniels</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Mion</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>Shorr</surname>
+              <given-names>RI</given-names>
+            </name>
+          </person-group>
+          <article-title>Falls among adult patients hospitalized in the United States: prevalence and trends</article-title>
+          <source>J Patient Saf</source>
+          <year>2013</year>
+          <month>3</month>
+          <volume>9</volume>
+          <issue>1</issue>
+          <fpage>13</fpage>
+          <lpage>17</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/23143749"/>
+          </comment>
+          <pub-id pub-id-type="doi">10.1097/PTS.0b013e3182699b64</pub-id>
+          <pub-id pub-id-type="medline">23143749</pub-id>
+          <!--<pub-id pub-id-type="pmcid">PMC3572247</pub-id>-->
+          <pub-id pub-id-type="pmid">23143749</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shorr</surname>
+              <given-names>RI</given-names>
+            </name>
+            <name>
+              <surname>Mion</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>Chandler</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Rosenblatt</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>Lynch</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kessler</surname>
+              <given-names>LA</given-names>
+            </name>
+          </person-group>
+          <article-title>Improving the capture of fall events in hospitals: combining a service for evaluating inpatient falls with an incident report system</article-title>
+          <source>J Am Geriatr Soc</source>
+          <year>2008</year>
+          <month>4</month>
+          <volume>56</volume>
+          <issue>4</issue>
+          <fpage>701</fpage>
+          <lpage>704</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/18205761"/>
+          </comment>
+          <pub-id pub-id-type="doi">10.1111/j.1532-5415.2007.01605.x</pub-id>
+          <pub-id pub-id-type="medline">18205761</pub-id>
+          <!--<pub-id pub-id-type="pii">JGS1605</pub-id>-->
+          <!--<pub-id pub-id-type="pmcid">PMC2361382</pub-id>-->
+          <pub-id pub-id-type="pmid">18205761</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oliver</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Healey</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Haines</surname>
+              <given-names>TP</given-names>
+            </name>
+          </person-group>
+          <article-title>Preventing falls and fall-related injuries in hospitals</article-title>
+          <source>Clin Geriatr Med</source>
+          <year>2010</year>
+          <month>11</month>
+          <volume>26</volume>
+          <issue>4</issue>
+          <fpage>645</fpage>
+          <lpage>692</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cger.2010.06.005</pub-id>
+          <pub-id pub-id-type="medline">20934615</pub-id>
+          <!--<pub-id pub-id-type="pii">S0749-0690(10)00053-4</pub-id>-->
+          <pub-id pub-id-type="pmid">20934615</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <collab>Joint Commission</collab>
+          </person-group>
+          <article-title>Preventing falls and fall-related injuries in health care facilities</article-title>
+          <source>Sentinel Event Alert</source>
+          <year>2015</year>
+          <month>9</month>
+          <day>28</day>
+          <issue>55</issue>
+          <fpage>1</fpage>
+          <lpage>5</lpage>
+          <pub-id pub-id-type="medline">26422837</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fields</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Alturkistani</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kumar</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kanuri</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Salem</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Munn</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Blazey-Martin</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Prevalence and cost of imaging in inpatient falls: the rising cost of falling</article-title>
+          <source>Clinicoecon Outcomes Res</source>
+          <year>2015</year>
+          <volume>7</volume>
+          <fpage>281</fpage>
+          <lpage>286</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://dx.doi.org/10.2147/CEOR.S80104"/>
+          </comment>
+          <pub-id pub-id-type="doi">10.2147/CEOR.S80104</pub-id>
+          <pub-id pub-id-type="medline">26082653</pub-id>
+          <!--<pub-id pub-id-type="pii">ceor-7-281</pub-id>-->
+          <!--<pub-id pub-id-type="pmcid">PMC4461128</pub-id>-->
+          <pub-id pub-id-type="pmid">26082653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hitcho</surname>
+              <given-names>EB</given-names>
+            </name>
+            <name>
+              <surname>Krauss</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Birge</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Claiborne</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Fischer</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nast</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Costantinou</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Fraser</surname>
+              <given-names>VJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Characteristics and circumstances of falls in a hospital setting: a prospective analysis</article-title>
+          <source>J Gen Intern Med</source>
+          <year>2004</year>
+          <month>7</month>
+          <volume>19</volume>
+          <issue>7</issue>
+          <fpage>732</fpage>
+          <lpage>739</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="http://onlinelibrary.wiley.com/resolve/openurl?genre=article&amp;sid=nlm:pubmed&amp;issn=0884-8734&amp;date=2004&amp;volume=19&amp;issue=7&amp;spage=732"/>
+          </comment>
+          <pub-id pub-id-type="doi">10.1111/j.1525-1497.2004.30387.x</pub-id>
+          <pub-id pub-id-type="medline">15209586</pub-id>
+          <!--<pub-id pub-id-type="pii">JGI30387</pub-id>-->
+          <!--<pub-id pub-id-type="pmcid">PMC1492485</pub-id>-->
+          <pub-id pub-id-type="pmid">15209586</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oliver</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Bed falls and bedrails--what should we do?</article-title>
+          <source>Age Ageing</source>
+          <year>2002</year>
+          <month>9</month>
+          <volume>31</volume>
+          <issue>5</issue>
+          <fpage>415</fpage>
+          <lpage>418</lpage>
+          <pub-id pub-id-type="medline">12242214</pub-id>
+          <pub-id pub-id-type="pmid">12242214</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hanger</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Ball</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Wood</surname>
+              <given-names>LA</given-names>
+            </name>
+          </person-group>
+          <article-title>An analysis of falls in the hospital: can we do without bedrails?</article-title>
+          <source>J Am Geriatr Soc</source>
+          <year>1999</year>
+          <month>5</month>
+          <volume>47</volume>
+          <issue>5</issue>
+          <fpage>529</fpage>
+          <lpage>531</lpage>
+          <pub-id pub-id-type="medline">10323644</pub-id>
+          <pub-id pub-id-type="pmid">10323644</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Quigley</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>White</surname>
+              <given-names>SV</given-names>
+            </name>
+          </person-group>
+          <article-title>Hospital-based fall program measurement and improvement in high reliability organizations</article-title>
+          <source>Online J Issues Nurs</source>
+          <year>2013</year>
+          <month>5</month>
+          <day>31</day>
+          <volume>18</volume>
+          <issue>2</issue>
+          <fpage>5</fpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="http://nursingworld.org/MainMenuCategories/ANAMarketplace/ANAPeriodicals/OJIN/TableofContents/Vol-18-2013/No2-May-2013/Fall-Program-Measurement.html"/>
+          </comment>
+          <pub-id pub-id-type="medline">23758423</pub-id>
+          <!--<pub-id pub-id-type="pii">Vol-18-2013/No2-May-2013/Fall-Program-Measurement.html</pub-id>-->
+        </element-citation>
+      </ref>
+      <ref id="ref11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spoelstra</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Given</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Given</surname>
+              <given-names>CW</given-names>
+            </name>
+          </person-group>
+          <article-title>Fall prevention in hospitals: an integrative review</article-title>
+          <source>Clin Nurs Res</source>
+          <year>2012</year>
+          <month>2</month>
+          <volume>21</volume>
+          <issue>1</issue>
+          <fpage>92</fpage>
+          <lpage>112</lpage>
+          <pub-id pub-id-type="doi">10.1177/1054773811418106</pub-id>
+          <pub-id pub-id-type="medline">21862700</pub-id>
+          <!--<pub-id pub-id-type="pii">1054773811418106</pub-id>-->
+          <pub-id pub-id-type="pmid">21862700</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Waters</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Daniels</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Bazzoli</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <name>
+              <surname>Perencevich</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Dunton</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Staggs</surname>
+              <given-names>VS</given-names>
+            </name>
+            <name>
+              <surname>Potter</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Fareed</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Shorr</surname>
+              <given-names>RI</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of Medicare's nonpayment for Hospital-Acquired Conditions: lessons for future policy</article-title>
+          <source>JAMA Intern Med</source>
+          <year>2015</year>
+          <month>3</month>
+          <volume>175</volume>
+          <issue>3</issue>
+          <fpage>347</fpage>
+          <lpage>354</lpage>
+          <pub-id pub-id-type="doi">10.1001/jamainternmed.2014.5486</pub-id>
+          <pub-id pub-id-type="medline">25559166</pub-id>
+          <!--<pub-id pub-id-type="pii">2087876</pub-id>-->
+          <pub-id pub-id-type="pmid">25559166</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gottlieb</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Makower</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>A role for entrepreneurs: an observation on lowering healthcare costs via technology innovation</article-title>
+          <source>Am J Prev Med</source>
+          <year>2013</year>
+          <month>1</month>
+          <volume>44</volume>
+          <issue>1 Suppl 1</issue>
+          <fpage>S43</fpage>
+          <lpage>S47</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://linkinghub.elsevier.com/retrieve/pii/S0749-3797(12)00628-9"/>
+          </comment>
+          <pub-id pub-id-type="doi">10.1016/j.amepre.2012.09.006</pub-id>
+          <pub-id pub-id-type="medline">23195166</pub-id>
+          <!--<pub-id pub-id-type="pii">S0749-3797(12)00628-9</pub-id>-->
+          <pub-id pub-id-type="pmid">23195166</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brown</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Terrence</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Vasquez</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Bates</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Zimlichman</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Continuous monitoring in an inpatient medical-surgical unit: a controlled clinical trial</article-title>
+          <source>Am J Med</source>
+          <year>2014</year>
+          <month>3</month>
+          <volume>127</volume>
+          <issue>3</issue>
+          <fpage>226</fpage>
+          <lpage>232</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.amjmed.2013.12.004</pub-id>
+          <pub-id pub-id-type="medline">24342543</pub-id>
+          <!--<pub-id pub-id-type="pii">S0002-9343(13)01072-3</pub-id>-->
+          <pub-id pub-id-type="pmid">24342543</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Siddiqui</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Behrendt</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Lafluer</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Craft</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>A continuous bedside pressure mapping system for prevention of pressure ulcer development in the medical ICU: a retrospective analysis</article-title>
+          <source>Wounds</source>
+          <year>2013</year>
+          <month>12</month>
+          <volume>25</volume>
+          <issue>12</issue>
+          <fpage>333</fpage>
+          <lpage>339</lpage>
+          <pub-id pub-id-type="medline">25867745</pub-id>
+          <pub-id pub-id-type="pmid">25867745</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Atzema</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Schull</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Borgundvaag</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Slaughter</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>CK</given-names>
+            </name>
+          </person-group>
+          <article-title>ALARMED: adverse events in low-risk patients with chest pain receiving continuous electrocardiographic monitoring in the emergency department. A pilot study</article-title>
+          <source>Am J Emerg Med</source>
+          <year>2006</year>
+          <month>1</month>
+          <volume>24</volume>
+          <issue>1</issue>
+          <fpage>62</fpage>
+          <lpage>67</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ajem.2005.05.015</pub-id>
+          <pub-id pub-id-type="medline">16338512</pub-id>
+          <!--<pub-id pub-id-type="pii">S0735-6757(05)00273-1</pub-id>-->
+          <pub-id pub-id-type="pmid">16338512</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Siebig</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kuhls</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Imhoff</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Gather</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Sch&#xF6;lmerich</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wrede</surname>
+              <given-names>CE</given-names>
+            </name>
+          </person-group>
+          <article-title>Intensive care unit alarms--how many do we need?</article-title>
+          <source>Crit Care Med</source>
+          <year>2010</year>
+          <month>2</month>
+          <volume>38</volume>
+          <issue>2</issue>
+          <fpage>451</fpage>
+          <lpage>456</lpage>
+          <pub-id pub-id-type="doi">10.1097/CCM.0b013e3181cb0888</pub-id>
+          <pub-id pub-id-type="medline">20016379</pub-id>
+          <pub-id pub-id-type="pmid">20016379</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsien</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Fackler</surname>
+              <given-names>JC</given-names>
+            </name>
+          </person-group>
+          <article-title>Poor prognosis for existing monitors in the intensive care unit</article-title>
+          <source>Crit Care Med</source>
+          <year>1997</year>
+          <month>4</month>
+          <volume>25</volume>
+          <issue>4</issue>
+          <fpage>614</fpage>
+          <lpage>619</lpage>
+          <pub-id pub-id-type="medline">9142025</pub-id>
+          <pub-id pub-id-type="pmid">9142025</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cvach</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Monitor alarm fatigue: an integrative review</article-title>
+          <source>Biomed Instrum Technol</source>
+          <year>2012</year>
+          <volume>46</volume>
+          <issue>4</issue>
+          <fpage>268</fpage>
+          <lpage>277</lpage>
+          <pub-id pub-id-type="doi">10.2345/0899-8205-46.4.268</pub-id>
+          <pub-id pub-id-type="medline">22839984</pub-id>
+          <pub-id pub-id-type="pmid">22839984</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matthews</surname>
+              <given-names>EE</given-names>
+            </name>
+          </person-group>
+          <article-title>Sleep disturbances and fatigue in critically ill patients</article-title>
+          <source>AACN Adv Crit Care</source>
+          <year>2011</year>
+          <volume>22</volume>
+          <issue>3</issue>
+          <fpage>204</fpage>
+          <lpage>224</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="http://europepmc.org/abstract/MED/21808157"/>
+          </comment>
+          <pub-id pub-id-type="doi">10.1097/NCI.0b013e31822052cb</pub-id>
+          <pub-id pub-id-type="medline">21808157</pub-id>
+          <!--<pub-id pub-id-type="pii">01256961-201107000-00006</pub-id>-->
+          <!--<pub-id pub-id-type="pmcid">PMC3149788</pub-id>-->
+          <pub-id pub-id-type="pmid">21808157</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref21">
+        <label>21</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ganz</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Saliba</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Shier</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Berlowitz</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Lukas</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Pelczarski</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Schoelles</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wallace</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <source>Preventing falls in hospitals: a toolkit for improving quality of care (No 13-0015-EF)</source>
+          <year>2013</year>
+          <date-in-citation>2016-11-18</date-in-citation>
+          <publisher-loc>Rockville, MD</publisher-loc>
+          <publisher-name>Agency for Healthcare Research and Quality</publisher-name>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="http://www.ahrq.gov/sites/default/files/publications/files/fallpxtoolkit.pdf">http://www.ahrq.gov/sites/default/files/publications/files/fallpxtoolkit.pdf</ext-link>
+            <ext-link ext-link-type="webcite" xlink:href="6m7NBzlet"/>
+          </comment>
+        </element-citation>
+      </ref>
+      <ref id="ref22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chambrin</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Ravaux</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Calvelo-Aros</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Jaborska</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Chopin</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Boniface</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Multicentric study of monitoring alarms in the adult intensive care unit (ICU): a descriptive analysis</article-title>
+          <source>Intensive Care Med</source>
+          <year>1999</year>
+          <month>12</month>
+          <volume>25</volume>
+          <issue>12</issue>
+          <fpage>1360</fpage>
+          <lpage>1366</lpage>
+          <pub-id pub-id-type="medline">10660842</pub-id>
+          <pub-id pub-id-type="pmid">10660842</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sendelbach</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Funk</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Alarm fatigue: a patient safety concern</article-title>
+          <source>AACN Adv Crit Care</source>
+          <year>2013</year>
+          <volume>24</volume>
+          <issue>4</issue>
+          <fpage>378</fpage>
+          <lpage>386; quiz 387</lpage>
+          <pub-id pub-id-type="doi">10.1097/NCI.0b013e3182a903f9</pub-id>
+          <pub-id pub-id-type="medline">24153215</pub-id>
+          <!--<pub-id pub-id-type="pii">01256961-201310000-00009</pub-id>-->
+          <pub-id pub-id-type="pmid">24153215</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Healthc Inform Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Healthc Inform Res</journal-id>
+      <journal-id journal-id-type="publisher-id">HIR</journal-id>
+      <journal-title-group>
+        <journal-title>Healthcare Informatics Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2093-3681</issn>
+      <issn pub-type="epub">2093-369X</issn>
+      <publisher>
+        <publisher-name>Korean Society of Medical Informatics</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28261526</article-id>
+      <article-id pub-id-type="pmc">5334130</article-id>
+      <article-id pub-id-type="doi">10.4258/hir.2017.23.1.4</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Wearable Devices in Medical Internet of Things: Scientific Research and Commercially Available Devices</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Haghi</surname>
+            <given-names>Mostafa</given-names>
+          </name>
+          <degrees>MSc</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Thurow</surname>
+            <given-names>Kerstin</given-names>
+          </name>
+          <degrees>Dr. Ing. Habil</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Stoll</surname>
+            <given-names>Regina</given-names>
+          </name>
+          <degrees>Dr. Med. Habil</degrees>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Center for Life Science Automation, University of Rostock, Rostock, Germany.</aff>
+      <aff id="A2"><label>2</label>Institute of Preventive Medicine, University of Rostock, Rostock, Germany.</aff>
+      <author-notes>
+        <corresp>
+Corresponding Author: Mostafa Haghi, MSc. Center for Life Science Automation, University of Rostock, Rostock 18051, Germany. Tel: +49-17665592690, <email>Mostafa.haghi@celisca.de</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>1</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>31</day>
+        <month>1</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>23</volume>
+      <issue>1</issue>
+      <fpage>4</fpage>
+      <lpage>15</lpage>
+      <history>
+        <date date-type="received">
+          <day>15</day>
+          <month>12</month>
+          <year>2016</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>24</day>
+          <month>1</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>24</day>
+          <month>1</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2017 The Korean Society of Medical Informatics</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link>) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Objectives</title>
+          <p>Wearable devices are currently at the heart of just about every discussion related to the Internet of Things. The requirement for self-health monitoring and preventive medicine is increasing due to the projected dramatic increase in the number of elderly people until 2020. Developed technologies are truly able to reduce the overall costs for prevention and monitoring. This is possible by constantly monitoring health indicators in various areas, and in particular, wearable devices are considered to carry this task out. These wearable devices and mobile apps now have been integrated with telemedicine and telehealth efficiently, to structure the medical Internet of Things. This paper reviews wearable health care devices both in scientific papers and commercial efforts.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>MIoT is demonstrated through a defined architecture design, including hardware and software dealing with wearable devices, sensors, smart phones, medical application, and medical station analyzers for further diagnosis and data storage.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>Wearables, with the help of improved technology have been developed greatly and are considered reliable tools for long-term health monitoring systems. These are applied in the observation of a large variety of health monitoring indicators in the environment, vital signs, and fitness.</p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>Wearable devices are now used for a wide range of healthcare observation. One of the most important elements essential in data collection is the sensor. During recent years with improvement in semiconductor technology, sensors have made investigation of a full range of parameters closer to realization.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>Delivery of Health Care</kwd>
+        <kwd>Information Storage and Retrieval</kwd>
+        <kwd>Internet</kwd>
+        <kwd>Mobile Applications</kwd>
+        <kwd>Smartphone</kwd>
+        <kwd>Telemedicine</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>I. Introduction</title>
+      <p>The Internet of Things (IoT) is a new concept, providing the possibility of healthcare monitoring using wearable devices. The IoT is defined as the network of physical objects which are supported by embedded technology for data communication and sensors to interact with both internal and external objects states and the environment [<xref rid="B1" ref-type="bibr">1</xref>].</p>
+      <p>In the last decade, wearable devices have attracted much attention from the academic community and industry and have recently become very popular. The most relevant definition of wearable electronics is the following: &#x201C;devices that can be worn or mated with human skin to continuously and closely monitor an individual's activities, without interrupting or limiting the user's motions&#x201D; [<xref rid="B2" ref-type="bibr">2</xref>]. <xref ref-type="table" rid="T1">Table 1</xref> provides more transparent information on the importance of wearable devices and the IoT market [<xref rid="B3" ref-type="bibr">3</xref><xref rid="B4" ref-type="bibr">4</xref><xref rid="B5" ref-type="bibr">5</xref>].</p>
+      <p>Today, the range of wearable systems, including micro-sensors seamlessly integrated into textiles, consumer electronics embedded in fashionable clothes [<xref rid="B6" ref-type="bibr">6</xref>], computerized watches, belt-worn personal computers (PCs) with a head mounted display [<xref rid="B7" ref-type="bibr">7</xref>], glasses [<xref rid="B8" ref-type="bibr">8</xref>], which are worn on various parts of the body [<xref rid="B9" ref-type="bibr">9</xref>] are designed for broadband operation. The field of wearable health monitoring systems is moving toward minimizing the size of wearable devices, measuring more vital signs, and sending secure and reliable data through smartphone technology. Although there has been an interest in observing comprehensive bio/non-bio medical data for the full monitoring of environmental, fitness, and medical data recently [<xref rid="B10" ref-type="bibr">10</xref>], but one obvious application of wearable systems is the monitoring of physiological parameters in the mobile environment. The majority of commercially available wearable devices are one-lead applications to monitor vital signs. However, most of such recreational devices are not suitable for the medical monitoring of high risk patients. Those devices that have been qualified for medical use are usually simple [<xref rid="B11" ref-type="bibr">11</xref>].</p>
+      <p>The objective of this paper is to review wearable health care devices both in scientific papers and commercial efforts. Our aim is to address the most important wearable devices, which measure effective parameters in health status directly. Readers can obtain comprehensive and useful information on the most reliable currently available devices and technical concepts in this area.</p>
+      <p>The rest of this review paper is organized as follows. The need for health monitoring when the user is in motion and under changing environmental conditions are investigated in Section II. In Section III recent research efforts in wearable devices are presented in three subsections. The first subsection discusses motion tracking and the research approaches and implementations in this area, and then some of the most recent commercial devices are compared. We then discuss the monitoring of environmental conditions and vital signs through wearable devices in subsections 2 and 3. In Section IV, the challenges of potentially available devices are discussed. Conclusion are finally summarized with suggestions for future works.</p>
+    </sec>
+    <sec>
+      <title>II. Wearable Devices in Health Monitoring</title>
+      <p>In today's world, where time is precious, people, the working class especially, spend most of the day shuttling between various tasks and tend to ignore their health and fitness [<xref rid="B6" ref-type="bibr">6</xref>]. Even a simple appointment with a doctor in a clinic can require several tests set for diagnosis, prescription, and finally treatment, which can take a lot of time. Therefore, many patients only go to a clinic when they are suffering from a serious illness. Hence, many people are seeking for an alternative, such as a device that can be worn on the body, which would not only continuously monitor the user's health in real time but also provide timely insights on various health parameters to the user as well as his or her physician [<xref rid="B6" ref-type="bibr">6</xref>].</p>
+      <sec>
+        <title>1. Motion Trackers</title>
+        <p>The measurement of human movement (motion tracking) has several useful applications in sports, medical, and other branches of studies. Such applications include fall risk assessment, quantifying sports exercise, studying people habits, and monitoring the elderly. Wearable trackers are becoming increasingly popular for two main reasons. They can motivate the user during the daily workout to perform more exercise, while providing activity measurement information through a smartphone without manual calculation [<xref rid="B12" ref-type="bibr">12</xref>]. Also, they enable the wearer to become aware of the daily distance walked, which is very useful to ensure that the user maintains sufficient activity in the daily routine to maintain a healthy life. In particular, to accurately observe motion of the human body, 3-axis accelerometers, magnetometers, and gyroscopes sensors obtain data, each for a specific purpose. These sensors can be used for human activity recognition in the ubiquitous computing domain as well [<xref rid="B13" ref-type="bibr">13</xref>]. Gyroscopes and magnetometers are auxiliary sensors that can be separately be combined with accelerometers to compensate the lack of accuracy in obtained data for motion tracking. In most cases, the combination of these three sensors lead to 9DoF.</p>
+        <p>Human motion detection has a wide range of application, from sports and recreation to biomedical. In recent years, consumer electronics have employed many semiconductor-based tracking system to allow users to access various kinds of interface control that use body motions and gestures [<xref rid="B14" ref-type="bibr">14</xref>]. An important application of motion tracking is health care. However, due to need for high accuracy in the biomedical field, these devices are not typically designed only for medical application. The initial concept of using uniaxial accelerometer sensors in motion tracking was introduced in 1996 by Veltink and Boom [<xref rid="B15" ref-type="bibr">15</xref>]. To introduce the concept of motion tracking in the medical application world, multiple clinical studies have been performed on posture estimation using accelerometers [<xref rid="B16" ref-type="bibr">16</xref><xref rid="B17" ref-type="bibr">17</xref><xref rid="B18" ref-type="bibr">18</xref>]. An accelerometer alone cannot provide precise information; therefore, in 1997, researchers improved the performance of trackers and integrated semiconductor-based gyroscopes to perform bio-mechanical assessments and gait analysis [<xref rid="B19" ref-type="bibr">19</xref>]. Four years later in 2002, Mayagoitia et al. [<xref rid="B20" ref-type="bibr">20</xref>] introduced the initial framework of tracking lower extremities with a fusion of accelerometers and gyroscopes in the 2D sagittal plane. When the trackers became more reliable using an integrated gyroscope, the primary focus for clinical applications using inertial motion tracking was gait analysis [<xref rid="B21" ref-type="bibr">21</xref>]. To apply this device for clinical purposes, and in particular gait motion, gravity sensitive accelerometers are used to estimate the tilt angles between the gravity vector and the sensor's axes [<xref rid="B19" ref-type="bibr">19</xref>]. The first version of the most recently integrated sensors (accelerometer, gyroscope, and magnetometer) which provide very accurate data with 9DoF, was proposed in 2006 by Roetenberg [<xref rid="B22" ref-type="bibr">22</xref>]. He proposed using a set of tri-axial accelerometers, tri-axial gyroscopes, and a magnetometer to estimate and monitor human motion.</p>
+        <p>A few 9DoF wireless inertial measurement units (IMUs) are commercially available and have been used for research projects [<xref rid="B23" ref-type="bibr">23</xref><xref rid="B24" ref-type="bibr">24</xref><xref rid="B25" ref-type="bibr">25</xref>]. Due to the high risk of falling in the elderly, motion trackers as wearable devices are used in medical health monitoring for fall detection.</p>
+        <sec>
+          <title>1) Motion measurement in body tracking</title>
+          <p>A new design was presented by Bertolotti et al. [<xref rid="B26" ref-type="bibr">26</xref>] to apply for objective measurements of trunk or limb movements for the assessment of human body balance and control abilities. This system is based on a 72 MHz, 32-bit CPU (STM32F303VC; STMicroelectronics, Geneva, Switzerland) embedding a high performance ARM CortexM4, 32-bit RISC core, with the potential of supporting several sensors externally with high performance in both SPI and I2C mode. In this research, the sensor components (STMicroelectronics sensors) have a linear range and a sensitivity that allow proper measurement of body movements. Online processing, in the sense of data acquisition from different sensors, filtering, and data generation are performed at a high frequency of up to 72 MHz. Body movements are measured using 9DoF sensors: three inertial sensors, an accelerometer, a magnetometer, and a gyroscope. The full-scale values of the sensors can be modified by means of specific commands sent by the microcontroller [<xref rid="B27" ref-type="bibr">27</xref><xref rid="B28" ref-type="bibr">28</xref>]. The size of the whole device, including all components in the box (circuit board, the Bluetooth module, and the battery) are 60 mm &#xD7; 35 mm &#xD7; 20 mm. The box is made of transparent plastic to allow the observation of LED indicators working on the board. The device proposed and implemented by this research group was designed to be used for three kinds of movement monitoring. The first and second types of movement monitoring are referred to as short- and long-term data monitoring. In the first type, the device is only connected to a PC to observe the results. In the second case, data are observed and locally stored for long-term monitoring. In the third type, the most important component is the body network, i.e. multiple units deployed on the subject's body and wired to a gateway unit, which can have a local memory or a wireless connection to a PC or hand-held device (full body monitoring of exercises) [<xref rid="B29" ref-type="bibr">29</xref>].</p>
+        </sec>
+        <sec>
+          <title>2) Commercially available user devices applied in research papers</title>
+          <p>The following two subsections report on the advantages and disadvantages of commercially available devices and the tools that have been used in research for performance evaluation.</p>
+          <sec>
+            <title>(1) Part 1: Comparison of nine motion tracking devices applied in research</title>
+            <p>In the first part, nine devices with different evaluated parameters are presented in <xref ref-type="table" rid="T1">Table 1</xref> and are compared [<xref rid="B29" ref-type="bibr">29</xref>]. To identify the benefits, some expected merits have to be determined and comparison is performed based on it. Long-term monitoring for further diagnosis is one of the main purposes of health care monitoring. To achieve this aim, a device has to store data temporarily in memory and send it to a cloud computing or medical station to be stored permanently. To fulfill these necessities, data buffering, which requires SD memory and RAM are of concern. On the other hand, for data transmission, Bluetooth and Wi-Fi compatibility are essential.</p>
+            <p>Many of these devices come only with customized software application. Some of them allow a user to build his/her commercially devices own application on it but others. A characteristic that, at the first glance, does not sound crucial is the firmware. To take full advantage of a development kit, in some cases, customization is necessary, but not all device manufacturers provide such compatibility.</p>
+            <p>Here, the nine devices that have been used and investigated in research are introduced, and important features are studied. Wearable devices are restricted by several factors. The most critical elements are size, battery life, weight, and capability of adding on-board sensors. In <xref ref-type="table" rid="T2">Table 2</xref>, all mentioned elements are compared, and additional parameters, including connectivity, software, and firmware compatibility are taken into consideration.</p>
+            <p><xref ref-type="table" rid="T2">Table 2</xref> presents nine commercially available wireless motion trackers that have been used in research and are produced by various companies and manufacturers (MotionNode Bus [<xref rid="B30" ref-type="bibr">30</xref>], Opal [<xref rid="B31" ref-type="bibr">31</xref>], MTw development kit [<xref rid="B32" ref-type="bibr">32</xref>], Memsense W2 IM2 [<xref rid="B33" ref-type="bibr">33</xref>], STT-IBS [<xref rid="B34" ref-type="bibr">34</xref>], Colibry wireless [<xref rid="B35" ref-type="bibr">35</xref>], I2M motion SXT [<xref rid="B36" ref-type="bibr">36</xref>], Shimmer 3 [<xref rid="B37" ref-type="bibr">37</xref>], Physilog [<xref rid="B38" ref-type="bibr">38</xref>]). We have attempted to present the most recent research works and devices in the market.</p>
+          </sec>
+          <sec>
+            <title>(2) Part 2: Comparison of four top wrist-worn device commercially available in market</title>
+            <p>In this subsection, the most popular and recent commercial motion trackers are compared [<xref rid="B27" ref-type="bibr">27</xref>]. First, the four most popular wristband-style wearable commercial devices&#x2014;Fitbit Flex, Withings Pulse, Misfit Shine, and Jawbone Up24 (<xref ref-type="fig" rid="F1">Figure 1</xref>)&#x2014;are introduced and briefly described. Then, according to the previously mentioned merits, these commercial devices are compared [<xref rid="B31" ref-type="bibr">31</xref>]. An important requirement from wearers is the visualization of actual and real data. Therefore, the accuracy of fitness tracking is one of the key factors of device selection. According to the quality of the used components and software, some devices perform better than others. Obtained experimental results from each device, are used to study both the accuracy and ease-of-use of the four wearable devices. This study was performed in Korea. The devices for experiments were selected among the 10 top available wearable device in the market. The four wearable devices considered in the experiments [<xref rid="B25" ref-type="bibr">25</xref><xref rid="B39" ref-type="bibr">39</xref>] were selected randomly. The four devices are described in detail below. Further information is summarized in <xref ref-type="table" rid="T3">Table 3</xref>, which briefly compares the features of the four wearable devices. The commercial name of device, country of manufacturing, tasks ability, and price are provided for each one.</p>
+            <p>In <xref ref-type="table" rid="T4">Table 4</xref>, the features and communication mode of these four popular wearable devices are summarized. The purpose of the table is easy comparison of the devices [<xref rid="B40" ref-type="bibr">40</xref><xref rid="B41" ref-type="bibr">41</xref><xref rid="B42" ref-type="bibr">42</xref><xref rid="B43" ref-type="bibr">43</xref>].</p>
+          </sec>
+        </sec>
+      </sec>
+      <sec>
+        <title>2. Vital Signs Measurement</title>
+        <p>Many wearable devices have been implemented to measure critical elements in healthcare monitoring. The majority of these devices are in one lead such as electrocardiogram (ECG) and electroencephalogram (EEG) measurement, skin temperature, etc. There have been recent efforts in wearable devices to provide multi-task vital signs measurement. Here, we present the most creative and recent papers in this area.</p>
+        <p>Many devices, structures, designs, and solutions for remote wearable ECG monitoring, which plays a vital role in health monitoring have been proposed in the literature and industry. Generally, these solution are hard to implement and are not efficient enough in power consumption or performance. Some of them are remarkable but do not have the possibility of merging with other out signals from different systems.</p>
+        <sec>
+          <title>1) Body-worn smart clothing</title>
+          <p>To obtain health care status's signals from various physiological indicators due to forming a source data center for comprehensive health monitoring, a &#x2018;smart clothing&#x2019; design was presented in [<xref rid="B44" ref-type="bibr">44</xref>]. To make smart clothing systems intelligent, an infrastructure incorporating smartphones, mobile applications, cloud computing, and big data analytic is required to communicate in the structured design [<xref rid="B45" ref-type="bibr">45</xref>].</p>
+          <p>Although several research approaches in the field of health monitoring have been proposed and implemented, the existing solutions in different aspects have failed for long-term health monitoring [<xref rid="B45" ref-type="bibr">45</xref>]. Traditional health monitoring, which often collects one or a very limited number of physiological signals, is not very useful for chronic diseases in a full-range health monitoring system.</p>
+          <p>Sensor deployment on the body is the main difference between old wearable devices and smart clothing [<xref rid="B45" ref-type="bibr">45</xref>]. In smart clothing, all sensors which are used to measure the vital signs are integrated into textile clothing. Sensor placement is a critical point that has to be performed properly. To provide efficiency and a well-formed design, the quality of the used sensors, proper positioning, layout of flexible electricity cable, weak signal acquisition equipment, low-power wireless communications, and user comfort [<xref rid="B45" ref-type="bibr">45</xref>] are crucial factors. The fabric of the smart clothing to be worn, has to be comfortable. In this design, it has been tried to measure only vital and necessary parameters. Now the used sensors and also the location they are placed on the body are described (<xref ref-type="fig" rid="F2">Figure 2</xref>).</p>
+          <sec>
+            <title>(1) Sensors placement</title>
+            <p>In <xref ref-type="table" rid="T5">Table 5</xref>, the position and task of each deployed sensor in smart clothing is summarized.</p>
+            <p>When all sensors are positioned appropriately, each sensor must be wrapped by a flexible covering layer to protect the sensor and to make the device comfortable to be worn by the user. Further textile electrodes touch the user's skin to sense and transmit the data. These electrodes must be sewn on the cloth from the inside. Once the sensors and devices are powered on, they will come into operation. It is possible to wash smart clothing (<xref ref-type="fig" rid="F3">Figure 3</xref>). However, it should be noted that some components are not washable and waterproof, but these can be removed easily by the wearer, and reinstallation is straightforward [<xref rid="B44" ref-type="bibr">44</xref>].</p>
+            <p>There are three major drawbacks to smart clothing:</p>
+            <p>- Intra-smart-clothing system: In the first step, it is necessary to consider the wearer's physical body shape, type of disease to be monitored, and daily habits [<xref rid="B45" ref-type="bibr">45</xref>]. In fact, in many cases, it is necessary to customize the smart clothing for the applicant. In addition, technical feasibility, comfort level, and cost effectiveness are serious concerns for the manufacturer.</p>
+            <p>- Communications for inter-smart clothing: A device structure design brings the user benefits when it can communicate with the outside world and transmit data. Inter smart-clothing design focuses on the communication problem of interconnecting smart clothing with the outside world. It is the intermediate level of structure device for the closed-loop system of smart clothing to be connected to cloud. The second use of this level could assist connection to a local medical center.</p>
+            <p>- Beyond-smart-clothing (BSC) on clouds: To complete the procedure of data collection, transmission, and analysis, cloud computing is essential. In fact, according to some pre-defined algorithms, data are sent to a medical center, appropriate decisions are taken by medical doctors, physicians, or other healthcare professionals. In emergency cases, some feedback must be sent to the user to inform him or her about his/her health's status. Thus, cloud computing is integrated in BSC [<xref rid="B46" ref-type="bibr">46</xref>]. There are various technological possibilities for the basis of BSC, such as cloud computing, big data, machine learning, etc. [<xref rid="B44" ref-type="bibr">44</xref>].</p>
+          </sec>
+        </sec>
+        <sec>
+          <title>2) Wire-based wearable devices: limited physiological and environmental parameters measurement</title>
+          <p>In [<xref rid="B47" ref-type="bibr">47</xref>], a novel approach to medical monitoring was introduced by Sanfilippo and Pettersen. The methodology is wire-based and many vital signs are measured. This wearable integrated health-monitoring system is based on the e-Health Sensor Platform [<xref rid="B48" ref-type="bibr">48</xref>] V2.0, which is the first biometric shield for Arduino and Raspberry Pi. However this device is not licensed for medical health monitoring. The system allows researchers to measure and investigate health through body monitoring by using 10 sensors to observe vital signs and perform motion tracking. EEG, ECG, and body temperature measurement are carried out by these sensors, which are connected to the platform. A push button is considered for emergency cases. Collected data are used in two scenarios. In the first, the user is monitored in real time, and in the second, sensitive data are transmitted to be analyzed for medical diagnosis.</p>
+          <p>In this paper, a wearable health sensor monitoring system based on a multi-sensor fusion approach is outlined. The implemented device consists of a chest-worn device that embeds a controller board, an ECG sensor, a temperature sensor, an accelerometer, a vibration motor, a color-changing light-emitting diode (LED), and a push-button [<xref rid="B47" ref-type="bibr">47</xref>].</p>
+          <p>The embedded vibration motor makes it possible to actuate distinctive haptic feedback patterns according to the wearer's health state. Haptic feedback, informs the wearer about his or her health status in three different states. When it does not vibrate, it indicates a normal state; through low-frequency and high-frequency vibration, abnormal data observation and potential risk are indicated, respectively [<xref rid="B49" ref-type="bibr">49</xref>].</p>
+          <p>To address privacy concerns, data is encrypted before transmission. Data collected for permanent storage are sent to cloud storage, while data to be visualized in real-time, are sent directly to a laptop or smart phone.</p>
+          <p>The structural framework is based on a multi-sensor fusion approach. In particular, a client-server pattern is adopted in [<xref rid="B47" ref-type="bibr">47</xref>]. A chest-worn device, comprising an Arduino Uno board based on the ATmega328 micro-controller, an Arduino Wi-Fi Shield, e-Health Sensor Shield, a vibrating motor, and push button, operates as a client and remotely communicates with a server. The server is implemented in three levels of logic and communication.</p>
+          <p>The device structure is implemented in three layers (<xref ref-type="fig" rid="F4">Figure 4</xref>). The bottom and basic layer is Arduino ATmega328. To enable communication capabilities to this proposed wearable device, an Arduino Wi-Fi Shield [<xref rid="B50" ref-type="bibr">50</xref>] is stacked on top of the adopted controller board, which forms the second layer. In detail, the Arduino Wi-Fi Shield allows the client to communicate with the server by using the 802.11 wireless specification (Wi-Fi) [<xref rid="B48" ref-type="bibr">48</xref>]. The communication between the Arduino Wi-Fi Shield and the Arduino Uno board uses long wirewrap headers that extend through the shield. The third and top layer is implemented when the wearer's biometric data are gathered, and an e-Health Sensor Shield [<xref rid="B51" ref-type="bibr">51</xref>] is stacked on top of the adopted communication module.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec>
+      <title>III. Challenges and Bottlenecks for Medical IoT</title>
+      <p>Leading wearable devices based on IoT platforms must provide simple, powerful application access to IoT devices. Many platforms and structures have been proposed by the scientific community, and commercial devices are already available for bio-metric/medical parameter measurement. However, there are serious challenges in this way. The following are four key capabilities that leading platforms must enable:</p>
+      <p>- Simple and secure connectivity: A good IoT platform is expected to provide easy connection of devices and perform device management functions in three levels of data collection, data transmission to a hub, and permanent storage and observation in a medical station. These steps must be secured; therefore, data encryption is necessary.</p>
+      <p>- Power consumption: To provide the wearer with easy device management and long-term monitoring without interruption, power loss is becoming more important. This is strictly correlated to the number of parameters that are observed, efficient code programming, as well as good data packing, encryption, and compression.</p>
+      <p>- Wearability: Wearable devices have been designed for various types of bio-medical monitoring to assisting users in living long, healthy lives. This point is more significant when these devices are intended to be worn by elderly users. Therefore, such devices must be easy to wear, easy to carry, and comfortable. These requirements are fulfilled with a light, small, and well-structured device. A wearable device is expected to be small and light weight, and should be able to be used for a long time.</p>
+      <p>- Reduced risk in data loss: When data is collected by a microcontroller and transmitted to a smartphone or cloud storage, there is a possibility of disconnection and consequently data loss. This must be reduced as much as possible to provide safe health monitoring. It may be possible through temporary data saving (buffering) in the microcontroller providing a large memory.</p>
+    </sec>
+    <sec>
+      <title>IV. Conclusion</title>
+      <p>Wearable devices are becoming popular in various fields from sport and fitness to health monitoring. In particular, due to the increasing elderly population throughout the world, wearable devices are becoming important for long-term health monitoring. The main aim of this work was to give a comprehensive overview of this area of research and to report the full range of tools in area of wearable health monitoring devices. In this review paper, we have reported both research works and commercial devices to study and investigate the currently available technology. In preparing this paper, we studied the literature from various points of view. Based on consultation with expert scientists in environmental engineering and medicine, we believe that, motion trackers, gas detectors, and vital signs are the most important elements in health monitoring; therefore, to achieve the full range of health monitoring, all these parameters were studied. In each field, a variety of methodologies are employed, but not all are efficient and effective. The most important criteria in this study was the possibility of using the device in the real world, performance, efficiency, and power consumption. In addition, we considered the price of each device. Finally, the most challenging bottleneck and some conclusions regarding the promising future in the IoT is presented.</p>
+      <p>Among all implemented works so far, no efficient solution has been proposed for comprehensive monitoring in gas detection, motion tracking, and vital sign monitoring to integrate all these into a single device. It might be possible to realize this in future work by creating a system with following characteristics:</p>
+      <p>- #MULTIPLE sensors on ONE sensor node,</p>
+      <p>- #MULTIPLE nodes on ONE individual,</p>
+      <p>- #MULTIPLE individuals on ONE cloud system.</p>
+      <p>Monitoring of an individual with number of parameters in his working/living environment is possible. Moreover, computational models and software development for data encryption and data compression have to be investigated for more efficiency. In the first scenario above, which seems to be the best approach, there are serious restrictions in available sensors. To realize this wearable possibility, appropriate components must be located properly and must function well. In the second scenario, tasks can be dedicated to each node. For instance, motion tracking sensors can be implemented on one sensor node, and vital sign monitoring can be implemented on another. The third scenario is merging of the first and second methodology, which could widen the range of users and the range of practical application.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>We would also like to express our gratitude to Professor Norbert Stoll for valuable technical guidance and sharing his knowledge to complete this work.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p><bold>Conflict of Interest:</bold> No potential conflict of interest relevant to this article was reported.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>LeHong</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Velosa</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <source>Hype cycle for the Internet of Things, 2014 [Internet]</source>
+          <publisher-loc>Stamford (CT)</publisher-loc>
+          <publisher-name>Gartner Inc.</publisher-name>
+          <year>2014</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.gartner.com/doc/2804217/hype-cycle-internet-things-">https://www.gartner.com/doc/2804217/hype-cycle-internet-things-</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gao</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Emaminejad</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nyein</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Challa</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Peck</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Fully integrated wearable sensor arrays for multiplexed in situ perspiration analysis</article-title>
+          <source>Nature</source>
+          <year>2016</year>
+          <volume>529</volume>
+          <issue>7587</issue>
+          <fpage>509</fpage>
+          <lpage>514</lpage>
+          <pub-id pub-id-type="pmid">26819044</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="book">
+          <collab>Business Wire</collab>
+          <source>Finding success in the new IoT ecosystem: market to reach $3.04 trillion and 30 billion connected "Things" in 2020, IDC says [Internet]</source>
+          <publisher-loc>San Francisco (CA)</publisher-loc>
+          <publisher-name>Business Wire</publisher-name>
+          <year>2014</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.businesswire.com/news/home/20141107005028/en/Finding-Success-IoTEcosystem-Market-Reach-3.04">http://www.businesswire.com/news/home/20141107005028/en/Finding-Success-IoTEcosystem-Market-Reach-3.04</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wilson</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <collab>Infonetics survey unveils businesses' plans for mobile security, Internet of Things, wearables [Internet]</collab>
+          <publisher-loc>London</publisher-loc>
+          <publisher-name>HIS Inc.</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://technology.ihs.com/527159/infonetics-survey-unveils-businesses-plans-for-mobile-security-internet-of-things-wearables">https://technology.ihs.com/527159/infonetics-survey-unveils-businesses-plans-for-mobile-security-internet-of-things-wearables</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Evans</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <source>The Internet of Things: how the next evolution of the Internet is changing everything [Internet]</source>
+          <publisher-loc>San Jose (CA)</publisher-loc>
+          <publisher-name>Cisco Internet Business Solutions Group</publisher-name>
+          <year>2011</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.cisco.com/c/dam/en_us/about/ac79/docs/innov/IoT_IBSG_0411FINAL.pdf">http://www.cisco.com/c/dam/en_us/about/ac79/docs/innov/IoT_IBSG_0411FINAL.pdf</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Jia</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Mathewson</surname>
+              <given-names>KE</given-names>
+            </name>
+            <name>
+              <surname>Jang</surname>
+              <given-names>KI</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Soft microfluidic assemblies of sensors, circuits, and radios for the skin</article-title>
+          <source>Science</source>
+          <year>2014</year>
+          <volume>344</volume>
+          <issue>6179</issue>
+          <fpage>70</fpage>
+          <lpage>74</lpage>
+          <pub-id pub-id-type="pmid">24700852</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Martin</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Jovanov</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Raskovic</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <source>Issues in wearable computing for medical monitoring applications: a case study of a wearable ECG monitoring device</source>
+          <conf-name>Proceedings of the 4th International Symposium on Wearable Computers</conf-name>
+          <conf-date>2000 Oct 16-17</conf-date>
+          <conf-loc>Atlanta, GA</conf-loc>
+          <fpage>43</fpage>
+          <lpage>49</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jovanov</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Gelabert</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Wheelock</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Adhami</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <source>Real time portable heart monitoring using low power DSP</source>
+          <conf-name>Proceedings of International Conference on Signal Processing Applications and Technology (ICSPAT)</conf-name>
+          <conf-date>2000 Oct 16-19</conf-date>
+          <conf-loc>Dallas, TX</conf-loc>
+          <fpage>16</fpage>
+          <lpage>19</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Swider</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <source>Google Glass review [Internet]</source>
+          <publisher-loc>[place unknown]</publisher-loc>
+          <publisher-name>TechRadar</publisher-name>
+          <year>2016</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.techradar.com/reviews/gadgets/google-glass-1152283/review">http://www.techradar.com/reviews/gadgets/google-glass-1152283/review</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Neubert</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <source>Automation requires process information technologies [Internet]</source>
+          <publisher-loc>Rostock</publisher-loc>
+          <publisher-name>Center for Life Science Automation (celisca)</publisher-name>
+          <year>c2016</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://139.30.204.254/celisca/index.php?id=987">http://139.30.204.254/celisca/index.php?id=987</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="book">
+          <collab>Indiegogo</collab>
+          <source>Hicon smartwristband with social network icons [Internet]</source>
+          <publisher-loc>San Francisco (CA)</publisher-loc>
+          <publisher-name>Indiegogo</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.indiegogo.com/projects/hicon-smartwristband-with-social-network-icons#/">https://www.indiegogo.com/projects/hicon-smartwristband-with-social-network-icons#/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Anliker</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Ward</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Lukowicz</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Troster</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Dolveck</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Baer</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>AMON: a wearable multiparameter medical monitoring and alert system</article-title>
+          <source>IEEE Trans Inf Technol Biomed</source>
+          <year>2004</year>
+          <volume>8</volume>
+          <issue>4</issue>
+          <fpage>415</fpage>
+          <lpage>427</lpage>
+          <pub-id pub-id-type="pmid">15615032</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="book">
+          <source>Gas sensor developer kit [Internet]</source>
+          <publisher-loc>Newark (CA)</publisher-loc>
+          <publisher-name>Spec Sensors</publisher-name>
+          <year>c2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.spec-sensors.com/product-category/gassensor-developer-kits/">https://www.spec-sensors.com/product-category/gassensor-developer-kits/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>To</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Mahfouz</surname>
+              <given-names>MR</given-names>
+            </name>
+          </person-group>
+          <source>Modular wireless inertial trackers for biomedical applications</source>
+          <conf-name>Proceedings of 2013 IEEE Topical Conference on Power Amplifiers for Wireless and Radio Applications (PAWR)</conf-name>
+          <conf-date>2013 Jan 20-23</conf-date>
+          <conf-loc>Austin, TX</conf-loc>
+          <fpage>172</fpage>
+          <lpage>174</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Veltink</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Boom</surname>
+              <given-names>HB</given-names>
+            </name>
+          </person-group>
+          <chapter-title>3D movement analysis using accelerometry theoretical concepts</chapter-title>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Pedotti</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ferrarin</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Quintern</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Reiner</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <source>Neuroprosthetics: from basic research to clinical applications</source>
+          <publisher-loc>Berlin</publisher-loc>
+          <publisher-name>Springer</publisher-name>
+          <year>1996</year>
+          <fpage>317</fpage>
+          <lpage>326</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Foerster</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Smeja</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fahrenberg</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Detection of posture and motion by accelerometry: a validation study in ambulatory monitoring</article-title>
+          <source>Comput Human Behav</source>
+          <year>1999</year>
+          <volume>15</volume>
+          <issue>5</issue>
+          <fpage>571</fpage>
+          <lpage>583</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mathie</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Coster</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Lovell</surname>
+              <given-names>NH</given-names>
+            </name>
+            <name>
+              <surname>Celler</surname>
+              <given-names>BG</given-names>
+            </name>
+          </person-group>
+          <article-title>Detection of daily physical activities using a triaxial accelerometer</article-title>
+          <source>Med Biol Eng Comput</source>
+          <year>2003</year>
+          <volume>41</volume>
+          <issue>3</issue>
+          <fpage>296</fpage>
+          <lpage>301</lpage>
+          <pub-id pub-id-type="pmid">12803294</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uswatte</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Miltner</surname>
+              <given-names>WH</given-names>
+            </name>
+            <name>
+              <surname>Foo</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Varma</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Moran</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Taub</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Objective measurement of functional upper-extremity movement using accelerometer recordings transformed with a threshold filter</article-title>
+          <source>Stroke</source>
+          <year>2000</year>
+          <volume>31</volume>
+          <issue>3</issue>
+          <fpage>662</fpage>
+          <lpage>667</lpage>
+          <pub-id pub-id-type="pmid">10700501</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miyazaki</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Long-term unrestrained measurement of stride length and walking velocity utilizing a piezoelectric gyroscope</article-title>
+          <source>IEEE Trans Biomed Eng</source>
+          <year>1997</year>
+          <volume>44</volume>
+          <issue>8</issue>
+          <fpage>753</fpage>
+          <lpage>759</lpage>
+          <pub-id pub-id-type="pmid">9254988</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mayagoitia</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Nene</surname>
+              <given-names>AV</given-names>
+            </name>
+            <name>
+              <surname>Veltink</surname>
+              <given-names>PH</given-names>
+            </name>
+          </person-group>
+          <article-title>Accelerometer and rate gyroscope measurement of kinematics: an inexpensive alternative to optical motion analysis systems</article-title>
+          <source>J Biomech</source>
+          <year>2002</year>
+          <volume>35</volume>
+          <issue>4</issue>
+          <fpage>537</fpage>
+          <lpage>542</lpage>
+          <pub-id pub-id-type="pmid">11934425</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takeda</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Tadano</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Todoh</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Morikawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nakayasu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yoshinari</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Gait analysis using gravitational acceleration measured by wearable sensors</article-title>
+          <source>J Biomech</source>
+          <year>2009</year>
+          <volume>42</volume>
+          <issue>3</issue>
+          <fpage>223</fpage>
+          <lpage>233</lpage>
+          <pub-id pub-id-type="pmid">19121522</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roetenberg</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <source>Inertial and magnetic sensing of human motion [dissertation]</source>
+          <publisher-loc>Enschede</publisher-loc>
+          <publisher-name>University of Twente</publisher-name>
+          <year>2006</year>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Altun</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Barshan</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Tuncel</surname>
+              <given-names>O</given-names>
+            </name>
+          </person-group>
+          <article-title>Comparative study on classifying human activities with miniature inertial and magnetic sensors</article-title>
+          <source>Pattern Recognit</source>
+          <year>2010</year>
+          <volume>43</volume>
+          <issue>10</issue>
+          <fpage>3605</fpage>
+          <lpage>3620</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kaewkannate</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>A comparison of wearable fitness devices</article-title>
+          <source>BMC Public Health</source>
+          <year>2016</year>
+          <volume>16</volume>
+          <fpage>433</fpage>
+          <pub-id pub-id-type="pmid">27220855</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stables</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <source>Best fitness trackers 2015: Jawbone, Misfit, Fitbit, Germin and more [Internet]</source>
+          <publisher-loc>place unknown</publisher-loc>
+          <publisher-name>publisher unknown</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.iworldonline.com.au/index.php/blog/best-fitness-trackers-2015-jawbone-misfit-fitbit-garmin-and-more/">https://www.iworldonline.com.au/index.php/blog/best-fitness-trackers-2015-jawbone-misfit-fitbit-garmin-and-more/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="book">
+          <source>Misfit Shine Fitness + Sleep Monitor [Internet]</source>
+          <publisher-loc>Burlingame (CA)</publisher-loc>
+          <publisher-name>Misfit</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://misfit.com/products/shine?locale=en">http://misfit.com/products/shine?locale=en</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="book">
+          <collab>STMicroelectronics</collab>
+          <source>Ultra-compact high-performance eCompass module: 3D accelerometer and 3D magnetometer [Internet]</source>
+          <publisher-loc>Geneva</publisher-loc>
+          <publisher-name>STMicroelectronics</publisher-name>
+          <year>2013</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.st.com/content/ccc/resource/technical/document/datasheet/56/ec/ac/de/28/21/4d/48/DM00027543.pdf/files/DM00027543.pdf/jcr:content/translations/en.DM00027543.pdf">http://www.st.com/content/ccc/resource/technical/document/datasheet/56/ec/ac/de/28/21/4d/48/DM00027543.pdf/files/DM00027543.pdf/jcr:content/translations/en.DM00027543.pdf</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="book">
+          <collab>STMicroelectronics</collab>
+          <source>MEMS motion sensor: ultra-stable three-axis digital output gyroscope (L3G4200D) [Internet]</source>
+          <publisher-loc>Geneva</publisher-loc>
+          <publisher-name>STMicroelectronics</publisher-name>
+          <year>2010</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.st.com/content/ccc/resource/technical/document/datasheet/04/46/d6/00/be/d9/46/ae/CD00265057.pdf/files/CD00265057.pdf/jcr:content/translations/en.CD00265057.pdf">http://www.st.com/content/ccc/resource/technical/document/datasheet/04/46/d6/00/be/d9/46/ae/CD00265057.pdf/files/CD00265057.pdf/jcr:content/translations/en.CD00265057.pdf</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bertolotti</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Cristiani</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Colagiorgio</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Romano</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Bassani</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Caramia</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A wearable and modular inertial unit for measuring limb movements and balance control abilities</article-title>
+          <source>IEEE Sens J</source>
+          <year>2016</year>
+          <volume>16</volume>
+          <issue>3</issue>
+          <fpage>790</fpage>
+          <lpage>797</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Slaughter</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hilbert</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Jouett</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>McEwen</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <source>Quantifying and learning human movement characteristics for fall prevention in the elderly using Inertial Measurement Units and Neural Networks</source>
+          <conf-name>Proceedings of the 2nd International Conference of Education, Research and Innovation (ICERI)</conf-name>
+          <conf-date>2009 Nov 16-18</conf-date>
+          <conf-loc>Madrid, Spain</conf-loc>
+          <fpage>978</fpage>
+          <lpage>984</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aziz</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Robinovitch</surname>
+              <given-names>SN</given-names>
+            </name>
+          </person-group>
+          <article-title>Distinguishing near-falls from daily activities with wearable accelerometers and gyroscopes using Support Vector Machines</article-title>
+          <source>Conf Proc IEEE Eng Med Biol Soc</source>
+          <year>2012</year>
+          <volume>2012</volume>
+          <fpage>5837</fpage>
+          <lpage>5840</lpage>
+          <pub-id pub-id-type="pmid">23367256</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frank</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Diaz</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Sanchez</surname>
+              <given-names>FJ</given-names>
+            </name>
+          </person-group>
+          <source>Bayesian recognition of safety relevant motion activities with inertial sensors and barometer</source>
+          <conf-name>Proceedings of 2014 IEEE/ION Position, Location and Navigation Symposium (PLANS)</conf-name>
+          <conf-date>2004 May 5-8</conf-date>
+          <conf-loc>Monterey, CA</conf-loc>
+          <fpage>174</fpage>
+          <lpage>184</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yun</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Bachmann</surname>
+              <given-names>ER</given-names>
+            </name>
+            <name>
+              <surname>Moore</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Calusdian</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <source>Self-contained position tracking of human movement using small inertial/magnetic sensor modules</source>
+          <conf-name>Proceedings of 2007 IEEE International Conference on Robotics and Automation</conf-name>
+          <conf-date>2007 Apr 10-14</conf-date>
+          <conf-loc>Rome, Italy</conf-loc>
+          <fpage>2526</fpage>
+          <lpage>2533</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Epelde</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Carrasco</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Rajasekharan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Jimenez</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Vivanco</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Gomez-Fraga</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Universal remote delivery of rehabilitation: validation with seniors' joint rehabilitation therapy</article-title>
+          <source>Cybern Syst</source>
+          <year>2014</year>
+          <volume>45</volume>
+          <issue>2</issue>
+          <fpage>109</fpage>
+          <lpage>122</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reiss</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Stricker</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Aerobic activity monitoring: towards a long-term approach</article-title>
+          <source>Univers Access Inf Soc</source>
+          <year>2014</year>
+          <volume>13</volume>
+          <issue>1</issue>
+          <fpage>101</fpage>
+          <lpage>114</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schall</surname>
+              <given-names>MC</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <name>
+              <surname>Fethke</surname>
+              <given-names>NB</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Oyama</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Douphrate</surname>
+              <given-names>DI</given-names>
+            </name>
+          </person-group>
+          <article-title>Accuracy and repeatability of an inertial measurement unit system for field-based occupational studies</article-title>
+          <source>Ergonomics</source>
+          <year>2016</year>
+          <volume>59</volume>
+          <issue>4</issue>
+          <fpage>591</fpage>
+          <lpage>602</lpage>
+          <pub-id pub-id-type="pmid">26256753</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schulze</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Calliess</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Gietzelt</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wolf</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>TH</given-names>
+            </name>
+            <name>
+              <surname>Seehaus</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Development and clinical validation of an unobtrusive ambulatory knee function monitoring system with inertial 9DoF sensors</article-title>
+          <source>Conf Proc IEEE Eng Med Biol Soc</source>
+          <year>2012</year>
+          <volume>2012</volume>
+          <fpage>1968</fpage>
+          <lpage>1971</lpage>
+          <pub-id pub-id-type="pmid">23366302</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dadashi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Millet</surname>
+              <given-names>GP</given-names>
+            </name>
+            <name>
+              <surname>Aminian</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Estimation of front-crawl energy expenditure using wearable inertial measurement units</article-title>
+          <source>IEEE Sens J</source>
+          <year>2014</year>
+          <volume>14</volume>
+          <issue>4</issue>
+          <fpage>1020</fpage>
+          <lpage>1027</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Martin</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <source>Best fitness trackers 2016: what's the best fitness tracker? The 20 Fitness bands &amp; activity trackers you can buy in UK today [Internet]</source>
+          <publisher-loc>London</publisher-loc>
+          <publisher-name>PC Advisor</publisher-name>
+          <year>c2016</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.pcadvisor.co.uk/test-centre/wearable-tech/best-fitnessfitnesstrackers-2016-uk-summary-april-3498368/">http://www.pcadvisor.co.uk/test-centre/wearable-tech/best-fitnessfitnesstrackers-2016-uk-summary-april-3498368/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bennett</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <source>Fitbit Flex review [Internet]</source>
+          <publisher-loc>San Francisco (CA)</publisher-loc>
+          <publisher-name>Cnet.com</publisher-name>
+          <year>2013</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.cnet.com/products/fitbit-flex/">https://www.cnet.com/products/fitbit-flex/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <element-citation publication-type="book">
+          <collab>Withings Inspire Health</collab>
+          <source>Pulse Ox track improve [Internet]</source>
+          <publisher-loc>Issy-les-Moulineaux</publisher-loc>
+          <publisher-name>Withings Inspire Health</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://www.withings.com/eu/en/products/pulse?">http://www.withings.com/eu/en/products/pulse?</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <element-citation publication-type="book">
+          <source>2016 Best fitness trackers reviews: review &amp; comparisons [Internet]</source>
+          <publisher-loc>New York (NY)</publisher-loc>
+          <publisher-name>TopTenReviews.com</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://fitness-trackers-review.toptenreviews.com/">http://fitness-trackers-review.toptenreviews.com/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <element-citation publication-type="book">
+          <collab>Jawbone</collab>
+          <source>There's a better version of you out there: get up and find it [Internet]</source>
+          <publisher-loc>[place unknown]</publisher-loc>
+          <publisher-name>Jawbone</publisher-name>
+          <year>2014</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://twitter.com/jawbone/status/548633718261161985">https://twitter.com/jawbone/status/548633718261161985</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spinelle</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gerboles</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Villani</surname>
+              <given-names>MG</given-names>
+            </name>
+            <name>
+              <surname>Aleixandre</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bonavitacola</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Field calibration of a cluster of low-cost available sensors for air quality monitoring. Part A: Ozone and nitrogen dioxide</article-title>
+          <source>Sens Actuators B Chem</source>
+          <year>2015</year>
+          <volume>215</volume>
+          <fpage>249</fpage>
+          <lpage>257</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>CF</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Smart clothing: connecting human with clouds and big data for sustainable health monitoring</article-title>
+          <source>Mob Netw Appl</source>
+          <year>2016</year>
+          <volume>21</volume>
+          <issue>5</issue>
+          <fpage>825</fpage>
+          <lpage>845</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B46">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wan</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Zou</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Cai</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>VCMIA: a novel architecture for integrating vehicular cyber-physical systems and mobile cloud computing</article-title>
+          <source>Mob Netw Appl</source>
+          <year>2014</year>
+          <volume>19</volume>
+          <issue>2</issue>
+          <fpage>153</fpage>
+          <lpage>160</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B47">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Peng</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Youn</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Qiao</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel approach to optical switching for intradatacenter networking</article-title>
+          <source>J Lightwave Technol</source>
+          <year>2012</year>
+          <volume>30</volume>
+          <issue>2</issue>
+          <fpage>252</fpage>
+          <lpage>266</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B48">
+        <label>48</label>
+        <element-citation publication-type="confproc">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sanfilippo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Pettersen</surname>
+              <given-names>KY</given-names>
+            </name>
+          </person-group>
+          <source>A sensor fusion wearable health-monitoring system with haptic feedback</source>
+          <conf-name>Proceedings of 2015 11th International Conference on Innovations in Information Technology (IIT)</conf-name>
+          <conf-date>2015 Nov 1-3</conf-date>
+          <conf-loc>Dubai, UAE</conf-loc>
+          <fpage>262</fpage>
+          <lpage>266</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B49">
+        <label>49</label>
+        <element-citation publication-type="book">
+          <collab>Arduino: an open-source electronics prototyping platform [Internet]</collab>
+          <publisher-loc>[place unknown]</publisher-loc>
+          <publisher-name>Arduino</publisher-name>
+          <year>c2017</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="http://arduino.cc/">http://arduino.cc/</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B50">
+        <label>50</label>
+        <element-citation publication-type="book">
+          <collab>Cooking Hacks</collab>
+          <source>e-Health Sensor Platform Complete Kit [Internet]</source>
+          <publisher-loc>Zaragoza</publisher-loc>
+          <publisher-name>Cooking Hacks</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.cooking-hacks.com/ehealth-sensors-complete-kit-biometric-medical-arduino-raspberry-pi">https://www.cooking-hacks.com/ehealth-sensors-complete-kit-biometric-medical-arduino-raspberry-pi</ext-link></comment>
+        </element-citation>
+      </ref>
+      <ref id="B51">
+        <label>51</label>
+        <element-citation publication-type="book">
+          <collab>Cooking Hacks</collab>
+          <source>e-Health Sensor Shield [Internet]</source>
+          <publisher-loc>Zaragoza</publisher-loc>
+          <publisher-name>Cooking Hacks</publisher-name>
+          <year>2015</year>
+          <date-in-citation content-type="access-date">cited at 2017 Jan 25</date-in-citation>
+          <comment>Available from: <ext-link ext-link-type="uri" xlink:href="https://www.cooking-hacks.com/ehealth-sensor-shield-biometric-medical-arduino-raspberry-pi">https://www.cooking-hacks.com/ehealth-sensor-shield-biometric-medical-arduino-raspberry-pi</ext-link></comment>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <title>(A-D) Four popular motion tracker wearable devices. (E) Four popular motion tracker wearable devices wristworn.</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-g001"/>
+    </fig>
+    <fig id="F2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <title>Smart clothing in communication with outside world.</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-g002"/>
+    </fig>
+    <fig id="F3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <title>Washable smart clothing.</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-g003"/>
+    </fig>
+    <fig id="F4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <title>Arduino Uno board (an Arduino Wi-Fi Shield, e-Health
+Sensor Shield).</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-g004"/>
+    </fig>
+    <table-wrap id="T1" orientation="portrait" position="float">
+      <label>Table 1</label>
+      <caption>
+        <title>Importance of wearable devices and Internet of Thing (IoT) in market</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-i001"/>
+    </table-wrap>
+    <table-wrap id="T2" orientation="portrait" position="float">
+      <label>Table 2</label>
+      <caption>
+        <title>Comparison of nine commercially available motion tracking devices applied in research</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-i002"/>
+      <table-wrap-foot>
+        <fn>
+          <p>Accel: accelerometer, GYR: gyroscope, Magnet: magnetometer.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap id="T3" orientation="portrait" position="float">
+      <label>Table 3</label>
+      <caption>
+        <title>Features of four wearable devices</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-i003"/>
+    </table-wrap>
+    <table-wrap id="T4" orientation="portrait" position="float">
+      <label>Table 4</label>
+      <caption>
+        <title>Features and communication modes of four commercial wearable devices</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-i004"/>
+    </table-wrap>
+    <table-wrap id="T5" orientation="portrait" position="float">
+      <label>Table 5</label>
+      <caption>
+        <title>Used sensor position and task in smart cloth</title>
+      </caption>
+      <graphic xlink:href="hir-23-4-i005"/>
+      <table-wrap-foot>
+        <fn>
+          <p>ECG: electrocardiogram, EEG: electroencephalogram.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

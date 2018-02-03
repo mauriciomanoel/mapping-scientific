@@ -18,4 +18,5 @@ Route::get('/', function () {
 Route::get('import-ieee', 'DocumentController@ieee');
 Route::get('import-acm', 'DocumentController@acm');
 Route::get('import-elsevier', 'DocumentController@elsevier');
+Route::get('import-google-scholar', 'DocumentController@google_scholar');
 
