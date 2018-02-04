@@ -19,4 +19,9 @@ Route::get('import-ieee', 'DocumentController@ieee');
 Route::get('import-acm', 'DocumentController@acm');
 Route::get('import-elsevier', 'DocumentController@elsevier');
 Route::get('import-google-scholar', 'DocumentController@google_scholar');
+Route::get('capes-save-article-my-space', 'CapesController@save_article_my_space');
+Route::get('capes-get-bibtex-from-my-space', 'CapesController@get_bibtex_from_my_space');
+
+
+
 

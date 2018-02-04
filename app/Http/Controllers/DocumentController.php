@@ -6,6 +6,7 @@ use App\Document;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\WebService;
+use App\Http\Support\File;
 use Config;
 use Bibliophile\BibtexParse\ParseEntries;
 
@@ -202,16 +203,7 @@ class DocumentController extends Controller {
         
     }
 
-    private function loadFiles($path) {
-        $arrFiles = array();
-        $files = scandir($path);
-        foreach($files as $file) {
-            // ignore when directory
-            $dir = array_search($file, array(".", ".."));
-            if ($dir === 0 || $dir === 1) continue;
-
-            $arrFiles[] = $path . $file;
-        }
-        return $arrFiles;
+    public function capes_save_article_in_my_space() {
+        var_dump(App::cookie_capes); 
     }
 }
