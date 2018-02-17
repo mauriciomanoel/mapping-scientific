@@ -12,6 +12,20 @@ use Bibliophile\BibtexParse\ParseEntries;
 
 class DocumentController extends Controller {
     
+
+    public function import_ieee() {
+
+        $parse = new ParseEntries();
+        $parse->expandMacro = FALSE;
+        $parse->removeDelimit = true;
+        $parse->fieldExtract = true;
+        $parse->openBib("data_files/ieee/Internet_of_Things_AND_Health.bib");
+        $parse->extractEntries();
+
+        echo "<pre>"; var_dump($parse->bibtexInArray(), $parse->returnArrays()); exit;
+        
+    }
+
     /**
      * Load IEEE data
      *

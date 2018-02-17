@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('import-ieee', 'DocumentController@ieee');
+Route::get('import-ieee-bibtex', 'IEEEController@import_bibtex');
 Route::get('import-acm', 'DocumentController@acm');
 Route::get('import-elsevier', 'DocumentController@elsevier');
 Route::get('import-google-scholar', 'DocumentController@google_scholar');
