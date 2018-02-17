@@ -64,7 +64,8 @@ class Slug {
         '/ź|ż|ž/' => 'z',
     );
 
-    public static function slug($string, $replacement = '_') {
+    public static function slug($string, $replacement = '_') 
+    {
         $quotedReplacement = preg_quote($replacement, '/');
 
         $merge = array(
@@ -75,6 +76,11 @@ class Slug {
 
         $map = self::$_transliteration + $merge;
         return strtolower(preg_replace(array_keys($map), array_values($map), $string));
+    }
+
+    public static function back($string, $replacement = '_')
+    {
+        return str_replace($replacement, " ", $string);
     }
 
 }

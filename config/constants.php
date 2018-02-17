@@ -2,7 +2,7 @@
 
 return [
 
-    'url_acm'           => 'https://dl.acm.org/',
+    'pach_acm'           => 'https://dl.acm.org/',
     'pach_ieee'         => 'http://ieeexplore.ieee.org/',
     'pach_doi'          => 'https://doi.org/',    
     'url_acm_abstract'  => 'https://dl.acm.org/tab_abstract.cfm?id=',
@@ -13,7 +13,9 @@ return [
     'file'              => strtolower('Internet_of_Medical_Things_OR_Internet_of_healthcare_things OR Internet_of_M-health_Things'),
     'query_string'      => urlencode('"Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things"'),
     'xsrf_google'       => 'AMstHGQAAAAAWnMRp0OEUK1-sGxeA7FK3mM_6CqbxAo8',
-
+    'source_ieee'       => 'ieee',
+    'source_acm'        => 'acm',
+    'user_agent'        => (!empty($_SERVER["HTTP_USER_AGENT"])) ? $_SERVER["HTTP_USER_AGENT"] : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:58.0) Gecko/20100101 Firefox/58.0",
 ];
 
 ?>

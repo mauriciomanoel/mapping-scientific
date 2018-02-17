@@ -4,7 +4,7 @@ namespace App\Http\Support;
 
 class File {
 
-    public static function loadFiles($path) {
+    public static function load($path) {
         $arrFiles = array();
         $files = scandir($path);
         foreach($files as $file) {
