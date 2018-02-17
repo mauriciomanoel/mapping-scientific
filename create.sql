@@ -38,22 +38,23 @@ CREATE TABLE IF NOT EXISTS `document` (
   `pdf_link` varchar(255) DEFAULT NULL,
   `pdf_path_local` varchar(255) DEFAULT NULL,
   `published_in` varchar(255) DEFAULT NULL,
-  `numpages` varchar(255) DEFAULT NULL,
   `pages` varchar(255) DEFAULT NULL,
-  `publisher` varchar(255) DEFAULT NULL,
+  `source_id` varchar(255) DEFAULT NULL,
   `source` varchar(255) DEFAULT NULL COMMENT 'Bases',
   `search_string` varchar(255) DEFAULT NULL,
   `duplicate` tinyint(4) DEFAULT '0',
   `duplicate_id` int(11) DEFAULT NULL,
-  `cited` int(11) DEFAULT NULL,
-  `text_views` int(11) DEFAULT NULL,
-  `downloads` int(11) DEFAULT NULL,
+  `citation_count` int(11) DEFAULT NULL,
+  `text_views_count` int(11) DEFAULT NULL,
+  `download_count` int(11) DEFAULT NULL,
+  `metrics` text,
   `full_text` text,
   `bibtex` text,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=299 DEFAULT CHARSET=utf8;
 
+-- Exportação de dados foi desmarcado.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

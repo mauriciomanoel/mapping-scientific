@@ -89,91 +89,43 @@ class ACMController extends Controller {
             ->whereNotNull('source_id')
             ->get();
 
-
         foreach($documents as $document) {
-            $url        = Config::get('constants.url_acm_abstract') . $document->source_id;
-            $user_agent = Config::get('constants.user_agent');
-            $cookie     = WebService::getCookie($url);
-            $abstract   = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
-            $html_article = WebService::loadURL($document->document_url, $cookie, $user_agent);
-            $metrics      = HTML::getFromClass($html_article, "small-text", "td");
-            $metrics      = trim(strip_tags(str_replace("·", "", $metrics[0])));
+            $url            = Config::get('constants.url_acm_abstract') . $document->source_id;
+            $user_agent     = Config::get('constants.user_agent');
+            $cookie         = WebService::getCookie($url);
+            $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
+            $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
+            $metrics        = HTML::getFromClass($html_article, "small-text", "td");
+            $metrics        = trim(strip_tags(str_replace("·", "", $metrics[0])));
+            $data_metrics   = explode("\n", $metrics);
+            $metric         = "";
+            $citation_count = null;
+            $download_count = null;
+            foreach($data_metrics as $data_metric) {
+                $data_metric = trim($data_metric);
+                if (strpos($data_metric, "Citation Count")) {
+                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);
+                    if ($filter !== "") {
+                        $citation_count = $filter;
+                    }
+                } else if (strpos($data_metric, "Downloads (cumulative)")) { 
+                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);
+                    if ($filter !== "") {
+                        $download_count = $filter;
+                    }
+                }
 
-            var_dump($metrics);
-            var_dump($abstract); exit;
-
-            $document->abstract = $abstract;
+                $metric .= $data_metric . " |";
+            }
+            $metric = rtrim($metric, " |");
             
-        }
-
-        var_dump($documents); exit;
-
-        $path = "acm/";
-        $files = $this->loadFiles($path);
-        foreach($files as $file) {
-
-            $search_string = null;
-
-            // load file
-            $documents = file($file);
-            foreach($documents as $key => $document) {
-
-                if (empty($search_string)) {
-                    $search_string = trim($document);
-                }
-                if ($key < 2) continue;
-
-                $data = explode("\",\"", $document);                
-                $authors = trim($data[2]);
-                $title = trim($data[6]);
-                $type = trim($data[0]);
-                if (empty($authors)) continue;            
-                if (strpos($title, "\"") === 0) {
-                    $title = substr($title, 1);
-                }
-                if (strpos($type, "\"") === 0) {
-                    $type = substr($type, 1);
-                }
-                $title_slug = self::slug($title, "-");
-                $document = Document::where('title_slug', $title_slug)->first();
-
-                $duplicate = 0;
-                $duplicate_id = null;                
-                if (!empty($document)) {
-                    $duplicate = 1;
-                    $duplicate_id = $document->id;
-                }
-
-                $source_id                      = trim($data[1]);
-                $abstract                       = "";
-                
-                
-                $document_new = new Document;
-                $document_new->type             = $type;
-                $document_new->source_id        = $source_id;
-                $document_new->title            = $title;
-                $document_new->title_slug       = $title_slug;
-                $document_new->abstract         = (empty(trim($abstract))) ? null:trim($abstract);
-                $document_new->authors          = $authors;
-                $document_new->year             = $data[18];
-                $document_new->volume           = (empty(trim($data[14]))) ? null:trim($data[14]);
-                $document_new->issue            = (empty(trim($data[15]))) ? null:trim($data[15]);
-                $document_new->issn             = (empty(trim($data[19]))) ? null:trim($data[19]);
-                $document_new->isbns            = (empty(trim($data[23]))) ? null:trim($data[23]);
-                $document_new->doi              = (empty(trim($data[11]))) ? null:trim($data[11]); // https://doi.org/
-                $document_new->pdf_link         = null;
-                $document_new->document_url     = Config::get('constants.URL_ACM_CITATION') . $source_id;
-                $document_new->keywords         = (empty(trim($data[10]))) ? null:trim($data[10]);
-                $document_new->published_in     = $data[20] . " - " . $data[21];
-                $document_new->numpages         = $data[9];
-                $document_new->pages            = $data[7];
-                $document_new->publisher        = $data[25];
-                $document_new->source           = "acm";
-                $document_new->search_string    = $search_string;
-                $document_new->duplicate        = $duplicate;
-                $document_new->duplicate_id     = $duplicate_id;
-                $document_new->save();
-            }            
+            $document->abstract         = $abstract;
+            $document->citation_count   = $citation_count;
+            $document->download_count   = $download_count;
+            $document->metrics          = ltrim($metric, "");
+            $document->save();
+            
+            sleep(rand(2,4));
         }
     }    
 }
