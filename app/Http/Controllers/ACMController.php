@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
 use App\Http\Support\File;
 use App\Http\Support\Webservice;
+use App\Http\Support\Util;
 use App\Http\Support\CreateDocument;
 use App\Http\Support\HTML;
 use Config;
@@ -25,12 +26,11 @@ class ACMController extends Controller {
 
     public function import_bibtex() {
 
-        self::load_detail();
-
         $path_file = "data_files/acm/";
         $files = File::load($path_file);
-        
+        Util::showMessage("Start Import bibtex file from ACM");
         foreach($files as $file) {
+            Util::showMessage($file);
             $parse = new ParseEntries();
             $parse->expandMacro = FALSE;
             $parse->removeDelimit = true;
@@ -44,43 +44,61 @@ class ACMController extends Controller {
             foreach($articles as $key => $article) {
                 $query = str_replace(array($path_file, ".bib"), "", $file);
                 
+                $source_id = 0;
                 // Add new Parameter in variable article
                 $article["search_string"]   = self::$parameter_query[$query];
                 if (isset($article["acmid"])) {
                     $article["document_url"]    = Config::get('constants.pach_acm') . "citation.cfm?id=" . $article["acmid"];
-                    $article["source_id"]       = $article["acmid"];
+                    $source_id                  = $article["acmid"];
+                    $article["source_id"]       = $source_id;
                 }
                 $article["bibtex"]          = $bibtex[$key];
                 $article["source"]          = Config::get('constants.source_acm');
+                $article["file_name"]       = $file;
                 
                 $duplicate = 0;
                 $duplicate_id = null;
                 // Search if article exists
                 $title_slug = Slug::slug($article["title"], "-");
                 $article["title_slug"] = $title_slug;
-                $document = Document::where('title_slug', $title_slug)->first();
-                if (!empty($document)) {
-                    $duplicate      = 1;
-                    $duplicate_id   = $document->id;
-                }
-                // Create new Document
-                $document_new = CreateDocument::process($article);
-                $document_new->duplicate        = $duplicate;
-                $document_new->duplicate_id     = $duplicate_id;
-                $document_new->save();
-                
+                $document = Document::where(
+                    [
+                        ['title_slug', '=', $title_slug],
+                        ['file_name', '=', $file],
+                    ])
+                    ->first();
+                if (empty($document)) {
+                    // Create new Document
+                    $document_new = CreateDocument::process($article);
+
+                    // Find if exists article with title slug
+                    $document = Document::where('title_slug', $title_slug)->first();                
+                    if (!empty($document)) {
+                        $duplicate      = 1;
+                        $duplicate_id   = $document->id;
+                    }
+                    $document_new->duplicate        = $duplicate;
+                    $document_new->duplicate_id     = $duplicate_id;
+                    $document_new->save();
+
+                } else {
+                    Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
+                    Util::showMessage("");
+                }                
             }
         }
+        Util::showMessage("Finish Import bibtex file from ACM");
+        // self::load_detail();
     }
 
     /**
-     * Load ACM data
+     * Load Detail from Website ACM 
      *
      * @param  void
-     * @return Response
+     * @return void
      */
     public function load_detail() {
-
+        Util::showMessage("Start Load detail from ACM");
         $documents = Document::where(
             [
                 ['source', '=', Config::get('constants.source_acm')],
@@ -91,6 +109,7 @@ class ACMController extends Controller {
 
         foreach($documents as $document) {
             $url            = Config::get('constants.url_acm_abstract') . $document->source_id;
+            Util::showMessage($url);
             $user_agent     = Config::get('constants.user_agent');
             $cookie         = WebService::getCookie($url);
             $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
@@ -104,7 +123,7 @@ class ACMController extends Controller {
             foreach($data_metrics as $data_metric) {
                 $data_metric = trim($data_metric);
                 if (strpos($data_metric, "Citation Count")) {
-                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);
+                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);                    
                     if ($filter !== "") {
                         $citation_count = $filter;
                     }
@@ -122,10 +141,11 @@ class ACMController extends Controller {
             $document->abstract         = $abstract;
             $document->citation_count   = $citation_count;
             $document->download_count   = $download_count;
-            $document->metrics          = ltrim($metric, "");
+            $document->metrics          = ltrim($metric, " ");
             $document->save();
             
             sleep(rand(2,4));
         }
+        Util::showMessage("Finish Load detail from ACM");
     }    
 }

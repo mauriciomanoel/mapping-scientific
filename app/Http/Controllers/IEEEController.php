@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
 use App\Http\Support\File;
+use App\Http\Support\Util;
 use App\Http\Support\CreateDocument;
 use Config;
 use Bibliophile\BibtexParse\ParseEntries;
@@ -24,8 +25,9 @@ class IEEEController extends Controller {
     public function import_bibtex() {
         $path_file = "data_files/ieee/";
         $files = File::load($path_file);
-        
+        Util::showMessage("Start Import bibtex file from IEEE");
         foreach($files as $file) {
+            Util::showMessage($file);
             $parse = new ParseEntries();
             $parse->expandMacro = FALSE;
             $parse->removeDelimit = true;
@@ -44,219 +46,118 @@ class IEEEController extends Controller {
                 $article["document_url"]    = Config::get('constants.pach_ieee') . "document/" . $article["bibtexCitation"];
                 $article["bibtex"]          = $bibtex[$key];
                 $article["source"]          = Config::get('constants.source_ieee');
+                $article["source_id"]       = $article["bibtexCitation"];
+                $article["file_name"]       = $file;
                 
                 $duplicate = 0;
                 $duplicate_id = null;
                 // Search if article exists
                 $title_slug = Slug::slug($article["title"], "-");
                 $article["title_slug"] = $title_slug;
-                $document = Document::where('title_slug', $title_slug)->first();                
-                if (!empty($document)) {
-                    $duplicate      = 1;
-                    $duplicate_id   = $document->id;
+                // $document = Document::where('title_slug', $title_slug)->first();                
+                // if (!empty($document)) {
+                //     $duplicate      = 1;
+                //     $duplicate_id   = $document->id;
+                // }
+                // // Create new Document
+                // $document_new = CreateDocument::process($article);
+                // $document_new->duplicate        = $duplicate;
+                // $document_new->duplicate_id     = $duplicate_id;
+                // $document_new->save();
+
+                $document = Document::where(
+                    [
+                        ['title_slug', '=', $title_slug],
+                        ['file_name', '=', $file],
+                    ])
+                    ->first();
+                if (empty($document)) {
+                    // Create new Document
+                    $document_new = CreateDocument::process($article);
+
+                    // Find if exists article with title slug
+                    $document = Document::where('title_slug', $title_slug)->first();                
+                    if (!empty($document)) {
+                        $duplicate      = 1;
+                        $duplicate_id   = $document->id;
+                    }
+                    $document_new->duplicate        = $duplicate;
+                    $document_new->duplicate_id     = $duplicate_id;
+                    $document_new->save();
+
+                } else {
+                    Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
+                    Util::showMessage("");
                 }
-                // Create new Document
-                $document_new = CreateDocument::process($article);
-                $document_new->duplicate        = $duplicate;
-                $document_new->duplicate_id     = $duplicate_id;
-                $document_new->save();
                 
             }
         }
+        Util::showMessage("Finish Import bibtex file from IEEE");
     }
 
     /**
-     * Load IEEE data
+     * Load Detail from Website ACM 
      *
      * @param  void
-     * @return Response
+     * @return void
      */
-    public function ieee_csv() {
-        
-        $path = "ieee/";
-        
-        $files = $this->loadFiles($path);
-        foreach($files as $file) {
+    public function load_detail() {
+        $url = "http://ieeexplore.ieee.org/rest/document/7087693/metrics";
+        $cookie         = WebService::getCookie($url);
+            $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
+            $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
+            var_dump($html_article); exit;
 
-            $search_string = null;
+        Util::showMessage("Start Load detail from IEEE");
+        $documents = Document::where(
+            [
+                ['source', '=', Config::get('constants.source_iee')],
+                ['duplicate', '=', '0'],
+            ])
+            ->whereNotNull('source_id')
+            ->get();
 
-            // load file
-            $documents = file($file);
-            foreach($documents as $key => $document) {
+            var_dump($documents); exit;
 
-                if (empty($search_string)) {
-                    $search_string = trim($document);
-                }
-                if ($key < 2) continue;
-
-                $data = explode("\",\"", $document);
-                $authors = trim($data[1]);
-                $title = trim($data[0]);
-                if (empty($authors)) continue;            
-                if (strpos($title, "\"") === 0) {
-                    $title = substr($title, 1);
-                }
-                $title_slug = self::slug($title, "-");
-                $document = Document::where('title_slug', $title_slug)->first();
-
-                $duplicate = 0;
-                $duplicate_id = null;                
-                if (!empty($document)) {
-                    $duplicate = 1;
-                    $duplicate_id = $document->id;
-                }
-                
-                $type = "article";
-                if (strpos($title, "\"") === 0) {
-                    $title = substr($title, 1);
-                }
-                
-                $sources = preg_split('/[^0-9]/', $data[15], -1, PREG_SPLIT_NO_EMPTY); // filter number only
-                $source_id = (!empty($sources)) ? $sources[0]:null;
-                $pdf_link = $data[15];
-
-                if (strpos($data[15], "pdfType=chapter") !== false) {
-                    $pdf_link = Config::get('constants.pach_ieee') . "xpl/abstractSimilar.jsp?arnumber=" . $source_id;
-                    $type = "ebook";
+        foreach($documents as $document) {
+            $url            = Config::get('constants.url_acm_abstract') . $document->source_id;
+            Util::showMessage($url);
+            $user_agent     = Config::get('constants.user_agent');
+            $cookie         = WebService::getCookie($url);
+            $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
+            $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
+            $metrics        = HTML::getFromClass($html_article, "small-text", "td");
+            $metrics        = trim(strip_tags(str_replace("·", "", $metrics[0])));
+            $data_metrics   = explode("\n", $metrics);
+            $metric         = "";
+            $citation_count = null;
+            $download_count = null;
+            foreach($data_metrics as $data_metric) {
+                $data_metric = trim($data_metric);
+                if (strpos($data_metric, "Citation Count")) {
+                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);                    
+                    if ($filter !== "") {
+                        $citation_count = $filter;
+                    }
+                } else if (strpos($data_metric, "Downloads (cumulative)")) { 
+                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);
+                    if ($filter !== "") {
+                        $download_count = $filter;
+                    }
                 }
 
-                $document_new = new Document;
-                $document_new->type             = $type;
-                $document_new->source_id        = $source_id;
-                $document_new->title            = $title;
-                $document_new->title_slug       = $title_slug;
-                $document_new->abstract         = $data[10];
-                $document_new->authors          = $authors;
-                $document_new->year             = $data[5];
-                $document_new->volume           = (empty(trim($data[6]))) ? null:trim($data[6]);
-                $document_new->issue            = (empty(trim($data[7]))) ? null:trim($data[7]);
-                $document_new->issn             = (empty(trim($data[11]))) ? null:trim($data[11]);
-                $document_new->isbns            = (empty(trim($data[12]))) ? null:trim($data[12]);
-                $document_new->doi              = (empty(trim($data[13]))) ? null:trim($data[13]); // https://doi.org/
-                $document_new->pdf_link         = $pdf_link;
-                $document_new->keywords         = (empty(trim($data[16]))) ? null:trim($data[16]);
-                $document_new->published_in     = $data[3];
-                $document_new->numpages         = $data[8] . "-" . $data[9];
-                $document_new->pages            = null;
-                $document_new->publisher        = $data[29];
-                $document_new->source           = "ieeexplore";
-                $document_new->search_string    = $search_string;
-                $document_new->duplicate        = $duplicate;
-                $document_new->duplicate_id     = $duplicate_id;
-                $document_new->save();
-
-            }            
+                $metric .= $data_metric . " |";
+            }
+            $metric = rtrim($metric, " |");
+            
+            $document->abstract         = $abstract;
+            $document->citation_count   = $citation_count;
+            $document->download_count   = $download_count;
+            $document->metrics          = ltrim($metric, " ");
+            $document->save();
+            
+            sleep(rand(2,4));
         }
-    }
-
-    /**
-     * Load ACM data
-     *
-     * @param  void
-     * @return Response
-     */
-    public function acm() {
-
-        $path = "acm/";
-        $files = $this->loadFiles($path);
-        foreach($files as $file) {
-
-            $search_string = null;
-
-            // load file
-            $documents = file($file);
-            foreach($documents as $key => $document) {
-
-                if (empty($search_string)) {
-                    $search_string = trim($document);
-                }
-                if ($key < 2) continue;
-
-                $data = explode("\",\"", $document);                
-                $authors = trim($data[2]);
-                $title = trim($data[6]);
-                $type = trim($data[0]);
-                if (empty($authors)) continue;            
-                if (strpos($title, "\"") === 0) {
-                    $title = substr($title, 1);
-                }
-                if (strpos($type, "\"") === 0) {
-                    $type = substr($type, 1);
-                }
-                $title_slug = self::slug($title, "-");
-                $document = Document::where('title_slug', $title_slug)->first();
-
-                $duplicate = 0;
-                $duplicate_id = null;                
-                if (!empty($document)) {
-                    $duplicate = 1;
-                    $duplicate_id = $document->id;
-                }
-
-                $source_id                      = trim($data[1]);
-                $abstract                       = "";
-                $abstract                       = trim(strip_tags(WebService::loadUrl(Config::get('constants.URL_ACM_ABSTRACT') . $source_id))); // load abstract 
-                
-                $document_new = new Document;
-                $document_new->type             = $type;
-                $document_new->source_id        = $source_id;
-                $document_new->title            = $title;
-                $document_new->title_slug       = $title_slug;
-                $document_new->abstract         = (empty(trim($abstract))) ? null:trim($abstract);
-                $document_new->authors          = $authors;
-                $document_new->year             = $data[18];
-                $document_new->volume           = (empty(trim($data[14]))) ? null:trim($data[14]);
-                $document_new->issue            = (empty(trim($data[15]))) ? null:trim($data[15]);
-                $document_new->issn             = (empty(trim($data[19]))) ? null:trim($data[19]);
-                $document_new->isbns            = (empty(trim($data[23]))) ? null:trim($data[23]);
-                $document_new->doi              = (empty(trim($data[11]))) ? null:trim($data[11]); // https://doi.org/
-                $document_new->pdf_link         = null;
-                $document_new->document_url     = Config::get('constants.URL_ACM_CITATION') . $source_id;
-                $document_new->keywords         = (empty(trim($data[10]))) ? null:trim($data[10]);
-                $document_new->published_in     = $data[20] . " - " . $data[21];
-                $document_new->numpages         = $data[9];
-                $document_new->pages            = $data[7];
-                $document_new->publisher        = $data[25];
-                $document_new->source           = "acm";
-                $document_new->search_string    = $search_string;
-                $document_new->duplicate        = $duplicate;
-                $document_new->duplicate_id     = $duplicate_id;
-                $document_new->save();
-            }            
-        }
-    }
-
-    public function elsevier() {
-
-        $parse = new ParseEntries();
-        $parse->expandMacro = FALSE;
-        $parse->removeDelimit = TRUE;
-        $parse->fieldExtract = TRUE;
-        // $parse->openBib("elsevier/science-Health.bib");
-        $parse->openBib("periodicos-capes/periodicos_capes_Internet_of_Things_and_health.bib");
-        $parse->extractEntries();
-        $parse->closeBib();
-
-        echo "<pre>"; var_dump($parse->returnArrays()); exit;
-        
-    }
-
-    public function google_scholar() {
-
-        $parse = new ParseEntries();
-        $parse->expandMacro = FALSE;
-        $parse->removeDelimit = TRUE;
-        $parse->fieldExtract = TRUE;
-        // $parse->openBib("elsevier/science-Health.bib");
-        $parse->openBib("google-scholar/google_scholar_health_IoT.bib");
-        $parse->extractEntries();
-        $parse->closeBib();
-
-        echo "<pre>"; var_dump($parse->returnArrays()); exit;
-        
-    }
-
-    public function capes_save_article_in_my_space() {
-        var_dump(App::cookie_capes); 
-    }
+        Util::showMessage("Finish Load detail from IEEE");
+    }  
 }

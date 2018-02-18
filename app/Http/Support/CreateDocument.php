@@ -39,7 +39,7 @@ class CreateDocument {
         $bibtex             = $article["bibtex"];
         $source             = $article["source"];
         $source_id          = isset($article["source_id"]) ? $article["source_id"] : null;
-        
+        $file_name          = $article["file_name"];
 
         $document_new = new Document;
         $document_new->type             = $type;
@@ -63,6 +63,7 @@ class CreateDocument {
         $document_new->source_id        = $source_id;
         $document_new->search_string    = $search_string;
         $document_new->bibtex           = $bibtex;
+        $document_new->file_name        = $file_name;
 
         return $document_new;
         
