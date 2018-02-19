@@ -110,6 +110,7 @@ class ElsevierController extends Controller {
                 ['duplicate', '=', '0'],
             ])
             ->whereNotNull('source_id')
+            ->whereNull('metrics')
             ->get();
         
         Util::showMessage("Total of Articles: " . count($documents));            

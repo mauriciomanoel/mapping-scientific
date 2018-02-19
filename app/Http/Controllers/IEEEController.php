@@ -60,6 +60,7 @@ class IEEEController extends Controller {
                     [
                         ['title_slug', '=', $title_slug],
                         ['file_name', '=', $file],
+                        ['source', '=', Config::get('constants.source_ieee')],
                     ])
                     ->first();
                 if (empty($document)) {

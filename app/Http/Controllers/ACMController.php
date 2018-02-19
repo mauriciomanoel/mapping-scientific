@@ -65,6 +65,7 @@ class ACMController extends Controller {
                     [
                         ['title_slug', '=', $title_slug],
                         ['file_name', '=', $file],
+                        ['source', '=', Config::get('constants.source_acm')],
                     ])
                     ->first();
                 if (empty($document)) {
