@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
 use App\Http\Support\File;
 use App\Http\Support\Util;
+use App\Http\Support\Webservice;
 use App\Http\Support\CreateDocument;
 use Config;
 use Bibliophile\BibtexParse\ParseEntries;
@@ -23,6 +24,7 @@ class IEEEController extends Controller {
                                      "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")');
 
     public function import_bibtex() {
+        
         $path_file = "data_files/ieee/";
         $files = File::load($path_file);
         Util::showMessage("Start Import bibtex file from IEEE");
@@ -54,17 +56,6 @@ class IEEEController extends Controller {
                 // Search if article exists
                 $title_slug = Slug::slug($article["title"], "-");
                 $article["title_slug"] = $title_slug;
-                // $document = Document::where('title_slug', $title_slug)->first();                
-                // if (!empty($document)) {
-                //     $duplicate      = 1;
-                //     $duplicate_id   = $document->id;
-                // }
-                // // Create new Document
-                // $document_new = CreateDocument::process($article);
-                // $document_new->duplicate        = $duplicate;
-                // $document_new->duplicate_id     = $duplicate_id;
-                // $document_new->save();
-
                 $document = Document::where(
                     [
                         ['title_slug', '=', $title_slug],
@@ -101,62 +92,44 @@ class IEEEController extends Controller {
      * @param  void
      * @return void
      */
-    public function load_detail() {
-        $url = "http://ieeexplore.ieee.org/rest/document/7087693/metrics";
-        $cookie         = WebService::getCookie($url);
-            $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
-            $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
-            var_dump($html_article); exit;
-
+    public function load_detail() {        
         Util::showMessage("Start Load detail from IEEE");
+
         $documents = Document::where(
             [
-                ['source', '=', Config::get('constants.source_iee')],
+                ['source', '=', Config::get('constants.source_ieee')],
                 ['duplicate', '=', '0'],
             ])
             ->whereNotNull('source_id')
+            ->whereNull('metrics')
             ->get();
-
-            var_dump($documents); exit;
-
-        foreach($documents as $document) {
-            $url            = Config::get('constants.url_acm_abstract') . $document->source_id;
+        
+        Util::showMessage("Total of Articles: " . count($documents));            
+        $url = Config::get('constants.api_rest_ieee') . "document/". $documents[0]->source_id . "/metrics";
+        $cookie         = WebService::getCookie($url);
+        $user_agent     = Config::get('constants.user_agent');
+                
+        foreach($documents as $key => $document) {
+            $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/metrics";
             Util::showMessage($url);
-            $user_agent     = Config::get('constants.user_agent');
-            $cookie         = WebService::getCookie($url);
-            $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
-            $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
-            $metrics        = HTML::getFromClass($html_article, "small-text", "td");
-            $metrics        = trim(strip_tags(str_replace("·", "", $metrics[0])));
-            $data_metrics   = explode("\n", $metrics);
-            $metric         = "";
-            $citation_count = null;
-            $download_count = null;
-            foreach($data_metrics as $data_metric) {
-                $data_metric = trim($data_metric);
-                if (strpos($data_metric, "Citation Count")) {
-                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);                    
-                    if ($filter !== "") {
-                        $citation_count = $filter;
-                    }
-                } else if (strpos($data_metric, "Downloads (cumulative)")) { 
-                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);
-                    if ($filter !== "") {
-                        $download_count = $filter;
-                    }
-                }
+            @$parameters["referer"] = $url;
+            $html_metric = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
+            $metrics = json_decode($html_metric, true);        
+            if (!empty($metrics) && is_array($metrics)) {
 
-                $metric .= $data_metric . " |";
+                $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/citations?count=30";
+                @$parameters["referer"] = $url;
+                $html_citaticon_metric   = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
+                $citations = json_decode($html_citaticon_metric, true);
+                $document->citation_count   = @$citations["nonIeeeCitationCount"] + @$citations["ieeeCitationCount"] + @$citations["patentCitationCount"];
+                $document->download_count   = @$metrics["metrics"]["totalDownloads"];
+                $document->metrics          = $html_metric . " | " . $html_citaticon_metric;
+                $document->save();
             }
-            $metric = rtrim($metric, " |");
-            
-            $document->abstract         = $abstract;
-            $document->citation_count   = $citation_count;
-            $document->download_count   = $download_count;
-            $document->metrics          = ltrim($metric, " ");
-            $document->save();
-            
-            sleep(rand(2,4));
+            // var_dump($html_metric + " | " + $html_citaticon_metric);  exit;            
+            $rand = rand(2,4);
+            Util::showMessage("$rand seconds pause for next step.");
+            sleep($rand);
         }
         Util::showMessage("Finish Load detail from IEEE");
     }  

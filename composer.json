@@ -8,7 +8,7 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "bibliophile/bibtexparse": "1.0"
+        "bibliophile/bibtexparse": "1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -54,7 +54,7 @@
             "type": "package",
             "package": {
                 "name": "bibliophile/bibtexparse",
-                "version": "1.0",
+                "version": "1.1",
                 "source": {
                     "url": "https://github.com/mauriciomanoel/bibtexParse.git",
                     "type": "git",

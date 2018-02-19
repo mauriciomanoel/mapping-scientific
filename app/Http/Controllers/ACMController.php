@@ -88,7 +88,7 @@ class ACMController extends Controller {
             }
         }
         Util::showMessage("Finish Import bibtex file from ACM");
-        // self::load_detail();
+        self::load_detail();
     }
 
     /**
@@ -105,6 +105,7 @@ class ACMController extends Controller {
                 ['duplicate', '=', '0'],
             ])
             ->whereNotNull('source_id')
+            ->whereNull('metrics')
             ->get();
 
         foreach($documents as $document) {
@@ -144,7 +145,9 @@ class ACMController extends Controller {
             $document->metrics          = ltrim($metric, " ");
             $document->save();
             
-            sleep(rand(2,4));
+            $rand = rand(2,4);
+            Util::showMessage("$rand seconds pause for next step.");
+            sleep($rand);
         }
         Util::showMessage("Finish Load detail from ACM");
     }    

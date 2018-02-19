@@ -18,7 +18,7 @@ class WebService {
             curl_setopt( $ch, CURLOPT_POST, 1 );
             curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
         }
-        $header[0] = "Accept: text/xml,application/xml,application/xhtml+xml,";
+        $header[0] = "Accept: application/json,text/plain,text/xml,application/xml,application/xhtml+xml,";
         $header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
         $header[] = "Cache-Control: max-age=0";
         $header[] = "Connection: keep-alive";

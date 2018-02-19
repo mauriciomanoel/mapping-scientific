@@ -13,7 +13,8 @@ class CreateDocument {
 
         $author = null;
         if (isset($article["author"])) {
-            $author = str_replace(array("{", "}", "\"", "\'", "~", "\\", "`"), '', $article["author"]);
+            $author     = ctype_print($article["author"]) ? $article["author"] : utf8_decode($article["author"]); 
+            $author     = str_replace(array("{", "}", "\"", "\'", "~", "\\", "`", "?"), '', $author);
         }
         
         $authors            = $author;
