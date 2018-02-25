@@ -9,7 +9,7 @@ class CreateDocument {
     public static function process($article) {
 
         $search_string  = $article["search_string"];
-        $type           = $article["bibtexEntryType"];
+        $type           = $article["type"];
 
         $author = null;
         if (isset($article["author"])) {
@@ -20,7 +20,7 @@ class CreateDocument {
         $authors            = $author;
         $title              = $article["title"];
         $title_slug         = $article["title_slug"];        
-        $bibtex_citation    = $article["bibtexCitation"];
+        $bibtex_citation    = $article["citation-key"];
         $published_in       = (isset($article["series"]) ? $article["series"] . ": " : null) . isset($article["booktitle"]) ? $article["booktitle"] : null;
         if (empty($published_in)) {
             $published_in    = isset($article["journal"]) ? $article["journal"] : null;

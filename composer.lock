@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2ac807b86d55a3eac7b0ccc1162be77",
+    "content-hash": "f39aee378e7ec94b728f90dc004032e3",
     "packages": [
         {
             "name": "bibliophile/bibtexparse",
@@ -1001,6 +1001,90 @@
                 "uuid"
             ],
             "time": "2018-01-20T00:28:24+00:00"
+        },
+        {
+            "name": "renanbr/bibtex-parser",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/renanbr/bibtex-parser.git",
+                "reference": "68ee37ed42be58cfb329ee3a4ce4e7a1b9b29864"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/renanbr/bibtex-parser/zipball/68ee37ed42be58cfb329ee3a4ce4e7a1b9b29864",
+                "reference": "68ee37ed42be58cfb329ee3a4ce4e7a1b9b29864",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.8",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "ryakad/pandoc-php": "^1.0"
+            },
+            "suggest": {
+                "ryakad/pandoc-php": "Needed to support LaTeX decoder in class RenanBr\\BibTexParser\\Processor\\LatexToUnicodeProcessor"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RenanBr\\BibTexParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Renan de Lima Barbosa",
+                    "email": "renandelima@gmail.com"
+                }
+            ],
+            "description": "BibTex Parser provides an API to read .bib files programmatically",
+            "keywords": [
+                "Bibliography",
+                "bib",
+                "bibtex",
+                "citation",
+                "cite",
+                "latex",
+                "parser"
+            ],
+            "time": "2018-02-04T03:36:15+00:00"
+        },
+        {
+            "name": "ryakad/pandoc-php",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ryakad/pandoc-php.git",
+                "reference": "0cfdf959408e4c481db942b26785d94b9fe46672"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ryakad/pandoc-php/zipball/0cfdf959408e4c481db942b26785d94b9fe46672",
+                "reference": "0cfdf959408e4c481db942b26785d94b9fe46672",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pandoc": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2015-01-07T05:07:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2376,16 +2460,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.4",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -2435,7 +2519,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
