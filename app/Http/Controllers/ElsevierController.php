@@ -112,44 +112,74 @@ class ElsevierController extends Controller {
      * @return void
      */
     public function load_detail() {        
-        Util::showMessage("Start Load detail from IEEE");
+        Util::showMessage("Start Load detail from Elsevier ScienceDirect");
 
         $documents = Document::where(
             [
-                ['source', '=', Config::get('constants.source_ieee')],
+                ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
                 ['duplicate', '=', '0'],
             ])
-            ->whereNotNull('source_id')
+            ->whereNotNull('doi')
             ->whereNull('metrics')
             ->get();
         
-        Util::showMessage("Total of Articles: " . count($documents));            
-        $url = Config::get('constants.api_rest_ieee') . "document/". $documents[0]->source_id . "/metrics";
-        $cookie         = WebService::getCookie($url);
-        $user_agent     = Config::get('constants.user_agent');
+        Util::showMessage("Total of Articles: " . count($documents));
+        if (!empty($documents)) 
+        {
+            $cookie         = "";
+            $user_agent     = Config::get('constants.user_agent');                    
+            
+            foreach($documents as $key => $document) {
                 
-        foreach($documents as $key => $document) {
-            $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/metrics";
-            Util::showMessage($url);
-            @$parameters["referer"] = $url;
-            $html_metric = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
-            $metrics = json_decode($html_metric, true);        
-            if (!empty($metrics) && is_array($metrics)) {
+                $doi = str_replace(array("https://doi.org/", "http://doi.org/"), "", $document->doi);
+                $url = Config::get('constants.api_rest_plu_ms_elsevier') . $doi;
+                Util::showMessage($url);                
+                $json_metric = WebService::loadURL($url, $cookie, $user_agent);
+                $metrics = json_decode($json_metric, true);                
 
-                $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/citations?count=30";
-                @$parameters["referer"] = $url;
-                $html_citaticon_metric   = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
-                $citations = json_decode($html_citaticon_metric, true);
-                $document->citation_count   = @$citations["nonIeeeCitationCount"] + @$citations["ieeeCitationCount"] + @$citations["patentCitationCount"];
-                $document->download_count   = @$metrics["metrics"]["totalDownloads"];
-                $document->metrics          = $html_metric . " | " . $html_citaticon_metric;
+                if (isset($metrics["error_code"])) {
+                    Util::showMessage("Metric not fond: $url");
+                    continue;
+                }
+                // var_dump($metrics); 
+                $captures   =  @$metrics["statistics"]["Captures"];
+                $citations  =  @$metrics["statistics"]["Citations"];                
+                $download_count = null;
+                $citation_count = null;
+
+                // get Readers -> Downloads
+                if (!empty($captures)) 
+                {
+                    foreach($captures as $capture) 
+                    {
+                        if ($capture["label"] == "Readers") 
+                        {
+                            $download_count += $capture["count"];
+                        }
+                    }
+                }
+                // Get Citation
+                if (!empty($citations))
+                {
+                    foreach($citations as $citation)
+                    {
+                        if ($citation["label"] == "Citation Indexes" && $citation["source"] == "CrossRef")
+                        {
+                            $citation_count += $citation["count"];
+                        }
+                    }
+                }
+                
+                $document->citation_count   = $citation_count;
+                $document->download_count   = $download_count;
+                $document->metrics          = $json_metric;
                 $document->save();
+
+                $rand = rand(2,4);
+                Util::showMessage("$rand seconds pause for next step.");
+                sleep($rand);
             }
-            // var_dump($html_metric + " | " + $html_citaticon_metric);  exit;            
-            $rand = rand(2,4);
-            Util::showMessage("$rand seconds pause for next step.");
-            sleep($rand);
         }
-        Util::showMessage("Finish Load detail from IEEE");
+        Util::showMessage("Finish Load detail from Elsevier ScienceDirect");
     }  
 }
