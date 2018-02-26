@@ -117,72 +117,72 @@ class CapesController extends Controller {
     public function load_detail() {        
         Util::showMessage("Start Load detail from Elsevier ScienceDirect");
 
-        $documents = Document::where(
-            [
-                ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
-                ['duplicate', '=', '0'],
-            ])
-            ->whereNotNull('doi')
-            ->whereNull('metrics')
-            ->get();
+        // $documents = Document::where(
+        //     [
+        //         ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
+        //         ['duplicate', '=', '0'],
+        //     ])
+        //     ->whereNotNull('doi')
+        //     ->whereNull('metrics')
+        //     ->get();
         
-        Util::showMessage("Total of Articles: " . count($documents));
-        if (!empty($documents)) 
-        {
-            $cookie         = "";
-            $user_agent     = Config::get('constants.user_agent');                    
+        // Util::showMessage("Total of Articles: " . count($documents));
+        // if (!empty($documents)) 
+        // {
+        //     $cookie         = "";
+        //     $user_agent     = Config::get('constants.user_agent');                    
             
-            foreach($documents as $key => $document) {
+        //     foreach($documents as $key => $document) {
                 
-                $doi = str_replace(array("https://doi.org/", "http://doi.org/"), "", $document->doi);
-                $url = Config::get('constants.api_rest_plu_ms_elsevier') . $doi;
-                Util::showMessage($url);                
-                $json_metric = WebService::loadURL($url, $cookie, $user_agent);
-                $metrics = json_decode($json_metric, true);                
+        //         $doi = str_replace(array("https://doi.org/", "http://doi.org/"), "", $document->doi);
+        //         $url = Config::get('constants.api_rest_plu_ms_elsevier') . $doi;
+        //         Util::showMessage($url);                
+        //         $json_metric = WebService::loadURL($url, $cookie, $user_agent);
+        //         $metrics = json_decode($json_metric, true);                
 
-                if (isset($metrics["error_code"])) {
-                    Util::showMessage("Metric not fond: $url");
-                    continue;
-                }
-                // var_dump($metrics); 
-                $captures   =  @$metrics["statistics"]["Captures"];
-                $citations  =  @$metrics["statistics"]["Citations"];                
-                $download_count = null;
-                $citation_count = null;
+        //         if (isset($metrics["error_code"])) {
+        //             Util::showMessage("Metric not fond: $url");
+        //             continue;
+        //         }
+        //         // var_dump($metrics); 
+        //         $captures   =  @$metrics["statistics"]["Captures"];
+        //         $citations  =  @$metrics["statistics"]["Citations"];                
+        //         $download_count = null;
+        //         $citation_count = null;
 
-                // get Readers -> Downloads
-                if (!empty($captures)) 
-                {
-                    foreach($captures as $capture) 
-                    {
-                        if ($capture["label"] == "Readers") 
-                        {
-                            $download_count += $capture["count"];
-                        }
-                    }
-                }
-                // Get Citation
-                if (!empty($citations))
-                {
-                    foreach($citations as $citation)
-                    {
-                        if ($citation["label"] == "Citation Indexes" && $citation["source"] == "CrossRef")
-                        {
-                            $citation_count += $citation["count"];
-                        }
-                    }
-                }
+        //         // get Readers -> Downloads
+        //         if (!empty($captures)) 
+        //         {
+        //             foreach($captures as $capture) 
+        //             {
+        //                 if ($capture["label"] == "Readers") 
+        //                 {
+        //                     $download_count += $capture["count"];
+        //                 }
+        //             }
+        //         }
+        //         // Get Citation
+        //         if (!empty($citations))
+        //         {
+        //             foreach($citations as $citation)
+        //             {
+        //                 if ($citation["label"] == "Citation Indexes" && $citation["source"] == "CrossRef")
+        //                 {
+        //                     $citation_count += $citation["count"];
+        //                 }
+        //             }
+        //         }
                 
-                $document->citation_count   = $citation_count;
-                $document->download_count   = $download_count;
-                $document->metrics          = $json_metric;
-                $document->save();
+        //         $document->citation_count   = $citation_count;
+        //         $document->download_count   = $download_count;
+        //         $document->metrics          = $json_metric;
+        //         $document->save();
 
-                $rand = rand(2,4);
-                Util::showMessage("$rand seconds pause for next step.");
-                sleep($rand);
-            }
-        }
+        //         $rand = rand(2,4);
+        //         Util::showMessage("$rand seconds pause for next step.");
+        //         sleep($rand);
+        //     }
+        // }
         Util::showMessage("Finish Load detail from Elsevier ScienceDirect");
     }  
 }
