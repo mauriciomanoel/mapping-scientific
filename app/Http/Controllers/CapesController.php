@@ -19,6 +19,7 @@ use RenanBr\BibTexParser\ParserException;
 use Config;
 
 class CapesController extends Controller {
+
     private static $parameter_query = array(
                                      "healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
                                      "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M-health_Things" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
@@ -30,7 +31,7 @@ class CapesController extends Controller {
                                     );
 
     public function import_bibtex() {
-        
+
         $path_file = "data_files/periodicos-capes/";
         $files = File::load($path_file);
         Util::showMessage("Start Import bibtex file from Portal Capes");
@@ -46,15 +47,19 @@ class CapesController extends Controller {
                 $entries = $listener->export();     // Get processed data from the Listener
 
                 foreach($entries as $key => $article) {
-                    
+
+                    if (empty(@$article["title"])) {
+                        Util::showMessage("Ignore article without Title. citation-key: " . $article["citation-key"]);
+                        continue;
+                    }
                     $query = str_replace(array($path_file, ".bib"), "", $file);
                     
                     // Add new Parameter in variable article
                     $article["search_string"] = self::$parameter_query[$query];
                     $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;
-                    $article["document_url"]    = $article["url"];
+                    $article["document_url"]    = !empty($article["url"]) ? $article["url"] : null;
                     $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
-                    $article["source"]          = Config::get('constants.source_elsevier_sciencedirect');
+                    $article["source"]          = Config::get('constants.source_capes');
                     $article["source_id"]       = null;
                     $article["file_name"]       = $file;
                     
@@ -63,12 +68,12 @@ class CapesController extends Controller {
                     // Search if article exists
                     $title_slug = Slug::slug($article["title"], "-");
                     $article["title_slug"] = $title_slug;
-                    continue;
+                    
                     $document = Document::where(
                         [
                             ['title_slug', '=', $title_slug],
                             ['file_name', '=', $file],
-                            ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
+                            ['source', '=', Config::get('constants.source_capes')],
                         ])
                         ->first();
                         

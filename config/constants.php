@@ -14,11 +14,13 @@ return [
     'file'                          => strtolower('Internet_of_Medical_Things_OR_Internet_of_healthcare_things OR Internet_of_M-health_Things'),
     'query_string'                  => urlencode('"Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things"'),
     'xsrf_google'                   => 'AMstHGQAAAAAWnMRp0OEUK1-sGxeA7FK3mM_6CqbxAo8',
+    'api_rest_plu_ms_elsevier'      => 'https://api.plu.mx/widget/elsevier/artifact?type=doi&id=',
+    'user_agent'                    => (!empty(@$_SERVER["HTTP_USER_AGENT"])) ? @$_SERVER["HTTP_USER_AGENT"] : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:58.0) Gecko/20100101 Firefox/58.0",
     'source_ieee'                   => 'ieee',
     'source_acm'                    => 'acm',
     'source_elsevier_sciencedirect' => 'elsevier_sciencedirect',
-    'api_rest_plu_ms_elsevier'      => 'https://api.plu.mx/widget/elsevier/artifact?type=doi&id=',
-    'user_agent'                    => (!empty(@$_SERVER["HTTP_USER_AGENT"])) ? @$_SERVER["HTTP_USER_AGENT"] : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:58.0) Gecko/20100101 Firefox/58.0",
+    'source_capes'                  => 'portal_capes',
+    
 ];
 
 ?>
