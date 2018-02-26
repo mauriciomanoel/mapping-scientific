@@ -9,16 +9,14 @@ class File {
         $files = scandir($path);
         foreach($files as $file) {
             // ignore when directory
-            $dir = array_search($file, array(".", ".."));
-            if ($dir === 0 || $dir === 1) continue;
+            $ignore = array_search($file, array(".", "..", ".DS_Store"));
+            if ($ignore !== false) continue;
             if ( is_file($path . $file) ) {
                 $arrFiles[] = $path . $file;
             }
         }
         return $arrFiles;
     }
-
-
 }
 
 ?>

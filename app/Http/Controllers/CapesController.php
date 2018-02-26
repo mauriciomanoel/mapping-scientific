@@ -4,134 +4,180 @@ namespace App\Http\Controllers;
 
 set_time_limit(0);
 
+use App\Document;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Support\WebService;
+use App\Http\Support\Slug;
 use App\Http\Support\File;
+use App\Http\Support\Util;
+use App\Http\Support\Webservice;
+use App\Http\Support\CreateDocument;
+use RenanBr\BibTexParser\Listener;
+use RenanBr\BibTexParser\Parser;
+use RenanBr\BibTexParser\ParserException;
+
 use Config;
-use Bibliophile\BibtexParse\ParseEntries;
 
 class CapesController extends Controller {
-    
-    public function save_article_my_space(Request $request) {
-        try {
-            if (empty($request->input('query'))) {
-                throw new \Exception("Query string not found.");
-            }
-            // $query_string = urlencode($request->input('query'));
-            // echo "Page: 1 <br>";
-            // $time = time() . '000';
-            // $url = 'http://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?ct=facet&fctN=facet_lang&fctV=eng&rfnGrp=2&rfnGrpCounter=2&frbg=&rfnGrpCounter=1&indx=1&fn=search&mulIncFctN=facet_rtype&mulIncFctN=facet_rtype&dscnt=0&rfnIncGrp=1&rfnIncGrp=1&scp.scps=scope%3A(%22CAPES%22)%2CEbscoLocalCAPES%2Cprimo_central_multiple_fe&mode=Basic&vid=CAPES_V1&ct=facet&srt=rank&tab=default_tab&dum=true&fctIncV=newspaper_articles&fctIncV=articles&dstmp=' . $time . '&vl(freeText0)=' . $query_string;
-            // $html = $this->progress_capes($url);
-            // echo "Page: 2 <br>";
-            // $time = time() . '000';
-            // $url = 'http://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?ct=Next+Page&pag=nxt&indx=1&pageNumberComingFrom=1&frbg=&rfnGrpCounter=2&fn=search&indx=1&mulIncFctN=facet_rtype&mulIncFctN=facet_rtype&dscnt=0&scp.scps=scope%3A(%22CAPES%22)%2CEbscoLocalCAPES%2Cprimo_central_multiple_fe&rfnIncGrp=1&rfnIncGrp=1&vid=CAPES_V1&fctV=eng&mode=Basic&ct=facet&rfnGrp=2&tab=default_tab&srt=rank&fctN=facet_lang&dum=true&fctIncV=newspaper_articles&fctIncV=articles&dstmp=' . $time . '&vl(freeText0)=' . $query_string;
-            // $this->progress_capes($url);
-            // for($page=3;$page<=6;$page++) {
-            //     echo "Page: " . $page . "<br>";
-            //     $time = time() . '000';        
-            //     $url = 'http://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?ct=Next+Page&pag=nxt&indx=' . ($page-2) . '1&pageNumberComingFrom=' . ($page-1) . '&frbg=&rfnGrpCounter=2&indx=' . ($page-2) . '1&fn=search&mulIncFctN=facet_rtype&mulIncFctN=facet_rtype&dscnt=0&scp.scps=scope%3A(%22CAPES%22)%2CEbscoLocalCAPES%2Cprimo_central_multiple_fe&rfnIncGrp=1&rfnIncGrp=1&fctV=eng&mode=Basic&vid=CAPES_V1&ct=Next%20Page&rfnGrp=2&srt=rank&tab=default_tab&fctN=facet_lang&dum=true&fctIncV=newspaper_articles&fctIncV=articles&dstmp=' . $time . '&vl(freeText0)=' . $query_string;
-            //     $this->progress_capes($url);
-            // }
+    private static $parameter_query = array(
+                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
+                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M-health_Things" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
+                                     "Internet_of_Things_AND_Health" => '("Internet of Things" AND *Health*)',
+                                     "Internet_of_Things_AND_Healthcare" => '("Internet of Things" AND *Healthcare*)',
+                                     "Internet_of_Things_AND_Medical" => '("Internet of Things" AND Medical)',
+                                     "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")',
+                                     "manually_added" => null
+                                    );
 
-            $this->get_bibtex_from_my_space();
-
-            return response("Successful", 200)
-                  ->header('Content-Type', 'text/plain');
-
-        } catch(\Exception $e) {
-            // https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
-            return response($e->getMessage(), 405)
-                  ->header('Content-Type', 'text/plain');
-        }
-    }
-
-    public function get_bibtex_from_my_space() {
-        // if (empty($request->input('folder'))) {
-        //     throw new \Exception("Query string not found.");
-        // }
-        // $idFolder = $request->input('folder');
-        $cookie     = Config::get('constants.cookie_capes');
-        $user_agent = Config::get('constants.user_agent');
-
-        $idFolder = "1176590190";
-        $total = 0;
-        $url = 'https://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/basket.do?fn=display&vid=CAPES_V1&folderId=' . $idFolder;
-        $parameters["referer"]  = "https://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/basket.do?vid=CAPES_V1&fn=display&fromLink=gotoeShelfUI&fromUserArea=true&fromPreferences=false&dscnt=0&dstmp=" . time() . '000' . "&fromLogin=true&fromLogin=true";
-        $parameters["host"]     = "rnp-primo.hosted.exlibrisgroup.com";
-        $html = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);        
-        libxml_use_internal_errors(true) && libxml_clear_errors(); // for html5
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
-        $dom->preserveWhiteSpace = true;
-        $docs = array();
+    public function import_bibtex() {
         
-        foreach ($dom->getElementsByTagName('input') as $node) {        
-            if ($node->getAttribute('name') == "docs") {
-                $docs[] = $node->getAttribute('value');
-            }
-        }
+        $path_file = "data_files/periodicos-capes/";
+        $files = File::load($path_file);
+        Util::showMessage("Start Import bibtex file from Portal Capes");
+        try 
+        {
+            foreach($files as $file) 
+            {
+                Util::showMessage($file);
+                $parser = new Parser();             // Create a Parser
+                $listener = new Listener();         // Create and configure a Listener
+                $parser->addListener($listener);    // Attach the Listener to the Parser
+                $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
+                $entries = $listener->export();     // Get processed data from the Listener
 
-        if (count($docs) > 0) {
-            $fields = array(
-                'encode' => 'UTF-8',
-                'Button' => 'OK'
-            );
+                foreach($entries as $key => $article) {
+                    
+                    $query = str_replace(array($path_file, ".bib"), "", $file);
+                    
+                    // Add new Parameter in variable article
+                    $article["search_string"] = self::$parameter_query[$query];
+                    $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;
+                    $article["document_url"]    = $article["url"];
+                    $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
+                    $article["source"]          = Config::get('constants.source_elsevier_sciencedirect');
+                    $article["source_id"]       = null;
+                    $article["file_name"]       = $file;
+                    
+                    $duplicate = 0;
+                    $duplicate_id = null;
+                    // Search if article exists
+                    $title_slug = Slug::slug($article["title"], "-");
+                    $article["title_slug"] = $title_slug;
+                    continue;
+                    $document = Document::where(
+                        [
+                            ['title_slug', '=', $title_slug],
+                            ['file_name', '=', $file],
+                            ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
+                        ])
+                        ->first();
+                        
+                    if (empty($document)) {
+                        // Create new Document
+                        $document_new = CreateDocument::process($article);
+                        
+                        // Find if exists article with title slug
+                        $document = Document::where('title_slug', $title_slug)->first();                
+                        if (!empty($document)) {
+                            $duplicate      = 1;
+                            $duplicate_id   = $document->id;
+                        }
+                        $document_new->duplicate        = $duplicate;
+                        $document_new->duplicate_id     = $duplicate_id;
+                        $document_new->save();
 
-            $fields_string = "";
-            $bibtex        = "";
-            foreach($docs as $key => $doc) {
-                $fields_string .= 'docs='.$doc.'&'; 
-                if (($key+1)%30 == 0) {
-                    while (@ ob_end_flush()); // end all output buffers if any
-                    $fields_string = rtrim($fields_string, '&');
-                    echo $fields_string . "<br>";
-                    $url = "http://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/PushToAction.do?pushToType=BibTeXPushTo&fromBasket=true&" . $fields_string;
-                    $bibtex .= WebService::loadURL($url, $cookie, $user_agent, $fields, $parameters);
-                    $fields_string = "";
-                    $total += 30;
-                    @ flush();
+                    } else {
+                        Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
+                        Util::showMessage("");
+                    }                
                 }
             }
+        } catch(ParserException $ex)  
+        {
+            Util::showMessage("ParserException: " . $ex->getMessage());
+        } catch(\Exception $ex)  
+        {
+            Util::showMessage("Exception: " . $ex->getMessage());
+        }
 
-            if (!empty($fields_string)) {
+        Util::showMessage("Finish Import bibtex file from Portal Capes");
+    }
+
+    /**
+     * Load Detail from Website ACM 
+     *
+     * @param  void
+     * @return void
+     */
+    public function load_detail() {        
+        Util::showMessage("Start Load detail from Elsevier ScienceDirect");
+
+        $documents = Document::where(
+            [
+                ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
+                ['duplicate', '=', '0'],
+            ])
+            ->whereNotNull('doi')
+            ->whereNull('metrics')
+            ->get();
+        
+        Util::showMessage("Total of Articles: " . count($documents));
+        if (!empty($documents)) 
+        {
+            $cookie         = "";
+            $user_agent     = Config::get('constants.user_agent');                    
+            
+            foreach($documents as $key => $document) {
                 
-                $url = "http://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/PushToAction.do?pushToType=BibTeXPushTo&fromBasket=true&" . $fields_string;
-                $bibtex .= WebService::loadURL($url, $cookie, $user_agent, $fields, $parameters);
-                $total += substr_count($fields_string, '&');
-            }
+                $doi = str_replace(array("https://doi.org/", "http://doi.org/"), "", $document->doi);
+                $url = Config::get('constants.api_rest_plu_ms_elsevier') . $doi;
+                Util::showMessage($url);                
+                $json_metric = WebService::loadURL($url, $cookie, $user_agent);
+                $metrics = json_decode($json_metric, true);                
 
-            $name = "capes/" . strtolower(Config::get('constants.file')) . ".bib";
-            file_put_contents($name, $bibtex);
-            $retorno = "Successful, Total Records: " . $total;
-
-            return response($retorno, 200)
-                  ->header('Content-Type', 'text/plain');
-        }
-    }
-
-    private function progress_capes($url) {
-        // $cookie     = Webservice::getCookieFromSite($url);
-        $cookie     = Config::get('constants.cookie_capes');
-        $user_agent = Config::get('constants.user_agent');
-        $dom = new \DOMDocument;
-        $html = WebService::loadURL($url, $cookie, $user_agent);
-        @$dom->loadHTML($html);
-        $dom->preserveWhiteSpace = true;
-        foreach ($dom->getElementsByTagName('a') as $node) {
-            if ($node->hasAttribute( 'href' )) {
-                while (@ ob_end_flush()); // end all output buffers if any
-                if (strpos($node->getAttribute( 'href' ), 'basket.do') !== false) {
-                    $urls = explode("?fn=", $node->getAttribute( 'href' ));
-                    $url_action = "http://rnp-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/basket.do?fn=" . $urls[1];
-                    Webservice::loadURL($url_action, $cookie, $user_agent);
-                    echo ' <a href="' . $url . '">' . $url . '</a><br>';
-                    @ flush();
-                    sleep(2);
+                if (isset($metrics["error_code"])) {
+                    Util::showMessage("Metric not fond: $url");
+                    continue;
                 }
+                // var_dump($metrics); 
+                $captures   =  @$metrics["statistics"]["Captures"];
+                $citations  =  @$metrics["statistics"]["Citations"];                
+                $download_count = null;
+                $citation_count = null;
+
+                // get Readers -> Downloads
+                if (!empty($captures)) 
+                {
+                    foreach($captures as $capture) 
+                    {
+                        if ($capture["label"] == "Readers") 
+                        {
+                            $download_count += $capture["count"];
+                        }
+                    }
+                }
+                // Get Citation
+                if (!empty($citations))
+                {
+                    foreach($citations as $citation)
+                    {
+                        if ($citation["label"] == "Citation Indexes" && $citation["source"] == "CrossRef")
+                        {
+                            $citation_count += $citation["count"];
+                        }
+                    }
+                }
+                
+                $document->citation_count   = $citation_count;
+                $document->download_count   = $download_count;
+                $document->metrics          = $json_metric;
+                $document->save();
+
+                $rand = rand(2,4);
+                Util::showMessage("$rand seconds pause for next step.");
+                sleep($rand);
             }
         }
-        sleep(rand(3,5));
-        return $html;
-    }
+        Util::showMessage("Finish Load detail from Elsevier ScienceDirect");
+    }  
 }
