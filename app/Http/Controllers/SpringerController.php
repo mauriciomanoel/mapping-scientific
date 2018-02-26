@@ -18,15 +18,21 @@ use RenanBr\BibTexParser\ParserException;
 
 use Config;
 
-class CapesController extends Controller {
+class SpringerController extends Controller {
 
     private static $parameter_query = array(
-                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M-health_Things" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
-                                     "Internet_of_Things_AND_Health" => '("Internet of Things" AND *Health*)',
-                                     "Internet_of_Things_AND_Healthcare" => '("Internet of Things" AND *Healthcare*)',
-                                     "Internet_of_Things_AND_Medical" => '("Internet of Things" AND Medical)',
-                                     "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")',
+                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT_Article" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
+                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT_ConferencePaper" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
+                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M_health_Things_Article" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
+                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M_health_Things_ConferencePaper" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',                               
+                                     "Internet_of_Things_OR_Internet_of_Things_AND_Health_Article" => '(("Internet of Things" OR "Internet-of-Things") AND "*Health*")',
+                                     "Internet_of_Things_OR_Internet_of_Things_AND_Health_ConferencePaper" => '(("Internet of Things" OR "Internet-of-Things") AND "*Health*")',                                    
+                                     "Internet_of_Things_and_Healthcare_Article" => '("Internet of Things" AND *Healthcare*)',
+                                     "Internet_of_Things_and_Healthcare_ConferencePaper" => '("Internet of Things" AND *Healthcare*)',
+                                     "Internet_of_Things_OR_Internet_of_Things_AND_Medical_Article" => '("Internet of Things" AND Medical)',
+                                     "Internet_of_Things_OR_Internet_of_Things_AND_Medical_ConferencePaper" => '("Internet of Things" AND Medical)',
+                                     "Medical_IoT_OR_IoT_Medical_Article" => '("Medical IoT" OR "IoT Medical")',
+                                     "Medical_IoT_OR_IoT_Medical_ConferencePaper" => '("Medical IoT" OR "IoT Medical")',
                                      "manually_added" => null
                                     );
 

@@ -20,6 +20,7 @@ return [
     'source_acm'                    => 'acm',
     'source_elsevier_sciencedirect' => 'elsevier_sciencedirect',
     'source_capes'                  => 'portal_capes',
+    'source_springer'               => 'springer',
     
 ];
 
