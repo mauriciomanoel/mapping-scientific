@@ -30,66 +30,6 @@ class Parser
     const POST_TAG_NAME = 'post_tag_name';
     const PRE_TAG_CONTENT = 'pre_tag_content';
 
-    private $transliteration = array(
-        '/À|Á|Â|Ã|Å|Ǻ|Ā|Ă|Ą|Ǎ/' => 'A',
-        '/Æ|Ǽ/' => 'AE',
-        '/Ä/' => 'Ae',
-        '/Ç|Ć|Ĉ|Ċ|Č/' => 'C',
-        '/Ð|Ď|Đ/' => 'D',
-        '/È|É|Ê|Ë|Ē|Ĕ|Ė|Ę|Ě/' => 'E',
-        '/Ĝ|Ğ|Ġ|Ģ|Ґ/' => 'G',
-        '/Ĥ|Ħ/' => 'H',
-        '/Ì|Í|Î|Ï|Ĩ|Ī|Ĭ|Ǐ|Į|İ|І/' => 'I',
-        '/Ĳ/' => 'IJ',
-        '/Ĵ/' => 'J',
-        '/Ķ/' => 'K',
-        '/Ĺ|Ļ|Ľ|Ŀ|Ł/' => 'L',
-        '/Ñ|Ń|Ņ|Ň/' => 'N',
-        '/Ò|Ó|Ô|Õ|Ō|Ŏ|Ǒ|Ő|Ơ|Ø|Ǿ/' => 'O',
-        '/Œ/' => 'OE',
-        '/Ö/' => 'O',
-        '/Ŕ|Ŗ|Ř/' => 'R',
-        '/Ś|Ŝ|Ş|Ș|Š/' => 'S',
-        '/ẞ/' => 'SS',
-        '/Ţ|Ț|Ť|Ŧ/' => 'T',
-        '/Þ/' => 'TH',
-        '/Ù|Ú|Û|Ũ|Ū|Ŭ|Ů|Ű|Ų|Ư|Ǔ|Ǖ|Ǘ|Ǚ|Ǜ/' => 'U',
-        '/Ü/' => 'Ue',
-        '/Ŵ/' => 'W',
-        '/Ý|Ÿ|Ŷ/' => 'Y',
-        '/Є/' => 'Ye',
-        '/Ї/' => 'Yi',
-        '/Ź|Ż|Ž/' => 'Z',
-        '/à|á|â|ã|å|ǻ|ā|ă|ą|ǎ|ª/' => 'a',
-        '/ä|æ|ǽ/' => 'ae',
-        '/ç|ć|ĉ|ċ|č/' => 'c',
-        '/ð|ď|đ/' => 'd',
-        '/è|é|ê|ë|ē|ĕ|ė|ę|ě/' => 'e',
-        '/ƒ/' => 'f',
-        '/ĝ|ğ|ġ|ģ|ґ/' => 'g',
-        '/ĥ|ħ/' => 'h',
-        '/ì|í|î|ï|ĩ|ī|ĭ|ǐ|į|ı|і/' => 'i',
-        '/ĳ/' => 'ij',
-        '/ĵ/' => 'j',
-        '/ķ/' => 'k',
-        '/ĺ|ļ|ľ|ŀ|ł/' => 'l',
-        '/ñ|ń|ņ|ň|ŉ/' => 'n',
-        '/ò|ó|ô|õ|ō|ŏ|ǒ|ő|ơ|ø|ǿ|º/' => 'o',
-        '/ö|œ/' => 'oe',
-        '/ŕ|ŗ|ř/' => 'r',
-        '/ś|ŝ|ş|ș|š|ſ/' => 's',
-        '/ß/' => 'ss',
-        '/ţ|ț|ť|ŧ/' => 't',
-        '/þ/' => 'th',
-        '/ù|ú|û|ũ|ū|ŭ|ů|ű|ų|ư|ǔ|ǖ|ǘ|ǚ|ǜ/' => 'u',
-        '/ü/' => 'ue',
-        '/ŵ/' => 'w',
-        '/ý|ÿ|ŷ/' => 'y',
-        '/є/' => 'ye',
-        '/ї/' => 'yi',
-        '/ź|ż|ž/' => 'z',
-    );
-
     /** @var string */
     private $state;
 
@@ -129,9 +69,16 @@ class Parser
     /** @var ListenerInterface[] */
     private $listeners = [];
 
+    private $transliterations = [];
+
     public function addListener(ListenerInterface $listener)
     {
         $this->listeners[] = $listener;
+    }
+
+    public function addTransliteration($transliterations)
+    {
+        $this->transliterations[] = $transliterations;
     }
 
     /**
@@ -303,11 +250,12 @@ class Parser
      */
     private function readTagName($char)
     {
-        // save characters after change
-        $oldChar = $char;
+
         // remove special characters
-        $char    = mb_convert_encoding($char, "UTF-8");
-        $char    = preg_replace(array_keys($this->transliteration), array_values($this->transliteration), $char);
+        if (!empty($this->transliterations)) {
+            $char    = mb_convert_encoding($char, "UTF-8");
+            $char    = preg_replace(array_keys($this->transliterations), array_values($this->transliterations), $char);
+        }
 
         if (preg_match('/^[a-zA-Z0-9_\+:\-\.\/]$/', $char)) {
             $this->appendToBuffer($char);
@@ -317,7 +265,7 @@ class Parser
             // No tag name found, $char is just closing current entry
             $this->state = self::NONE;
         } else {
-            $this->throwExceptionIfBufferIsEmpty($oldChar);
+            $this->throwExceptionIfBufferIsEmpty($char);
 
             if (self::FIRST_TAG_NAME === $this->state) {
                 // Takes a snapshot of current state to be triggered later as
