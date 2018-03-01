@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 set_time_limit(0);
 
 use App\Document;
+use App\Bibtex;
+use Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
@@ -16,7 +18,6 @@ use App\Http\Support\HTML;
 use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\ParserException;
-use Config;
 
 class ACMController extends Controller {
     private static $parameter_query = array("healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
@@ -27,13 +28,13 @@ class ACMController extends Controller {
                                      "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")');
 
     public function import_bibtex() {
-
         $path_file = "data_files/acm/";
         $files = File::load($path_file);
         Util::showMessage("Start Import bibtex file from ACM");
         foreach($files as $file) {
             Util::showMessage($file);
             $parser = new Parser();             // Create a Parser
+            $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser
             $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
