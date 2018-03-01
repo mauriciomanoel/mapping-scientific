@@ -13,8 +13,10 @@ use App\Http\Support\Webservice;
 use App\Http\Support\Util;
 use App\Http\Support\CreateDocument;
 use App\Http\Support\HTML;
+use RenanBr\BibTexParser\Listener;
+use RenanBr\BibTexParser\Parser;
+use RenanBr\BibTexParser\ParserException;
 use Config;
-use Bibliophile\BibtexParse\ParseEntries;
 
 class ACMController extends Controller {
     private static $parameter_query = array("healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
@@ -31,17 +33,13 @@ class ACMController extends Controller {
         Util::showMessage("Start Import bibtex file from ACM");
         foreach($files as $file) {
             Util::showMessage($file);
-            $parse = new ParseEntries();
-            $parse->expandMacro = FALSE;
-            $parse->removeDelimit = true;
-            $parse->fieldExtract = true;
-            $parse->openBib($file);
-            $parse->extractEntries();
-
-            $articles   = $parse->returnArrays();
-            $bibtex     = $parse->bibtexInArray();
+            $parser = new Parser();             // Create a Parser
+            $listener = new Listener();         // Create and configure a Listener
+            $parser->addListener($listener);    // Attach the Listener to the Parser
+            $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
+            $entries = $listener->export();     // Get processed data from the Listener
             
-            foreach($articles as $key => $article) {
+            foreach($entries as $key => $article) {
                 $query = str_replace(array($path_file, ".bib"), "", $file);
                 
                 $source_id = 0;
@@ -52,7 +50,7 @@ class ACMController extends Controller {
                     $source_id                  = $article["acmid"];
                     $article["source_id"]       = $source_id;
                 }
-                $article["bibtex"]          = $bibtex[$key];
+                $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
                 $article["source"]          = Config::get('constants.source_acm');
                 $article["file_name"]       = $file;
                 
@@ -89,7 +87,7 @@ class ACMController extends Controller {
             }
         }
         Util::showMessage("Finish Import bibtex file from ACM");
-        self::load_detail();
+        // self::load_detail();
     }
 
     /**

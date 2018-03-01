@@ -32,9 +32,9 @@ class CapesController extends Controller {
 
     public function import_bibtex() {
 
-        $path_file = "data_files/springer/";
+        $path_file = "data_files/periodicos-capes/";
         $files = File::load($path_file);
-        Util::showMessage("Start Import bibtex file from Springer");
+        Util::showMessage("Start Import bibtex file from Periodicos Capes");
         try 
         {
             foreach($files as $file) 
@@ -105,7 +105,7 @@ class CapesController extends Controller {
             Util::showMessage("Exception: " . $ex->getMessage());
         }
 
-        Util::showMessage("Finish Import bibtex file from Springer");
+        Util::showMessage("Finish Import bibtex file from Periodicos Capes");
     }
 
     /**
@@ -115,7 +115,7 @@ class CapesController extends Controller {
      * @return void
      */
     public function load_detail() {        
-        Util::showMessage("Start Load detail from Elsevier ScienceDirect");
+        Util::showMessage("Start Load detail from Periodicos Capes");
 
         // $documents = Document::where(
         //     [
