@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 set_time_limit(0);
 
 use App\Document;
+use App\Bibtex;
+use Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
@@ -15,8 +17,6 @@ use App\Http\Support\CreateDocument;
 use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\ParserException;
-
-use Config;
 
 class SpringerController extends Controller {
 
@@ -37,21 +37,22 @@ class SpringerController extends Controller {
                                     );
 
     public function import_bibtex() {
-
+        
         $path_file = "data_files/springer/";
         $files = File::load($path_file);
         Util::showMessage("Start Import bibtex file from Springer");
         try 
         {
             foreach($files as $file) 
-            {
+            {                
                 Util::showMessage($file);
                 $parser = new Parser();             // Create a Parser
+                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser                
                 $listener = new Listener();         // Create and configure a Listener
                 $parser->addListener($listener);    // Attach the Listener to the Parser
                 $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
                 $entries = $listener->export();     // Get processed data from the Listener
-
+                
                 foreach($entries as $key => $article) {
 
                     if (empty(@$article["title"])) {
@@ -63,7 +64,7 @@ class SpringerController extends Controller {
                     // Add new Parameter in variable article
                     $article["search_string"] = self::$parameter_query[$query];
                     $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;
-                    $article["document_url"]    = !empty($article["url"]) ? $article["url"] : null;
+                    $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);
                     $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
                     $article["source"]          = Config::get('constants.source_springer');
                     $article["source_id"]       = null;

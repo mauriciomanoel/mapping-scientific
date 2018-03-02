@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 set_time_limit(0);
 
 use App\Document;
+use App\Bibtex;
+use Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
@@ -12,8 +14,8 @@ use App\Http\Support\File;
 use App\Http\Support\Util;
 use App\Http\Support\Webservice;
 use App\Http\Support\CreateDocument;
-use Config;
-use Bibliophile\BibtexParse\ParseEntries;
+use RenanBr\BibTexParser\Parser;
+use RenanBr\BibTexParser\ParserException;
 
 class IEEEController extends Controller {
     private static $parameter_query = array("healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
@@ -30,17 +32,14 @@ class IEEEController extends Controller {
         Util::showMessage("Start Import bibtex file from IEEE");
         foreach($files as $file) {
             Util::showMessage($file);
-            $parse = new ParseEntries();
-            $parse->expandMacro = FALSE;
-            $parse->removeDelimit = true;
-            $parse->fieldExtract = true;
-            $parse->openBib($file);
-            $parse->extractEntries();
+            $parser = new Parser();             // Create a Parser
+                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
+                $listener = new Listener();         // Create and configure a Listener
+                $parser->addListener($listener);    // Attach the Listener to the Parser
+                $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
+                $entries = $listener->export();     // Get processed data from the Listener
 
-            $articles   = $parse->returnArrays();
-            $bibtex     = $parse->bibtexInArray();
-            
-            foreach($articles as $key => $article) {
+            foreach($entries as $key => $article) {    
                 $query = str_replace(array($path_file, ".bib"), "", $file);
                 // Add new Parameter in variable article
                 $article["search_string"] = self::$parameter_query[$query];

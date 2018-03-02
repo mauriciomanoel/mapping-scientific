@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 set_time_limit(0);
 
 use App\Document;
+use App\Bibtex;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
@@ -16,8 +17,6 @@ use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\ParserException;
 
-// use RenanBr\BibTexParser\Processor\LatexToUnicodeProcessor;
-// use Pandoc\Pandoc;
 use Config;
 
 class ElsevierController extends Controller {
@@ -42,8 +41,8 @@ class ElsevierController extends Controller {
             {
                 Util::showMessage($file);
                 $parser = new Parser();             // Create a Parser
-                $listener = new Listener();         // Create and configure a Listener
-                // $listener->addProcessor(new LatexToUnicodeProcessor());
+                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
+                $listener = new Listener();         // Create and configure a Listener                
                 $parser->addListener($listener);    // Attach the Listener to the Parser
                 $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
                 $entries = $listener->export();     // Get processed data from the Listener

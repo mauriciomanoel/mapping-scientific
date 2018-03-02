@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 set_time_limit(0);
 
 use App\Document;
+use App\Bibtex;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Slug;
@@ -41,6 +42,7 @@ class CapesController extends Controller {
             {
                 Util::showMessage($file);
                 $parser = new Parser();             // Create a Parser
+                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
                 $listener = new Listener();         // Create and configure a Listener
                 $parser->addListener($listener);    // Attach the Listener to the Parser
                 $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
