@@ -116,80 +116,104 @@ class SpringerController extends Controller {
     }
 
     /**
-     * Load Detail from Website ACM 
+     * Load Detail from Website Springer 
      *
      * @param  void
      * @return void
      */
-    public function load_detail() {        
-        Util::showMessage("Start Load detail from Elsevier ScienceDirect");
+    public function load_detail() {
+        Util::showMessage("Start Load detail from Springer");
 
-        // $documents = Document::where(
-        //     [
-        //         ['source', '=', Config::get('constants.source_elsevier_sciencedirect')],
-        //         ['duplicate', '=', '0'],
-        //     ])
-        //     ->whereNotNull('doi')
-        //     ->whereNull('metrics')
-        //     ->get();
+        $documents = Document::where(
+            [
+                ['source', '=', Config::get('constants.source_springer')],
+                ['duplicate', '=', '0'],
+            ])
+            ->whereNotNull('document_url')
+            ->whereNull('metrics')
+            ->get();
         
-        // Util::showMessage("Total of Articles: " . count($documents));
-        // if (!empty($documents)) 
-        // {
-        //     $cookie         = "";
-        //     $user_agent     = Config::get('constants.user_agent');                    
-            
-        //     foreach($documents as $key => $document) {
+        Util::showMessage("Total of Articles: " . count($documents));
+        if (!empty($documents)) 
+        {
+                       
+            foreach($documents as $key => $document) {
                 
-        //         $doi = str_replace(array("https://doi.org/", "http://doi.org/"), "", $document->doi);
-        //         $url = Config::get('constants.api_rest_plu_ms_elsevier') . $doi;
-        //         Util::showMessage($url);                
-        //         $json_metric = WebService::loadURL($url, $cookie, $user_agent);
-        //         $metrics = json_decode($json_metric, true);                
+                $url = $document->document_url;
+                // $url = "https://link.springer.com/article/10.1007/s10796-014-9492-7";
+                // $url = "https://link.springer.com/article/10.1007/s12160-017-9903-3";
+                Util::showMessage($url);                
+                $info_article = self::get_info($url);
+                if (!empty($info_article)) {                    
+                    $document->citation_count   = (!empty(@$info_article["Citations"])) ? $info_article["Citations"] : null;
+                    $document->download_count   = (!empty(@$info_article["Downloads"])) ? $info_article["Downloads"] : null;
+                    $document->keywords         = (!empty(@$info_article["Keywords"])) ? $info_article["Keywords"] : null;
+                    unset($info_article["Keywords"]);
+                    $document->metrics          = json_encode($info_article);
+                    $document->save();
+                }
 
-        //         if (isset($metrics["error_code"])) {
-        //             Util::showMessage("Metric not fond: $url");
-        //             continue;
-        //         }
-        //         // var_dump($metrics); 
-        //         $captures   =  @$metrics["statistics"]["Captures"];
-        //         $citations  =  @$metrics["statistics"]["Citations"];                
-        //         $download_count = null;
-        //         $citation_count = null;
+                $rand = rand(2,4);
+                Util::showMessage("$rand seconds pause for next step.");
+                sleep($rand);
+            }
+        }
+        Util::showMessage("Finish Load detail from Springer");
+    }
 
-        //         // get Readers -> Downloads
-        //         if (!empty($captures)) 
-        //         {
-        //             foreach($captures as $capture) 
-        //             {
-        //                 if ($capture["label"] == "Readers") 
-        //                 {
-        //                     $download_count += $capture["count"];
-        //                 }
-        //             }
-        //         }
-        //         // Get Citation
-        //         if (!empty($citations))
-        //         {
-        //             foreach($citations as $citation)
-        //             {
-        //                 if ($citation["label"] == "Citation Indexes" && $citation["source"] == "CrossRef")
-        //                 {
-        //                     $citation_count += $citation["count"];
-        //                 }
-        //             }
-        //         }
-                
-        //         $document->citation_count   = $citation_count;
-        //         $document->download_count   = $download_count;
-        //         $document->metrics          = $json_metric;
-        //         $document->save();
 
-        //         $rand = rand(2,4);
-        //         Util::showMessage("$rand seconds pause for next step.");
-        //         sleep($rand);
-        //     }
-        // }
-        Util::showMessage("Finish Load detail from Elsevier ScienceDirect");
-    }  
+    /**
+     * Load Metrics from Website Springer 
+     *
+     * @param  void
+     * @return void
+     */
+    public function get_info($url) {
+        $info         = array();
+        $cookie         = "";
+        $user_agent     = Config::get('constants.user_agent');
+        $html_article   = WebService::loadURL($url, $cookie, $user_agent);
+        $html_metrics   = Util::getHTMLFromClass($html_article, "article-metrics__item");    
+        $html_keywords  = Util::getHTMLFromClass($html_article, "KeywordGroup");
+        // dataLayer[0]['Keywords']
+        if (!empty($html_metrics))
+        {
+            foreach($html_metrics as $html_metric) {
+                $values = Util::getHTMLFromClass($html_metric, "metric", "span");
+                $values = array_map("strip_tags", $values);
+                if (!empty($values)) 
+                {
+                    $value  = $values[0];
+                    $key    = $values[1];
+                    if ($key == "Downloads") {
+                        if (strpos($value, 'k') !== false) {
+                            $value = str_replace("k", "", $value);
+                            $value *= 1000;
+                        }
+                    }
+                    $info[$key] = $value;
+                }
+            }
+        }
+        if (!empty($html_keywords)) 
+        {
+            $values = Util::getHTMLFromClass($html_keywords[0], "Keyword", "span");
+            $values = array_map("strip_tags", $values);
+            //Clean Special Characters
+            foreach($values as $key => $str) {
+                $clean = iconv('ISO8859-1', 'ASCII//TRANSLIT', $str);
+                $clean = str_replace("^A ", "", $clean);
+                $values[$key] = $clean;
+            }
+            $keyword = "";
+            if (!empty($values)) {
+                $keyword = implode(";", $values);
+            }
+            $info['Keywords'] = $keyword;
+        }
+        
+
+        return $info;
+    }
+    
 }
