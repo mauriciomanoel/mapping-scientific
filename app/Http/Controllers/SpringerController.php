@@ -140,8 +140,6 @@ class SpringerController extends Controller {
             foreach($documents as $key => $document) {
                 
                 $url = $document->document_url;
-                // $url = "https://link.springer.com/article/10.1007/s10796-014-9492-7";
-                // $url = "https://link.springer.com/article/10.1007/s12160-017-9903-3";
                 Util::showMessage($url);                
                 $info_article = self::get_info($url);
                 if (!empty($info_article)) {                    
@@ -149,7 +147,7 @@ class SpringerController extends Controller {
                     $document->download_count   = (!empty(@$info_article["Downloads"])) ? $info_article["Downloads"] : null;
                     $document->keywords         = (!empty(@$info_article["Keywords"])) ? $info_article["Keywords"] : null;
                     unset($info_article["Keywords"]);
-                    $document->metrics          = json_encode($info_article);
+                    $document->metrics          = (!empty(@$info_article)) ? json_encode($info_article) : null;
                     $document->save();
                 }
 
@@ -172,7 +170,7 @@ class SpringerController extends Controller {
         $info         = array();
         $cookie         = "";
         $user_agent     = Config::get('constants.user_agent');
-        $html_article   = WebService::loadURL($url, $cookie, $user_agent);
+        $html_article   = WebService::loadURL($url, $cookie, $user_agent);        
         $html_metrics   = Util::getHTMLFromClass($html_article, "article-metrics__item");    
         $html_keywords  = Util::getHTMLFromClass($html_article, "KeywordGroup");
         // dataLayer[0]['Keywords']
@@ -195,24 +193,14 @@ class SpringerController extends Controller {
                 }
             }
         }
-        if (!empty($html_keywords)) 
+        preg_match("/Keywords':'.*',/", $html_article, $output);
+        if (!empty($output)) 
         {
-            $values = Util::getHTMLFromClass($html_keywords[0], "Keyword", "span");
-            $values = array_map("strip_tags", $values);
-            //Clean Special Characters
-            foreach($values as $key => $str) {
-                $clean = iconv('ISO8859-1', 'ASCII//TRANSLIT', $str);
-                $clean = str_replace("^A ", "", $clean);
-                $values[$key] = $clean;
-            }
-            $keyword = "";
-            if (!empty($values)) {
-                $keyword = implode(";", $values);
-            }
+            $output     = $output[0];
+            $keyword    = str_replace(array("Keywords':'","',"), "", $output);            
             $info['Keywords'] = $keyword;
         }
         
-
         return $info;
     }
     
