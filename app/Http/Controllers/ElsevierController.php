@@ -49,6 +49,7 @@ class ElsevierController extends Controller {
 
                 foreach($entries as $key => $article) {
                     
+                    // var_dump($article); exit;
                     $query = str_replace(array($path_file, ".bib"), "", $file);
                     
                     // Add new Parameter in variable article
@@ -123,7 +124,7 @@ class ElsevierController extends Controller {
             ->get();
         
         Util::showMessage("Total of Articles: " . count($documents));
-        if (!empty($documents)) 
+        if (count($documents)) 
         {
             $cookie         = "";
             $user_agent     = Config::get('constants.user_agent');                    

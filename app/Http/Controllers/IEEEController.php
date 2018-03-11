@@ -14,6 +14,7 @@ use App\Http\Support\File;
 use App\Http\Support\Util;
 use App\Http\Support\Webservice;
 use App\Http\Support\CreateDocument;
+use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\ParserException;
 
@@ -33,21 +34,22 @@ class IEEEController extends Controller {
         foreach($files as $file) {
             Util::showMessage($file);
             $parser = new Parser();             // Create a Parser
-                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
-                $listener = new Listener();         // Create and configure a Listener
-                $parser->addListener($listener);    // Attach the Listener to the Parser
-                $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
-                $entries = $listener->export();     // Get processed data from the Listener
+            $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
+            $listener = new Listener();         // Create and configure a Listener
+            $parser->addListener($listener);    // Attach the Listener to the Parser
+            $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
+            $entries = $listener->export();     // Get processed data from the Listener
 
-            foreach($entries as $key => $article) {    
+            foreach($entries as $key => $article) {  
                 $query = str_replace(array($path_file, ".bib"), "", $file);
+                
                 // Add new Parameter in variable article
                 $article["search_string"] = self::$parameter_query[$query];
-                $article["pdf_link"]        = Config::get('constants.pach_ieee') . "xpl/abstractSimilar.jsp?arnumber=" . $article["bibtexCitation"];
-                $article["document_url"]    = Config::get('constants.pach_ieee') . "document/" . $article["bibtexCitation"];
-                $article["bibtex"]          = $bibtex[$key];
+                $article["pdf_link"]        = Config::get('constants.pach_ieee') . "xpl/abstractSimilar.jsp?arnumber=" . $article["citation-key"];
+                $article["document_url"]    = Config::get('constants.pach_ieee') . "document/" . $article["citation-key"];
+                $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
                 $article["source"]          = Config::get('constants.source_ieee');
-                $article["source_id"]       = $article["bibtexCitation"];
+                $article["source_id"]       = $article["citation-key"];
                 $article["file_name"]       = $file;
                 
                 $duplicate = 0;
@@ -104,32 +106,35 @@ class IEEEController extends Controller {
             ->whereNull('metrics')
             ->get();
         
-        Util::showMessage("Total of Articles: " . count($documents));            
-        $url = Config::get('constants.api_rest_ieee') . "document/". $documents[0]->source_id . "/metrics";
-        $cookie         = WebService::getCookie($url);
-        $user_agent     = Config::get('constants.user_agent');
-                
-        foreach($documents as $key => $document) {
-            $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/metrics";
-            Util::showMessage($url);
-            @$parameters["referer"] = $url;
-            $html_metric = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
-            $metrics = json_decode($html_metric, true);        
-            if (!empty($metrics) && is_array($metrics)) {
-
-                $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/citations?count=30";
+        Util::showMessage("Total of Articles: " . count($documents));        
+        if (count( $documents )) 
+        {
+            $url = Config::get('constants.api_rest_ieee') . "document/". $documents[0]->source_id . "/metrics";
+            $cookie         = WebService::getCookie($url);
+            $user_agent     = Config::get('constants.user_agent');
+                    
+            foreach($documents as $key => $document) {
+                $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/metrics";
+                Util::showMessage($url);
                 @$parameters["referer"] = $url;
-                $html_citaticon_metric   = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
-                $citations = json_decode($html_citaticon_metric, true);
-                $document->citation_count   = @$citations["nonIeeeCitationCount"] + @$citations["ieeeCitationCount"] + @$citations["patentCitationCount"];
-                $document->download_count   = @$metrics["metrics"]["totalDownloads"];
-                $document->metrics          = $html_metric . " | " . $html_citaticon_metric;
-                $document->save();
+                $html_metric = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
+                $metrics = json_decode($html_metric, true);        
+                if (!empty($metrics) && is_array($metrics)) {
+
+                    $url = Config::get('constants.api_rest_ieee') . "document/". $document->source_id . "/citations?count=30";
+                    @$parameters["referer"] = $url;
+                    $html_citaticon_metric      = WebService::loadURL($url, $cookie, $user_agent, array(), $parameters);            
+                    $citations                  = json_decode($html_citaticon_metric, true);
+                    $document->citation_count   = @$citations["nonIeeeCitationCount"] + @$citations["ieeeCitationCount"] + @$citations["patentCitationCount"];
+                    $document->download_count   = @$metrics["metrics"]["totalDownloads"];
+                    $document->metrics          = $html_metric . " | " . $html_citaticon_metric;
+                    $document->save();
+                }
+
+                $rand = rand(2,4);
+                Util::showMessage("$rand seconds pause for next step.");
+                sleep($rand);
             }
-            // var_dump($html_metric + " | " + $html_citaticon_metric);  exit;            
-            $rand = rand(2,4);
-            Util::showMessage("$rand seconds pause for next step.");
-            sleep($rand);
         }
         Util::showMessage("Finish Load detail from IEEE");
     }  

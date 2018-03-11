@@ -29,12 +29,3 @@ Route::get('load-detail-capes', 'CapesController@load_detail');
 
 Route::get('import-springer-bibtex', 'SpringerController@import_bibtex');
 Route::get('load-detail-springer', 'SpringerController@load_detail');
-
-// Route::get('import-elsevier', 'DocumentController@elsevier');
-// Route::get('import-google-scholar', 'DocumentController@google_scholar');
-// Route::get('capes-save-article-my-space', 'CapesController@save_article_my_space');
-// Route::get('capes-get-bibtex-from-my-space', 'CapesController@get_bibtex_from_my_space');
-
-
-
-

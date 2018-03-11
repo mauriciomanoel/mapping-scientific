@@ -11,14 +11,11 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
 -- Copiando estrutura do banco de dados para mapping-scientific
-DROP DATABASE IF EXISTS `mapping-scientific`;
-CREATE DATABASE IF NOT EXISTS `mapping-scientific` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `mapping-scientific`;
+CREATE DATABASE IF NOT EXISTS `mysm` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `mysm`;
 
 -- Copiando estrutura para tabela mapping-scientific.document
-DROP TABLE IF EXISTS `document`;
 CREATE TABLE IF NOT EXISTS `document` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) DEFAULT NULL,

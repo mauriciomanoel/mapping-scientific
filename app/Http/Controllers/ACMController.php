@@ -121,6 +121,7 @@ class ACMController extends Controller {
             $metric         = "";
             $citation_count = null;
             $download_count = null;
+            
             foreach($data_metrics as $data_metric) {
                 $data_metric = trim($data_metric);
                 if (strpos($data_metric, "Citation Count")) {
@@ -134,15 +135,13 @@ class ACMController extends Controller {
                         $download_count = $filter;
                     }
                 }
-
-                $metric .= $data_metric . " |";
             }
-            $metric = rtrim($metric, " |");
             
+            $metric = str_replace("\u00a0", "", json_encode($data_metrics));
             $document->abstract         = $abstract;
             $document->citation_count   = $citation_count;
             $document->download_count   = $download_count;
-            $document->metrics          = ltrim($metric, " ");
+            $document->metrics          = $metric;
             $document->save();
             
             $rand = rand(2,4);

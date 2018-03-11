@@ -134,7 +134,7 @@ class SpringerController extends Controller {
             ->get();
         
         Util::showMessage("Total of Articles: " . count($documents));
-        if (!empty($documents)) 
+        if (count($documents)) 
         {
                        
             foreach($documents as $key => $document) {
@@ -170,7 +170,7 @@ class SpringerController extends Controller {
         $info         = array();
         $cookie         = "";
         $user_agent     = Config::get('constants.user_agent');
-        $html_article   = WebService::loadURL($url, $cookie, $user_agent);        
+        $html_article   = WebService::loadURL($url, $cookie, $user_agent);
         $html_metrics   = Util::getHTMLFromClass($html_article, "article-metrics__item");    
         $html_keywords  = Util::getHTMLFromClass($html_article, "KeywordGroup");
         // dataLayer[0]['Keywords']
