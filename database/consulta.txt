@@ -1,0 +1,18 @@
+drop table review
+
+CREATE TEMPORARY TABLE IF NOT EXISTS review 
+	AS (SELECT id, title, CONCAT( COALESCE(title,' '),  ' ', COALESCE(keywords,'')  ) AS texto, CONCAT( 'http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=', COALESCE(source_id,' ')) as pdf, citation_count, download_count, year FROM document where duplicate = 0 and authors is not null)
+
+select r.*, d.document_url
+from review r
+inner join document d on d.id = r.id
+where texto is not null
+and (texto like '%Internet % Thing%' or texto like '%IoT%')
+and texto like '%Medical%'
+and texto like '%Health%'
+order by r.citation_count desc, r.download_count desc
+
+http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7987536
+
+- O que é industria 4.0 na IoT
+- Os desafios da área de IoMT
