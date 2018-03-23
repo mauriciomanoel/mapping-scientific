@@ -3,7 +3,7 @@ drop table review
 CREATE TEMPORARY TABLE IF NOT EXISTS review 
 	AS (SELECT id, title, CONCAT( COALESCE(title,' '),  ' ', COALESCE(keywords,'')  ) AS texto, CONCAT( 'http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=', COALESCE(source_id,' ')) as pdf, citation_count, download_count, year FROM document where duplicate = 0 and authors is not null)
 
-select r.*, d.document_url
+select r.title, r.texto, r.citation_count, r.download_count, r.year, d.document_url, r.pdf
 from review r
 inner join document d on d.id = r.id
 where texto is not null
