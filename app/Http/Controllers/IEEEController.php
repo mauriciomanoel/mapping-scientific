@@ -138,4 +138,45 @@ class IEEEController extends Controller {
         }
         Util::showMessage("Finish Load detail from IEEE");
     }  
+
+    /**
+     * Load Detail from Website ACM 
+     *
+     * @param  void
+     * @return void
+     */
+    public function download_pdf() {        
+        Util::showMessage("Start Download PDF from IEEE");
+
+        $documents = Document::where(
+            [
+                ['source', '=', Config::get('constants.source_ieee')],
+                ['duplicate', '=', '0'],
+                ['id', '=', '49'],
+                
+            ])
+            ->whereNotNull('source_id')
+            ->get();
+
+            $url = "http://ieeexplore.ieee.org/ielx7/6287639/7042252/0711/3786.pdf";
+        $cookie = WebService::getCookie($url);
+        // var_dump($cookie); exit;
+        $cookie = 'ERIGHTS=EfgeiRRZH3a6XoPU2uhoCWzUhgCgNVGB*kRyxxlihZqWkRjMTVON79yQx3Dx3D-18x2dRGUx2Ffh1S1m4eA24DqhpckAx3Dx3D0MlrsuFRlqP14Q2xx08osDgx3Dx3D-ICiWWFk1V0sztTx2FaouVejAx3Dx3D-HkZjWsU0yPIC0RD8x2BnFD6Ax3Dx3D; WLSESSION=220357260.20480.0000; TS01b943bb=012f350623945856cf346e18aeefc121bf27434cd19388bf0fb601dc862acbc044f33263e63708e845414802b7f2667e8426b5c69274286795375bcc1640017c56d29ff3d41417a5068ee48335ec9f14421090fce0; JSESSIONID=I-Ipr5ouVzrUZSvFJym4pMCNQR0obh2mOW2vyDtqoQ_IfM_xFSkC!220562568; ipList=150.161.49.96; TS011813a0=012f350623dc4f7e5c37d8d788c4a5fd3811ae58ce9388bf0fb601dc862acbc044f33263e6a1098ab14e7c9291890cb536551c7a872c1fc3ed154a1eac580c70847d1e9569530e07a61630874b3a467b4282e45996; TS01f64340=012f350623f6732b6b01794c130fe71a0c3cfd08819388bf0fb601dc862acbc044f33263e6a1098ab14e7c9291890cb536551c7a873ae20f8ba9d9c4cd88b4345298a39827773eb14b311191aa344befbf62e65952; fp=dbebb983b3b0d7fc7208b36fa5d6ad61; unicaID=WWmxxrVPPeb-awWzRH9; AMCVS_8E929CC25A1FB2B30A495C97%40AdobeOrg=1; s_cc=true; AMCV_8E929CC25A1FB2B30A495C97%40AdobeOrg=1687686476%7CMCIDTS%7C17606%7CMCMID%7C11647193990017840513624781554021676655%7CMCAAMLH-1521722601%7C4%7CMCAAMB-1521722601%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1521125001s%7CNONE%7CMCAID%7CNONE%7CMCSYNCSOP%7C411-17613%7CvVersion%7C3.0.0; TS01d430e1=012f350623f02fbf098d364010025c15aba27b81039388bf0fb601dc862acbc044f33263e6a1098ab14e7c9291890cb536551c7a879b287890065131d2cd7e89dc4d6d6ceb97b5673c8e8ebddc93e5358bee0eb2be3755f09060f710e8dfced97454fb0c65947e7ab59a5160cf08c789c2b93b748b; seqId=95583; visitstart=09:44; utag_main=v_id:016229afaba00003062dedbe50d905073003a06b0086e$_sn:1$_ss:0$_st:1521119683866$ses_id:1521117801379%3Bexp-session$_pn:4%3Bexp-session$vapi_domain:ieee.org';
+        $user_agent     = Config::get('constants.user_agent');
+
+        foreach($documents as $document) {
+            
+            $url = "http://ieeexplore.ieee.org/ielx7/6287639/7042252/0711/3786.pdf";
+
+            $pdf_file = WebService::loadURL($url, $cookie, $user_agent);
+
+            
+            // $pdf = file_get_contents($url_pdf);
+            var_dump($pdf_file);
+            // file_put_contents("c:\\temp\\07113786.pdf", $pdf);
+                        
+        }
+
+    }
+
 }

@@ -127,7 +127,8 @@ class SpringerController extends Controller {
         $documents = Document::where(
             [
                 ['source', '=', Config::get('constants.source_springer')],
-                ['duplicate', '=', '0'],
+                ['duplicate', '=', '0']
+                ,
             ])
             ->whereNotNull('document_url')
             ->whereNull('metrics')

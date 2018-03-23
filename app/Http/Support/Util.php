@@ -19,9 +19,10 @@ class Util {
     {
         @libxml_use_internal_errors(true) && @libxml_clear_errors(); // for html5
         $dom = new \DOMDocument('1.0', 'UTF-8');
-        $dom->loadHTML(mb_convert_encoding($value, 'HTML-ENTITIES', 'UTF-8'));
-        $dom->preserveWhiteSpace = true;
-        
+        if ($value != false) {
+            $dom->loadHTML(mb_convert_encoding($value, 'HTML-ENTITIES', 'UTF-8'));
+            $dom->preserveWhiteSpace = true;
+        }
         return $dom;
     }
 
