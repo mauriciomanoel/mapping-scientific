@@ -17,6 +17,7 @@ use App\Http\Support\CreateDocument;
 use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\ParserException;
+use Carbon\Carbon;
 
 class IEEEController extends Controller {
     private static $parameter_query = array("healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
@@ -94,16 +95,17 @@ class IEEEController extends Controller {
      * @param  void
      * @return void
      */
-    public function load_detail() {        
+    public function load_detail(Request $request) {        
         Util::showMessage("Start Load detail from IEEE");
 
+        $last_day_update = ($request->input('last_day_update')) ? (int) $request->input('last_day_update') : 0;
         $documents = Document::where(
             [
                 ['source', '=', Config::get('constants.source_ieee')],
                 ['duplicate', '=', '0'],
             ])
             ->whereNotNull('source_id')
-            ->whereNull('metrics')
+            ->where('updated_at', '<', Carbon::now()->subDays($last_day_update))
             ->get();
         
         Util::showMessage("Total of Articles: " . count($documents));        

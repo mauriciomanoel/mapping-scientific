@@ -9,9 +9,9 @@ class Document extends Model
 {
     protected $table = 'document';
 
-    protected $primaryKey = 'id';
+    // protected $primaryKey = 'id';
 
-    public $timestamps = false;
+    // public $timestamps = false;
 }
 
 ?>
