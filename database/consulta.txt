@@ -10,6 +10,8 @@ where texto is not null
 and (texto like '%Internet % Thing%' or texto like '%IoT%')
 and texto like '%Medical%'
 and texto like '%Health%'
+and (texto like 'elder%' or texto like '%elderly%')
+and (r.citation_count is not null or r.citation_count > 0)
 order by r.citation_count desc, r.download_count desc
 
 http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7987536
