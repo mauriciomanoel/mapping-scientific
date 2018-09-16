@@ -18,3 +18,25 @@ http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7987536
 
 - O que � industria 4.0 na IoT
 - Os desafios da �rea de IoMT
+
+elderly
+ageing 
+disabled people
+elder people
+
+
+## Conversa com fernanda em Setembro
+Quais tipos de doenças podem ser mapeadas para um publico idoso e com essas informações usar uma inteligente para monitorar essas informações deep learning e Algoritmo genético.
+
+Entender as doenças masculinas e femininas
+
+Verificar ferramentas como medir pressao ou glicose com o historico do que esta acontecendo com o paciente 
+
+Como vou resolver isso 
+
+Eficiencia de algoritmo para dentro de um embarcado (com informacoes limitadas) 
+
+Deep learning em hardware
+Algorito genetico em hardware reduzido;
+
+Verificar os possiveis devices as limitações de hardware
