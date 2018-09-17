@@ -40,3 +40,24 @@ Deep learning em hardware
 Algorito genetico em hardware reduzido;
 
 Verificar os possiveis devices as limitações de hardware
+
+
+Adicionar manualmente no mapeamento
+- Problemas: Armazenamento de dados
+- O como fazer isso?
+- Se é que o povo faz os projetos?
+- Como é que as pessaos estão especificando os projetos para esse publico?
+- Verificação de usabilidade nas propostas desses artigos;
+
+- 8:21 AM 9/17/2018
+- usabilidade é fundamental para esse tipo de publico;
+
+- Ao final dessas leituras eu devo: Saber quais os problemas em abertos desses trabalhos e propor algo de novo com base nos problemas em aberto.
+- O foco esta em o como, como propor?
+- Processo de Desenvolvimento ;
+- Processo de Avaliação (Do sistema como um todo);
+- Processo de Especificação;
+
+- Tecnologia Assistida para idoso
+- Como esta usando a tecnologia para ajudar o idoso
+- Melhoria do algoritimo proposto nos trabalhos
