@@ -3,7 +3,16 @@ drop table review
 CREATE TEMPORARY TABLE IF NOT EXISTS review 
 	AS (SELECT id, title, abstract, CONCAT( COALESCE(title,' '),  ' ', COALESCE(keywords,''), ' ', COALESCE(abstract,'')  ) AS texto, CONCAT( 'http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=', COALESCE(source_id,' ')) as pdf, citation_count, download_count, year FROM document where duplicate = 0 and authors is not null)
 
-select source, title_slug, r.title, r.abstract, r.texto, r.citation_count, r.download_count, r.year, d.document_url, r.pdf
+select source, 
+title_slug, 
+r.title, 
+r.abstract, 
+r.texto, 
+r.citation_count, 
+r.download_count, 
+r.year, 
+d.document_url, 
+r.pdf
 from review r
 inner join document d on d.id = r.id
 where texto is not null
@@ -11,7 +20,7 @@ and (texto like '%Internet % Thing%' or texto like '%IoT%')
 and texto like '%Medical%'
 and texto like '%Health%'
 and (texto like 'elder%' or texto like '%elderly%')
-and (r.citation_count is not null or r.citation_count > 0)
+and (r.citation_count is not null and r.citation_count > 0)
 order by r.citation_count desc, r.download_count desc
 
 http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7987536
@@ -54,10 +63,10 @@ Adicionar manualmente no mapeamento
 
 - Ao final dessas leituras eu devo: Saber quais os problemas em abertos desses trabalhos e propor algo de novo com base nos problemas em aberto.
 - O foco esta em o como, como propor?
-- Processo de Desenvolvimento ;
+- Processo de Desenvolvimento;
 - Processo de Avaliação (Do sistema como um todo);
 - Processo de Especificação;
 
-- Tecnologia Assistida para idoso
-- Como esta usando a tecnologia para ajudar o idoso
-- Melhoria do algoritimo proposto nos trabalhos
+- Tecnologia Assistida para idoso;
+- Como esta usando a tecnologia para ajudar o idoso;
+- Melhoria do algoritimo proposto nos trabalhos;
