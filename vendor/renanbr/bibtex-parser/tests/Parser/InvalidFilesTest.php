@@ -25,9 +25,9 @@ class InvalidFilesTest extends TestCase
         $parser = new Parser();
 
         // Keeps compatibility with phpunit 5 and 6
-        $warningClass = class_exists(\PHPUnit_Framework_Error_Warning::class)
-            ? \PHPUnit_Framework_Error_Warning::class
-            : \PHPUnit\Framework\Error\Warning::class;
+        $warningClass = class_exists('\PHPUnit_Framework_Error_Warning')
+            ? '\PHPUnit_Framework_Error_Warning'
+            : '\PHPUnit\Framework\Error\Warning';
         $this->expectException($warningClass);
 
         $parser->parseFile(__DIR__.'/../resources/valid/does-not-exist');

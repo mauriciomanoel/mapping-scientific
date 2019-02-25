@@ -19,7 +19,7 @@ trait TagSearchTrait
      * The search performed is case-insensitive.
      *
      * @param string $needle
-     * @param string $haystack
+     * @param array  $haystack
      *
      * @return null|string
      */

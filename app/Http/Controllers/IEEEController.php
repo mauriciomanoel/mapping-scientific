@@ -14,44 +14,48 @@ use App\Http\Support\File;
 use App\Http\Support\Util;
 use App\Http\Support\Webservice;
 use App\Http\Support\CreateDocument;
+use App\Http\Support\ParserCustom;
 use RenanBr\BibTexParser\Listener;
-use RenanBr\BibTexParser\Parser;
-use RenanBr\BibTexParser\ParserException;
 use Carbon\Carbon;
 
 class IEEEController extends Controller {
-    private static $parameter_query = array("healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M-health_Things" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
-                                     "Internet_of_Things_AND_Health" => '("Internet of Things" AND *Health*)',
-                                     "Internet_of_Things_AND_Healthcare" => '("Internet of Things" AND *Healthcare*)',
-                                     "Internet_of_Things_AND_Medical" => '("Internet of Things" AND Medical)',
-                                     "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")');
+    private static $parameter_query = array("healthcare-iot-or-health-iot-or-healthiot" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
+                                     "internet-of-medical-things-or-internet-of-healthcare-things-or-iomt" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "IoMT")',
+                                     "internet-of-things-and-health" => '("Internet of Things" and "*Health*")',
+                                     "internet-of-things-and-healthcare" => '("Internet of Things" and "*Healthcare*")',
+                                     "internet-of-things-and-medical" => '("Internet of Things" and "Medical")',
+                                     "medical-iot-or-iot-medical" => '("Medical IoT" OR "IoT Medical")',
+                                     "internet-of-things-and-care" => '("internet of things" AND "*care*")');
+                                     
 
     public function import_bibtex() {
         
-        $path_file = "data_files/ieee/";
-        $files = File::load($path_file);
+        $path_file = "C:\projetos\web\mysm\storage\data_files\ieee\\";
+        $files = File::load($path_file, array("csv"));
+
         Util::showMessage("Start Import bibtex file from IEEE");
-        foreach($files as $file) {
+        foreach($files as $file) 
+        {
             Util::showMessage($file);
-            $parser = new Parser();             // Create a Parser
+            
+            $parser = new ParserCustom();             // Create a Parser
             $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser
             $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
             $entries = $listener->export();     // Get processed data from the Listener
-
+            Util::showMessage("Import " . count($entries) . " documents");
             foreach($entries as $key => $article) {  
                 $query = str_replace(array($path_file, ".bib"), "", $file);
                 
                 // Add new Parameter in variable article
-                $article["search_string"] = self::$parameter_query[$query];
+                $article["search_string"]   = self::$parameter_query[$query];
                 $article["pdf_link"]        = Config::get('constants.pach_ieee') . "xpl/abstractSimilar.jsp?arnumber=" . $article["citation-key"];
                 $article["document_url"]    = Config::get('constants.pach_ieee') . "document/" . $article["citation-key"];
                 $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
                 $article["source"]          = Config::get('constants.source_ieee');
                 $article["source_id"]       = $article["citation-key"];
-                $article["file_name"]       = $file;
+                $article["file_name"]       = basename($file);
                 
                 $duplicate = 0;
                 $duplicate_id = null;

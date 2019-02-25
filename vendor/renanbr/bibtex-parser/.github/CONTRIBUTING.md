@@ -32,10 +32,10 @@ This project uses [PHP Coding Standards Fixer] to check and fix rules violations
 
 ```bash
 # For checking violations
-vendor/bin/php-cs-fixer fix --dry-run -vvv
+php-cs-fixer fix --dry-run -vvv
 
 # For fixing violations
-vendor/bin/php-cs-fixer fix
+php-cs-fixer fix
 ```
 
 [Composer]: https://getcomposer.org

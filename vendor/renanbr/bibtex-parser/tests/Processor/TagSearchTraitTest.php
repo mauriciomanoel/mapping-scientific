@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace RenanBr\BibTexParser\Test\Processor\AbstractProcessor;
+namespace RenanBr\BibTexParser\Test\Processor;
 
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;

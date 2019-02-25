@@ -15,25 +15,19 @@ use App\Http\Support\Webservice;
 use App\Http\Support\Util;
 use App\Http\Support\CreateDocument;
 use App\Http\Support\HTML;
+use App\Http\Support\ParserCustom;
 use RenanBr\BibTexParser\Listener;
-use RenanBr\BibTexParser\Parser;
-use RenanBr\BibTexParser\ParserException;
 
 class ACMController extends Controller {
-    private static $parameter_query = array("healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M-health_Things" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
-                                     "Internet_of_Things_AND_Health" => '("Internet of Things" AND *Health*)',
-                                     "Internet_of_Things_AND_Healthcare" => '("Internet of Things" AND *Healthcare*)',
-                                     "Internet_of_Things_AND_Medical" => '("Internet of Things" AND Medical)',
-                                     "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")');
-
+    
     public function import_bibtex() {
-        $path_file = "data_files/acm/";
-        $files = File::load($path_file);
+
+        $path_file = "C:\projetos\web\mysm\storage\data_files\acm\\";
+        $files = File::load($path_file, array("csv"));
         Util::showMessage("Start Import bibtex file from ACM");
         foreach($files as $file) {
             Util::showMessage($file);
-            $parser = new Parser();             // Create a Parser
+            $parser = new ParserCustom();             // Create a Parser
             $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace RenanBr\BibTexParser\Test\Listener;
+namespace RenanBr\BibTexParser\Test\Processor;
 
 use PHPUnit\Framework\TestCase;
 use RenanBr\BibTexParser\Listener;

@@ -71,14 +71,14 @@ class Listener implements ListenerInterface
                 $this->entries[$index]['citation-key'] = $text;
                 break;
 
-            case PARSER::TAG_NAME:
+            case Parser::TAG_NAME:
                 // Saves tag into the current entry
                 $index = count($this->entries) - 1;
                 $this->currentTagName = $text;
                 $this->entries[$index][$this->currentTagName] = null;
                 break;
 
-            case PARSER::RAW_TAG_CONTENT:
+            case Parser::RAW_TAG_CONTENT:
                 // Searchs for an abbreviation
                 foreach ($this->entries as $entry) {
                     if ('string' === $entry['type'] && array_key_exists($text, $entry)) {
@@ -88,8 +88,8 @@ class Listener implements ListenerInterface
                 }
                 // no break
 
-            case PARSER::BRACED_TAG_CONTENT:
-            case PARSER::QUOTED_TAG_CONTENT:
+            case Parser::BRACED_TAG_CONTENT:
+            case Parser::QUOTED_TAG_CONTENT:
                 // Appends content into the current tag
                 if (null !== $text) {
                     $index = count($this->entries) - 1;

@@ -237,7 +237,7 @@ class NamesProcessor
                 }
             }
         } else {
-            throw new ProcessorException('Could not determine case on word: '.(string) $word);
+            throw new ProcessorException('Could not determine case on word: '.$word);
         }
 
         return $ret;

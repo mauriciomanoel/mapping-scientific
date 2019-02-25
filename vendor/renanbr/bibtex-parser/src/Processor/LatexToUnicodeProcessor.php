@@ -22,7 +22,7 @@ class LatexToUnicodeProcessor
 {
     use TagCoverageTrait;
 
-    /** @var Pandoc */
+    /** @var null|Pandoc */
     private $pandoc;
 
     /**
@@ -54,8 +54,7 @@ class LatexToUnicodeProcessor
     }
 
     /**
-     * @param string $entry
-     * @param mixed  $text
+     * @param mixed $text
      *
      * @return string
      */
@@ -76,7 +75,7 @@ class LatexToUnicodeProcessor
                     'Error while processing LaTeX to Unicode: %s',
                     $exception->getMessage()
                 ),
-                null,
+                0,
                 $exception
             );
         }

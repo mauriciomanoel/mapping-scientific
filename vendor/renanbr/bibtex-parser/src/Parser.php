@@ -36,14 +36,20 @@ class Parser
     /** @var string */
     private $buffer;
 
-    /** @var array */
+    /** @var null|int */
+    private $bufferOffset;
+
+    /** @var null|array */
     private $firstTagSnapshot;
 
-    /** @var string */
+    /** @var null|string */
     private $originalEntryBuffer;
 
-    /** @var int */
+    /** @var null|int */
     private $originalEntryOffset;
+
+    /** @var bool */
+    private $skipOriginalEntryReading;
 
     /** @var int */
     private $line;
@@ -60,7 +66,7 @@ class Parser
     /** @var bool */
     private $mayConcatenateTagContent;
 
-    /** @var string */
+    /** @var null|string */
     private $tagContentDelimiter;
 
     /** @var int */
@@ -133,6 +139,7 @@ class Parser
         $this->firstTagSnapshot = null;
         $this->originalEntryBuffer = null;
         $this->originalEntryOffset = null;
+        $this->skipOriginalEntryReading = false;
         $this->line = 1;
         $this->column = 1;
         $this->offset = 0;
@@ -217,6 +224,18 @@ class Parser
             $this->appendToBuffer($char);
         } else {
             $this->throwExceptionIfBufferIsEmpty($char);
+
+            // Skips @comment type
+            if ('comment' === mb_strtolower($this->buffer)) {
+                $this->skipOriginalEntryReading = true;
+                $this->buffer = '';
+                $this->bufferOffset = null;
+                $this->state = self::COMMENT;
+                $this->readComment($char);
+
+                return;
+            }
+
             $this->triggerListenersWithCurrentBuffer();
 
             // once $char isn't a valid character
@@ -386,6 +405,14 @@ class Parser
      */
     private function readOriginalEntry($char, $previousState)
     {
+        if ($this->skipOriginalEntryReading) {
+            $this->originalEntryBuffer = '';
+            $this->originalEntryOffset = null;
+            $this->skipOriginalEntryReading = false;
+
+            return;
+        }
+
         // Checks whether we are reading an entry character or not
         $isPreviousStateEntry = $this->isEntryState($previousState);
         $isCurrentStateEntry = $this->isEntryState($this->state);
