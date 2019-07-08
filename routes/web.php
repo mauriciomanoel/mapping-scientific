@@ -30,3 +30,6 @@ Route::get('load-detail-capes', 'CapesController@load_detail');
 
 Route::get('import-springer-bibtex', 'SpringerController@import_bibtex');
 Route::get('load-detail-springer', 'SpringerController@load_detail');
+
+Route::get('import-catalogo-capes-bibtex', 'CatalogoCapesController@import_bibtex_to_database');
+

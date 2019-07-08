@@ -1,7 +1,13 @@
-drop table review
-
+#drop table review
 CREATE TEMPORARY TABLE IF NOT EXISTS review 
-	AS (SELECT id, title, abstract, CONCAT( COALESCE(title,' '),  ' ', COALESCE(keywords,''), ' ', COALESCE(abstract,'')  ) AS texto, CONCAT( 'http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=', COALESCE(source_id,' ')) as pdf, citation_count, download_count, year FROM document where duplicate = 0 and authors is not null)
+	AS (SELECT id, title, abstract, CONCAT( COALESCE(title,' '),  ' ', COALESCE(keywords,''), ' ', COALESCE(abstract,'')  ) AS texto, 
+			CASE
+			    WHEN source = "CatalogoTeses" THEN document_url 
+			    WHEN source = "IEEE" THEN CONCAT( 'http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=', COALESCE(source_id,' ')) 
+			END as url,
+			citation_count, download_count, year 
+			FROM document where duplicate = 0 and authors is not null
+		)
 
 select source, 
 title_slug, 
@@ -12,14 +18,14 @@ r.citation_count,
 r.download_count, 
 r.year, 
 d.document_url, 
-r.pdf
+r.url
 from review r
 inner join document d on d.id = r.id
 where texto is not null
-and (texto like '%Internet % Thing%' or texto like '%IoT%')
-and texto like '%Medical%'
-and texto like '%Health%'
-and (texto like 'elder%' or texto like '%elderly%')
+and (texto like '%Internet % Thing%' OR texto like '%Internet % Coisas%' OR texto like '%IoT%')
+and (texto like '%Medical%' OR texto like '%Health%')
+and (texto like '%elder%' OR texto like '%older person%' OR texto like '%older person%' OR texto like '%idos%')
+and (texto like '%Smart%' OR texto like "%cidades inteligentes%")
 and (r.citation_count is not null and r.citation_count > 0)
 order by r.citation_count desc, r.download_count desc
 
