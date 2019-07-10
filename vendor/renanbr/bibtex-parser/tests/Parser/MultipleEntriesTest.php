@@ -26,7 +26,7 @@ class MultipleEntriesTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/multiples-entries.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/multiples-entries.bib');
 
         $this->assertCount(8, $listener->calls);
 

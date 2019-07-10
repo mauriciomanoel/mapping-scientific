@@ -36,20 +36,14 @@ class Parser
     /** @var string */
     private $buffer;
 
-    /** @var null|int */
-    private $bufferOffset;
-
-    /** @var null|array */
+    /** @var array */
     private $firstTagSnapshot;
 
-    /** @var null|string */
+    /** @var string */
     private $originalEntryBuffer;
 
-    /** @var null|int */
+    /** @var int */
     private $originalEntryOffset;
-
-    /** @var bool */
-    private $skipOriginalEntryReading;
 
     /** @var int */
     private $line;
@@ -66,7 +60,7 @@ class Parser
     /** @var bool */
     private $mayConcatenateTagContent;
 
-    /** @var null|string */
+    /** @var string */
     private $tagContentDelimiter;
 
     /** @var int */
@@ -82,9 +76,8 @@ class Parser
 
     /**
      * @param string $file
-     *
-     * @throws ParserException if $file given is not a valid BibTeX
-     * @throws \ErrorException if $file given is not readable
+     * @throws ParserException If $file given is not a valid BibTeX.
+     * @throws \ErrorException If $file given is not readable.
      */
     public function parseFile($file)
     {
@@ -103,8 +96,7 @@ class Parser
 
     /**
      * @param string $string
-     *
-     * @throws ParserException if $string given is not a valid BibTeX
+     * @throws ParserException If $string given is not a valid BibTeX.
      */
     public function parseString($string)
     {
@@ -119,16 +111,16 @@ class Parser
     private function parse($text)
     {
         $length = mb_strlen($text);
-        for ($position = 0; $position < $length; ++$position) {
+        for ($position = 0; $position < $length; $position++) {
             $char = mb_substr($text, $position, 1);
             $this->read($char);
             if ("\n" === $char) {
-                ++$this->line;
+                $this->line++;
                 $this->column = 1;
             } else {
-                ++$this->column;
+                $this->column++;
             }
-            ++$this->offset;
+            $this->offset++;
         }
     }
 
@@ -139,7 +131,6 @@ class Parser
         $this->firstTagSnapshot = null;
         $this->originalEntryBuffer = null;
         $this->originalEntryOffset = null;
-        $this->skipOriginalEntryReading = false;
         $this->line = 1;
         $this->column = 1;
         $this->offset = 0;
@@ -224,18 +215,6 @@ class Parser
             $this->appendToBuffer($char);
         } else {
             $this->throwExceptionIfBufferIsEmpty($char);
-
-            // Skips @comment type
-            if ('comment' === mb_strtolower($this->buffer)) {
-                $this->skipOriginalEntryReading = true;
-                $this->buffer = '';
-                $this->bufferOffset = null;
-                $this->state = self::COMMENT;
-                $this->readComment($char);
-
-                return;
-            }
-
             $this->triggerListenersWithCurrentBuffer();
 
             // once $char isn't a valid character
@@ -262,7 +241,7 @@ class Parser
      */
     private function readTagName($char)
     {
-        if (preg_match('/^[a-zA-Z0-9_\+:\-\.\/]$/', $char)) {
+        if (preg_match('/^[a-zA-Z0-9_\+:\-]$/', $char)) {
             $this->appendToBuffer($char);
         } elseif ($this->isWhitespace($char) && empty($this->buffer)) {
             // Skips because we didn't start reading
@@ -381,7 +360,7 @@ class Parser
             }
             $this->appendToBuffer($char);
         } elseif ('}' === $this->tagContentDelimiter && '{' === $char) {
-            ++$this->braceLevel;
+            $this->braceLevel++;
             $this->appendToBuffer($char);
         } elseif ($this->tagContentDelimiter === $char) {
             if (0 === $this->braceLevel) {
@@ -389,7 +368,7 @@ class Parser
                 $this->mayConcatenateTagContent = true;
                 $this->state = self::PRE_TAG_CONTENT;
             } else {
-                --$this->braceLevel;
+                $this->braceLevel--;
                 $this->appendToBuffer($char);
             }
         } elseif ('\\' === $char) {
@@ -405,14 +384,6 @@ class Parser
      */
     private function readOriginalEntry($char, $previousState)
     {
-        if ($this->skipOriginalEntryReading) {
-            $this->originalEntryBuffer = '';
-            $this->originalEntryOffset = null;
-            $this->skipOriginalEntryReading = false;
-
-            return;
-        }
-
         // Checks whether we are reading an entry character or not
         $isPreviousStateEntry = $this->isEntryState($previousState);
         $isCurrentStateEntry = $this->isEntryState($this->state);
@@ -444,7 +415,7 @@ class Parser
     /**
      * @param string $text
      * @param string $type
-     * @param array  $context
+     * @param array $context
      */
     private function triggerListeners($text, $type, array $context)
     {
@@ -510,7 +481,7 @@ class Parser
 
     /**
      * @param string $char
-     * @param bool   $availability
+     * @param bool $availability
      */
     private function throwExceptionAccordingToConcatenationAvailability($char, $availability)
     {
@@ -543,7 +514,6 @@ class Parser
 
     /**
      * @param string $state
-     *
      * @return bool
      */
     private function isEntryState($state)
@@ -553,7 +523,6 @@ class Parser
 
     /**
      * @param string $char
-     *
      * @return bool
      */
     private function isWhitespace($char)

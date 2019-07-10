@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46be7e82d8c85ce3418e3cf94df6408c",
+    "content-hash": "20e07327400a32f2d1dcffcec34f99aa",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -404,16 +404,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.45",
+            "version": "v5.5.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "52c79ecf54b6168a54730ccb6c4c9f3561732a80"
+                "reference": "85b2a5218088b0f60bf6e8c3a62891ba275a7269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/52c79ecf54b6168a54730ccb6c4c9f3561732a80",
-                "reference": "52c79ecf54b6168a54730ccb6c4c9f3561732a80",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/85b2a5218088b0f60bf6e8c3a62891ba275a7269",
+                "reference": "85b2a5218088b0f60bf6e8c3a62891ba275a7269",
                 "shasum": ""
             },
             "require": {
@@ -534,7 +534,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-01-28T20:53:19+00:00"
+            "time": "2019-07-09T14:00:53+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1264,22 +1264,23 @@
         },
         {
             "name": "renanbr/bibtex-parser",
-            "version": "2.0.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/renanbr/bibtex-parser.git",
-                "reference": "dded1a67b559e4bd4cdc86e79cfe056e2bdc4d0d"
+                "reference": "5cd2fe54b5286055222ce9e4d6fa6d080426b93b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/renanbr/bibtex-parser/zipball/dded1a67b559e4bd4cdc86e79cfe056e2bdc4d0d",
-                "reference": "dded1a67b559e4bd4cdc86e79cfe056e2bdc4d0d",
+                "url": "https://api.github.com/repos/renanbr/bibtex-parser/zipball/5cd2fe54b5286055222ce9e4d6fa6d080426b93b",
+                "reference": "5cd2fe54b5286055222ce9e4d6fa6d080426b93b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.8",
                 "phpunit/phpunit": "^5.7 || ^6.0",
                 "ryakad/pandoc-php": "^1.0"
             },
@@ -1317,7 +1318,7 @@
                 "latex",
                 "parser"
             ],
-            "time": "2018-08-17T22:18:23+00:00"
+            "time": "2017-11-25T16:31:21+00:00"
         },
         {
             "name": "ryakad/pandoc-php",
@@ -3554,6 +3555,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
         {

@@ -20,7 +20,7 @@ interface ListenerInterface
      *                        Escape character will not be sent.
      * @param string $type    The type of unit found.
      *                        It can assume one of Parser's constant value.
-     * @param array  $context contains details of the unit found
+     * @param array  $context Contains details of the unit found.
      */
     public function bibTexUnitFound($text, $type, array $context);
 }

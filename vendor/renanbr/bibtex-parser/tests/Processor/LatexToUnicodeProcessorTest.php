@@ -25,7 +25,7 @@ class LatexToUnicodeProcessorTest extends TestCase
     {
         $processor = new LatexToUnicodeProcessor();
         $entry = $processor([
-            'text' => 'tr\\`{e}s bien',
+            'text' => "tr\\`{e}s bien",
         ]);
 
         $this->assertSame('très bien', $entry['text']);
@@ -37,7 +37,7 @@ class LatexToUnicodeProcessorTest extends TestCase
         $entry = $processor([
             'text' => [
                 'foo' => "f\\'{u}",
-                'bar' => 'b{\\aa}r',
+                'bar' => "b{\\aa}r",
             ],
         ]);
 
@@ -54,7 +54,7 @@ class LatexToUnicodeProcessorTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-contents-latex.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-contents-latex.bib');
 
         $entries = $listener->export();
 

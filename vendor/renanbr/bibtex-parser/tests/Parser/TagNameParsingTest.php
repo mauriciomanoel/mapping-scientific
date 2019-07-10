@@ -26,7 +26,7 @@ class TagNameParsingTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/no-tag-content.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/no-tag-content.bib');
 
         $this->assertCount(4, $listener->calls);
 
@@ -44,7 +44,7 @@ class TagNameParsingTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[3];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/no-tag-content.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/no-tag-content.bib'));
         $this->assertSame($original, $text);
     }
 }

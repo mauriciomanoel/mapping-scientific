@@ -26,7 +26,7 @@ class TrailingCommaTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/trailing-comma.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/trailing-comma.bib');
 
         $this->assertCount(4, $listener->calls);
 
@@ -44,7 +44,7 @@ class TrailingCommaTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[3];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/trailing-comma.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/trailing-comma.bib'));
         $this->assertSame($original, $text);
     }
 }

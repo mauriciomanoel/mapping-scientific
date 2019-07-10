@@ -32,7 +32,7 @@ class Listener implements ListenerInterface
     private $processed = false;
 
     /**
-     * @return array all entries found during parsing process
+     * @return array All entries found during parsing process.
      */
     public function export()
     {
@@ -51,7 +51,7 @@ class Listener implements ListenerInterface
      *                            The processor given must return the modified entry.
      *                            Processors will be applied in the same order in which they were added.
      *                            The suggested signature is:
-     *                            function (array $entry): array
+     *                                function (array $entry): array
      */
     public function addProcessor(callable $processor)
     {
@@ -71,14 +71,14 @@ class Listener implements ListenerInterface
                 $this->entries[$index]['citation-key'] = $text;
                 break;
 
-            case Parser::TAG_NAME:
+            case PARSER::TAG_NAME:
                 // Saves tag into the current entry
                 $index = count($this->entries) - 1;
                 $this->currentTagName = $text;
                 $this->entries[$index][$this->currentTagName] = null;
                 break;
 
-            case Parser::RAW_TAG_CONTENT:
+            case PARSER::RAW_TAG_CONTENT:
                 // Searchs for an abbreviation
                 foreach ($this->entries as $entry) {
                     if ('string' === $entry['type'] && array_key_exists($text, $entry)) {
@@ -88,8 +88,8 @@ class Listener implements ListenerInterface
                 }
                 // no break
 
-            case Parser::BRACED_TAG_CONTENT:
-            case Parser::QUOTED_TAG_CONTENT:
+            case PARSER::BRACED_TAG_CONTENT:
+            case PARSER::QUOTED_TAG_CONTENT:
                 // Appends content into the current tag
                 if (null !== $text) {
                     $index = count($this->entries) - 1;

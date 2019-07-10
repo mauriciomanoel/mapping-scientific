@@ -23,12 +23,12 @@ class IntegrationTest extends TestCase
 {
     public function testUsage()
     {
-        $listener = new Listener();
+        $listener = new Listener;
         $listener->addProcessor(new NamesProcessor());
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../../resources/valid/authors-simple.bib');
+        $parser->parseFile(__DIR__ . '/../../resources/valid/authors-simple.bib');
         $entries = $listener->export();
 
         // Some sanity checks to make sure it didn't screw the rest of the entry

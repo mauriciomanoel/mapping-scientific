@@ -8,7 +8,7 @@
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "renanbr/bibtex-parser": "~2.0",
+        "renanbr/bibtex-parser": "2",
         "ryakad/pandoc-php": "~1.0"
     },
     "require-dev": {

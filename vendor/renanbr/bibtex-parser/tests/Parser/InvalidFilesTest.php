@@ -25,12 +25,12 @@ class InvalidFilesTest extends TestCase
         $parser = new Parser();
 
         // Keeps compatibility with phpunit 5 and 6
-        $warningClass = class_exists('\PHPUnit_Framework_Error_Warning')
-            ? '\PHPUnit_Framework_Error_Warning'
-            : '\PHPUnit\Framework\Error\Warning';
+        $warningClass = class_exists(\PHPUnit_Framework_Error_Warning::class)
+            ? \PHPUnit_Framework_Error_Warning::class
+            : \PHPUnit\Framework\Error\Warning::class;
         $this->expectException($warningClass);
 
-        $parser->parseFile(__DIR__.'/../resources/valid/does-not-exist');
+        $parser->parseFile(__DIR__ . '/../resources/valid/does-not-exist');
     }
 
     /** @dataProvider invalidFileProvider */
@@ -45,39 +45,39 @@ class InvalidFilesTest extends TestCase
 
     public function invalidFileProvider()
     {
-        $dir = __DIR__.'/../resources/invalid';
+        $dir = __DIR__ . '/../resources/invalid';
 
         return [
             'brace missing' => [
-                $dir.'/brace-missing.bib',
+                $dir . '/brace-missing.bib',
                 "'\\0' at line 3 column 1",
             ],
             'multiple braced values' => [
-                $dir.'/multiple-braced-tag-contents.bib',
+                $dir . '/multiple-braced-tag-contents.bib',
                 "'{' at line 2 column 33",
             ],
             'multiple quoted values' => [
-                $dir.'/multiple-quoted-tag-contents.bib',
+                $dir . '/multiple-quoted-tag-contents.bib',
                 "'\"' at line 2 column 33",
             ],
             'multiple raw values' => [
-                $dir.'/multiple-raw-tag-contents.bib',
+                $dir . '/multiple-raw-tag-contents.bib',
                 "'b' at line 2 column 31",
             ],
             'space after @' => [
-                $dir.'/space-after-at-sign.bib',
+                $dir . '/space-after-at-sign.bib',
                 "' ' at line 1 column 2",
             ],
             'splitted tag name' => [
-                $dir.'/splitted-tag-name.bib',
+                $dir . '/splitted-tag-name.bib',
                 "'t' at line 2 column 14",
             ],
             'splitted type' => [
-                $dir.'/splitted-type.bib',
+                $dir . '/splitted-type.bib',
                 "'T' at line 1 column 11",
             ],
             'double concat' => [
-                $dir.'/double-concat.bib',
+                $dir . '/double-concat.bib',
                 "'#' at line 2 column 20",
             ],
         ];
@@ -86,8 +86,7 @@ class InvalidFilesTest extends TestCase
     /**
      * @group regression
      * @group bug40
-     *
-     * @see https://github.com/renanbr/bibtex-parser/issues/40
+     * @link https://github.com/renanbr/bibtex-parser/issues/40
      */
     public function testInvalidCharBeforeTagContentMustThrowAnException()
     {

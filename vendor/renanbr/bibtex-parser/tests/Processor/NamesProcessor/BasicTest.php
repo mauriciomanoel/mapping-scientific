@@ -21,7 +21,7 @@ class BasicTest extends TestCase
 {
     public function testSimple()
     {
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/simple.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/simple.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 
@@ -35,7 +35,7 @@ class BasicTest extends TestCase
 
     public function testMany()
     {
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/many.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/many.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 
@@ -56,7 +56,7 @@ class BasicTest extends TestCase
 
     public function testLast()
     {
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/last.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/last.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 
@@ -69,7 +69,7 @@ class BasicTest extends TestCase
 
     public function testOrder()
     {
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/order.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/order.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 
@@ -98,7 +98,7 @@ class BasicTest extends TestCase
         // Tests von parts and junior parts
 
         // von part
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/von1.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/von1.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 
@@ -113,7 +113,7 @@ class BasicTest extends TestCase
         $this->assertSame('', $authors[1]['jr']);
 
         // junior part
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/von2.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/von2.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 
@@ -128,7 +128,7 @@ class BasicTest extends TestCase
         $this->assertSame('', $authors[1]['jr']);
 
         // both
-        $authors = file_get_contents(__DIR__.'/../../resources/authors/von3.txt');
+        $authors = file_get_contents(__DIR__ . '/../../resources/authors/von3.txt');
         $processor = new NamesProcessor();
         $authors = $processor(['author' => $authors])['author'];
 

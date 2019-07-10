@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Storage;
 use Config;
 
 class CatalogoCapesController extends Controller {
-    private static $search_string = "Smart Cities" OR "Smart health";
+    
 
     public function import_bibtex_to_database() {
         
-        $path_file = storage_path() . "/data_files/catalogo_capes/";
+        $path_file = storage_path() . "/data_files/catalogo_teses_dissertacoes/";
         $files = File::load($path_file);
         
         Util::showMessage("Start Import bibtex file from Elsevier Sciencedirect");
@@ -35,13 +35,12 @@ class CatalogoCapesController extends Controller {
             {
                 Util::showMessage($file);
                 $parser = new Parser();             // Create a Parser
-                //$parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
                 $listener = new Listener();         // Create and configure a Listener                
                 $parser->addListener($listener);    // Attach the Listener to the Parser
                 $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
                 $entries = $listener->export();     // Get processed data from the Listener
 
-                $search_string = "\"Smart Cities\" OR \"Smart health\"";
+                $search_string = '("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
                 foreach($entries as $key => $article) {
                     
                     if (empty($article["abstract"]) && empty($article["note"])) {
@@ -87,6 +86,7 @@ class CatalogoCapesController extends Controller {
                         $document_new->duplicate        = $duplicate;
                         $document_new->duplicate_id     = $duplicate_id;
                         $document_new->save();
+                        Util::showMessage("Article " . $article["title"]  . " successfully registered" . $file);
 
                     } else {
                         Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);

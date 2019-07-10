@@ -18,20 +18,13 @@ use App\Http\Support\ParserCustom;
 use RenanBr\BibTexParser\Listener;
 use Carbon\Carbon;
 
-class IEEEController extends Controller {
-    private static $parameter_query = array("healthcare-iot-or-health-iot-or-healthiot" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "internet-of-medical-things-or-internet-of-healthcare-things-or-iomt" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "IoMT")',
-                                     "internet-of-things-and-health" => '("Internet of Things" and "*Health*")',
-                                     "internet-of-things-and-healthcare" => '("Internet of Things" and "*Healthcare*")',
-                                     "internet-of-things-and-medical" => '("Internet of Things" and "Medical")',
-                                     "medical-iot-or-iot-medical" => '("Medical IoT" OR "IoT Medical")',
-                                     "internet-of-things-and-care" => '("internet of things" AND "*care*")');
+class IEEEController extends Controller {    
                                      
-
     public function import_bibtex() {
-        
-        $path_file = "C:\projetos\web\mysm\storage\data_files\ieee\\";
-        $files = File::load($path_file, array("csv"));
+
+        $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
+        $path_file = storage_path() . "/data_files/ieee/";
+        $files = File::load($path_file);
 
         Util::showMessage("Start Import bibtex file from IEEE");
         foreach($files as $file) 
@@ -39,17 +32,16 @@ class IEEEController extends Controller {
             Util::showMessage($file);
             
             $parser = new ParserCustom();             // Create a Parser
-            $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser
             $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
             $entries = $listener->export();     // Get processed data from the Listener
             Util::showMessage("Import " . count($entries) . " documents");
+ 
             foreach($entries as $key => $article) {  
-                $query = str_replace(array($path_file, ".bib"), "", $file);
                 
                 // Add new Parameter in variable article
-                $article["search_string"]   = self::$parameter_query[$query];
+                $article["search_string"]   = $query;
                 $article["pdf_link"]        = Config::get('constants.pach_ieee') . "xpl/abstractSimilar.jsp?arnumber=" . $article["citation-key"];
                 $article["document_url"]    = Config::get('constants.pach_ieee') . "document/" . $article["citation-key"];
                 $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json

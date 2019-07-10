@@ -22,13 +22,14 @@ class ACMController extends Controller {
     
     public function import_bibtex() {
 
-        $path_file = "C:\projetos\web\mysm\storage\data_files\acm\\";
-        $files = File::load($path_file, array("csv"));
+        $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
+        $path_file = storage_path() . "/data_files/acm/";
+        $files = File::load($path_file);
+        
         Util::showMessage("Start Import bibtex file from ACM");
         foreach($files as $file) {
             Util::showMessage($file);
-            $parser = new ParserCustom();             // Create a Parser
-            $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
+            $parser = new ParserCustom();             // Create a Parser            
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser
             $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
@@ -39,7 +40,7 @@ class ACMController extends Controller {
                 
                 $source_id = 0;
                 // Add new Parameter in variable article
-                $article["search_string"]   = self::$parameter_query[$query];
+                $article["search_string"]   = $query;
                 if (isset($article["acmid"])) {
                     $article["document_url"]    = Config::get('constants.pach_acm') . "citation.cfm?id=" . $article["acmid"];
                     $source_id                  = $article["acmid"];
@@ -109,6 +110,7 @@ class ACMController extends Controller {
             $cookie         = WebService::getCookie($url);
             $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
             $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
+            var_dump($html_article); exit;
             $metrics        = HTML::getFromClass($html_article, "small-text", "td");
             $metrics        = trim(strip_tags(str_replace("·", "", $metrics[0])));
             $data_metrics   = explode("\n", $metrics);

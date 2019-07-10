@@ -29,7 +29,7 @@ class ValueParsingTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-contents-basic.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-contents-basic.bib');
 
         $this->assertCount(14, $listener->calls);
 
@@ -87,7 +87,7 @@ class ValueParsingTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[13];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/tag-contents-basic.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/tag-contents-basic.bib'));
         $this->assertSame($original, $text);
     }
 
@@ -97,7 +97,7 @@ class ValueParsingTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-contents-escaped.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-contents-escaped.bib');
 
         $this->assertCount(6, $listener->calls);
 
@@ -141,7 +141,7 @@ class ValueParsingTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[5];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/tag-contents-escaped.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/tag-contents-escaped.bib'));
         $this->assertSame($original, $text);
         $this->assertSame(0, $context['offset']);
         $this->assertSame(93, $context['length']);
@@ -153,7 +153,7 @@ class ValueParsingTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-contents-multiple.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-contents-multiple.bib');
 
         $this->assertCount(19, $listener->calls);
 
@@ -231,7 +231,7 @@ class ValueParsingTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[18];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/tag-contents-multiple.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/tag-contents-multiple.bib'));
         $this->assertSame($original, $text);
     }
 
@@ -241,7 +241,7 @@ class ValueParsingTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-contents-slashes.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-contents-slashes.bib');
 
         $this->assertCount(6, $listener->calls);
 
@@ -267,7 +267,7 @@ class ValueParsingTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[5];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/tag-contents-slashes.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/tag-contents-slashes.bib'));
         $this->assertSame($original, $text);
     }
 
@@ -277,7 +277,7 @@ class ValueParsingTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-contents-nested-braces.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-contents-nested-braces.bib');
 
         $this->assertCount(8, $listener->calls);
 
@@ -311,7 +311,7 @@ class ValueParsingTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[7];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/tag-contents-nested-braces.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/tag-contents-nested-braces.bib'));
         $this->assertSame($original, $text);
     }
 }

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace RenanBr\BibTexParser\Test\Processor;
+namespace RenanBr\BibTexParser\Test\Listener;
 
 use PHPUnit\Framework\TestCase;
 use RenanBr\BibTexParser\Listener;
@@ -28,7 +28,7 @@ class TagNameCaseProcessorTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-name-uppercased.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-name-uppercased.bib');
 
         $entries = $listener->export();
 
@@ -44,7 +44,7 @@ class TagNameCaseProcessorTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/tag-name-uppercased.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/tag-name-uppercased.bib');
 
         $entries = $listener->export();
 

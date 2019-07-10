@@ -17,42 +17,54 @@ use App\Http\Support\CreateDocument;
 use RenanBr\BibTexParser\Listener;
 use RenanBr\BibTexParser\Parser;
 use RenanBr\BibTexParser\ParserException;
+use RenanBr\BibTexParser\Processor\LatexToUnicodeProcessor;
 
 class SpringerController extends Controller {
 
-    private static $parameter_query = array(
-                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT_Article" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT_ConferencePaper" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M_health_Things_Article" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
-                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M_health_Things_ConferencePaper" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',                               
-                                     "Internet_of_Things_OR_Internet_of_Things_AND_Health_Article" => '(("Internet of Things" OR "Internet-of-Things") AND "*Health*")',
-                                     "Internet_of_Things_OR_Internet_of_Things_AND_Health_ConferencePaper" => '(("Internet of Things" OR "Internet-of-Things") AND "*Health*")',                                    
-                                     "Internet_of_Things_and_Healthcare_Article" => '("Internet of Things" AND *Healthcare*)',
-                                     "Internet_of_Things_and_Healthcare_ConferencePaper" => '("Internet of Things" AND *Healthcare*)',
-                                     "Internet_of_Things_OR_Internet_of_Things_AND_Medical_Article" => '("Internet of Things" AND Medical)',
-                                     "Internet_of_Things_OR_Internet_of_Things_AND_Medical_ConferencePaper" => '("Internet of Things" AND Medical)',
-                                     "Medical_IoT_OR_IoT_Medical_Article" => '("Medical IoT" OR "IoT Medical")',
-                                     "Medical_IoT_OR_IoT_Medical_ConferencePaper" => '("Medical IoT" OR "IoT Medical")',
-                                     "manually_added" => null
-                                    );
-
     public function import_bibtex() {
-        
-        $path_file = "data_files/springer/";
+       
+        $arrSearch = array();
+        $arrReplace = array();
+        foreach (Bibtex::$transliteration as $key => $value) {
+            $arrSearch[] = $key;
+            $arrReplace[] = $value;
+        }
+
+        $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
+        $path_file = storage_path() . "/data_files/springer/";
         $files = File::load($path_file);
+
         Util::showMessage("Start Import bibtex file from Springer");
         try 
         {
+
             foreach($files as $file) 
             {                
                 Util::showMessage($file);
-                $parser = new Parser();             // Create a Parser
-                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser                
-                $listener = new Listener();         // Create and configure a Listener
-                $parser->addListener($listener);    // Attach the Listener to the Parser
-                $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
-                $entries = $listener->export();     // Get processed data from the Listener
+
+                $file = file_get_contents($file);
+                $text = str_replace($arrSearch, $arrReplace, $file);
+                $values = explode("\n", $text);
                 
+                Util::showMessage("Start replace text");
+                $text = "";
+                foreach($values as $key => $value) {
+                    //var_dump(substr($value,0,1)); exit;
+                    if (substr($value,0,1) == "@") {
+                        $value = str_replace(array(" ", ".", "/", "-", "_"), "", $value);                        
+                        $values[$key] = $value;
+                    }                    
+                }
+                $text = implode("\n", $values);
+                Util::showMessage("Finish replace text");
+                            
+                $parser = new Parser();             // Create a Parser          
+                $listener = new Listener();         // Create and configure a Listener
+                //$listener->addProcessor(new LatexToUnicodeProcessor());
+                $parser->addListener($listener);    // Attach the Listener to the Parser
+                $parser->parseString($text);          // or parseFile('/path/to/file.bib')
+                $entries = $listener->export();     // Get processed data from the Listener
+                Util::showMessage("Total articles: " . count($entries));
                 foreach($entries as $key => $article) {
 
                     if (empty(@$article["title"])) {
@@ -62,7 +74,7 @@ class SpringerController extends Controller {
                     $query = str_replace(array($path_file, ".bib"), "", $file);
                     
                     // Add new Parameter in variable article
-                    $article["search_string"] = self::$parameter_query[$query];
+                    $article["search_string"]   = $query;
                     $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;
                     $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);
                     $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
@@ -94,9 +106,9 @@ class SpringerController extends Controller {
                             $duplicate      = 1;
                             $duplicate_id   = $document->id;
                         }
-                        $document_new->duplicate        = $duplicate;
+                        /*$document_new->duplicate        = $duplicate;
                         $document_new->duplicate_id     = $duplicate_id;
-                        $document_new->save();
+                        $document_new->save();*/
 
                     } else {
                         Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);

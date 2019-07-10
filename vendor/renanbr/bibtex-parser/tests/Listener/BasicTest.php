@@ -26,7 +26,7 @@ class BasicTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/basic.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/basic.bib');
 
         $entries = $listener->export();
         $this->assertCount(1, $entries);
@@ -42,7 +42,7 @@ class BasicTest extends TestCase
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/type-overriding.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/type-overriding.bib');
 
         $entries = $listener->export();
         $this->assertCount(1, $entries);

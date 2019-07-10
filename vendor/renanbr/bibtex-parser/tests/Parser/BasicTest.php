@@ -22,11 +22,11 @@ class BasicTest extends TestCase
 {
     public function testBasic()
     {
-        $listener = new DummyListener();
+        $listener = new DummyListener;
 
         $parser = new Parser();
         $parser->addListener($listener);
-        $parser->parseFile(__DIR__.'/../resources/valid/basic.bib');
+        $parser->parseFile(__DIR__ . '/../resources/valid/basic.bib');
 
         $this->assertCount(4, $listener->calls);
 
@@ -50,7 +50,7 @@ class BasicTest extends TestCase
 
         list($text, $type, $context) = $listener->calls[3];
         $this->assertSame(Parser::ENTRY, $type);
-        $original = trim(file_get_contents(__DIR__.'/../resources/valid/basic.bib'));
+        $original = trim(file_get_contents(__DIR__ . '/../resources/valid/basic.bib'));
         $this->assertSame($original, $text);
         $this->assertSame(0, $context['offset']);
         $this->assertSame(24, $context['length']);
@@ -59,8 +59,7 @@ class BasicTest extends TestCase
     /**
      * @group regression
      * @group bug39
-     *
-     * @see https://github.com/renanbr/bibtex-parser/issues/39
+     * @link https://github.com/renanbr/bibtex-parser/issues/39
      */
     public function testOriginalEntryTriggeringWhenLastCharClosesAnEntry()
     {
