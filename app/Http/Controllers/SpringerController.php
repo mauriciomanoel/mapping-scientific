@@ -40,13 +40,12 @@ class SpringerController extends Controller {
 
             foreach($files as $file) 
             {                
-                Util::showMessage($file);
+                Util::showMessage($file);                
 
                 $file = file_get_contents($file);
-                $text = str_replace($arrSearch, $arrReplace, $file);
+                $text = preg_replace(array_keys(Bibtex::$transliteration), array_values(Bibtex::$transliteration), $file);
                 $values = explode("\n", $text);
                 
-                Util::showMessage("Start replace text");
                 $text = "";
                 foreach($values as $key => $value) {
                     //var_dump(substr($value,0,1)); exit;
@@ -55,9 +54,11 @@ class SpringerController extends Controller {
                         $values[$key] = $value;
                     }                    
                 }
-                $text = implode("\n", $values);
-                Util::showMessage("Finish replace text");
-                            
+                $text = implode("\n", $values);              
+                //echo "<pre>"; var_dump($text); exit;
+                           
+            
+                Util::showMessage("Start Parser");
                 $parser = new Parser();             // Create a Parser          
                 $listener = new Listener();         // Create and configure a Listener
                 //$listener->addProcessor(new LatexToUnicodeProcessor());
@@ -106,9 +107,11 @@ class SpringerController extends Controller {
                             $duplicate      = 1;
                             $duplicate_id   = $document->id;
                         }
-                        /*$document_new->duplicate        = $duplicate;
+                        /*
+                        $document_new->duplicate        = $duplicate;
                         $document_new->duplicate_id     = $duplicate_id;
-                        $document_new->save();*/
+                        $document_new->save();
+                        */
 
                     } else {
                         Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
