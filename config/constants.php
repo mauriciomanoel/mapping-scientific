@@ -20,6 +20,8 @@ return [
     'source_elsevier_sciencedirect' => 'elsevier_sciencedirect',
     'source_capes'                  => 'portal_capes',
     'source_springer'               => 'springer',
+    'source_pmc'                    => 'pmc',
+    'source_pubmed'                 => 'pubmed',
 ];
 
 ?>

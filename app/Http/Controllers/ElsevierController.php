@@ -20,19 +20,16 @@ use RenanBr\BibTexParser\ParserException;
 use Config;
 
 class ElsevierController extends Controller {
-    private static $parameter_query = array(
-                                     "healthcare_IoT_OR_health_IoT_OR_healthIoT" => '("healthcare IoT" OR "health IoT" OR "healthIoT")',
-                                     "Internet_of_Medical_Things_OR_Internet_of_healthcare_things_OR_Internet_of_M-health_Things" => '("Internet of Medical Things" OR "Internet of healthcare things" OR "Internet of M-health Things")',
-                                     "Internet_of_Things_AND_Health" => '("Internet of Things" AND *Health*)',
-                                     "Internet_of_Things_AND_Healthcare" => '("Internet of Things" AND *Healthcare*)',
-                                     "Internet_of_Things_AND_Medical" => '("Internet of Things" AND Medical)',
-                                     "Medical_IoT_OR_IoT_Medical" => '("Medical IoT" OR "IoT Medical")',
-                                     "manually_added" => null
+
+    public static $parameter_query = array(
+                                     "string_1_2019_07_09" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*") ',
+                                     "string_2_2019_07_09" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")'
                                     );
 
     public function import_bibtex() {
         
-        $path_file = "data_files/elsevier-sciencedirect/";
+        //$query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
+        $path_file = storage_path() . "/data_files/elsevier/";
         $files = File::load($path_file);
         Util::showMessage("Start Import bibtex file from Elsevier Sciencedirect");
         try 
@@ -41,7 +38,7 @@ class ElsevierController extends Controller {
             {
                 Util::showMessage($file);
                 $parser = new Parser();             // Create a Parser
-                $parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
+                //$parser->addTransliteration(Bibtex::$transliteration); //  Attach the Transliteration special characters to the Parser
                 $listener = new Listener();         // Create and configure a Listener                
                 $parser->addListener($listener);    // Attach the Listener to the Parser
                 $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
@@ -51,7 +48,6 @@ class ElsevierController extends Controller {
                     
                     // var_dump($article); exit;
                     $query = str_replace(array($path_file, ".bib"), "", $file);
-                    
                     // Add new Parameter in variable article
                     $article["search_string"] = self::$parameter_query[$query];
                     $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;

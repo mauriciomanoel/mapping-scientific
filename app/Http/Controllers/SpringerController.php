@@ -31,18 +31,24 @@ class SpringerController extends Controller {
         }
 
         $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
-        $path_file = storage_path() . "/data_files/springer/";
+        $path_file = storage_path() . "/data_files/springer/json/";
         $files = File::load($path_file);
 
         Util::showMessage("Start Import bibtex file from Springer");
         try 
         {
-
+            
             foreach($files as $file) 
             {                
                 Util::showMessage($file);                
 
                 $file = file_get_contents($file);
+                $articles = json_decode($file, true);
+
+                echo "<pre>"; var_dump($articles); 
+                echo json_last_error(); //Returns 4 - Syntax error;
+                exit;
+
                 $text = preg_replace(array_keys(Bibtex::$transliteration), array_values(Bibtex::$transliteration), $file);
                 $values = explode("\n", $text);
                 
