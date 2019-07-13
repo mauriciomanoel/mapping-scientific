@@ -40,55 +40,29 @@ class SpringerController extends Controller {
             
             foreach($files as $file) 
             {                
-                Util::showMessage($file);                
+                     
+                Util::showMessage($file);   
+                $text = file_get_contents($file);
+                $articles = json_decode($text, true);
 
-                $file = file_get_contents($file);
-                $articles = json_decode($file, true);
-
-                echo "<pre>"; var_dump($articles); 
-                echo json_last_error(); //Returns 4 - Syntax error;
-                exit;
-
-                $text = preg_replace(array_keys(Bibtex::$transliteration), array_values(Bibtex::$transliteration), $file);
-                $values = explode("\n", $text);
-                
-                $text = "";
-                foreach($values as $key => $value) {
-                    //var_dump(substr($value,0,1)); exit;
-                    if (substr($value,0,1) == "@") {
-                        $value = str_replace(array(" ", ".", "/", "-", "_"), "", $value);                        
-                        $values[$key] = $value;
-                    }                    
-                }
-                $text = implode("\n", $values);              
-                //echo "<pre>"; var_dump($text); exit;
-                           
-            
-                Util::showMessage("Start Parser");
-                $parser = new Parser();             // Create a Parser          
-                $listener = new Listener();         // Create and configure a Listener
-                //$listener->addProcessor(new LatexToUnicodeProcessor());
-                $parser->addListener($listener);    // Attach the Listener to the Parser
-                $parser->parseString($text);          // or parseFile('/path/to/file.bib')
-                $entries = $listener->export();     // Get processed data from the Listener
-                Util::showMessage("Total articles: " . count($entries));
-                foreach($entries as $key => $article) {
+                Util::showMessage("Total articles: " . count($articles));
+                foreach($articles as $key => $article) {
 
                     if (empty(@$article["title"])) {
-                        Util::showMessage("Ignore article without Title. citation-key: " . $article["citation-key"]);
+                        Util::showMessage("Ignore article without Title. citation-key: " . $article["id"]);
                         continue;
                     }
-                    $query = str_replace(array($path_file, ".bib"), "", $file);
                     
                     // Add new Parameter in variable article
                     $article["search_string"]   = $query;
                     $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;
-                    $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);
-                    $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
+                    $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);                   
+                    $article["bibtex"]          = json_encode($article); // save bibtex in json
                     $article["source"]          = Config::get('constants.source_springer');
-                    $article["source_id"]       = null;
+                    $article["source_id"]       = (!empty($article["id"])) ? $article["id"] : null;
                     $article["file_name"]       = $file;
-                    
+                    $article["type"]            = "article";
+                    $article["citation-key"]    = null;
                     $duplicate = 0;
                     $duplicate_id = null;
                     // Search if article exists
@@ -113,11 +87,11 @@ class SpringerController extends Controller {
                             $duplicate      = 1;
                             $duplicate_id   = $document->id;
                         }
-                        /*
+
                         $document_new->duplicate        = $duplicate;
                         $document_new->duplicate_id     = $duplicate_id;
                         $document_new->save();
-                        */
+                        
 
                     } else {
                         Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
@@ -164,7 +138,8 @@ class SpringerController extends Controller {
                 $url = $document->document_url;
                 Util::showMessage($url);                
                 $info_article = self::get_info($url);
-                if (!empty($info_article)) {                    
+                if (!empty($info_article)) {   
+                    var_dump($info_article); exit;                 
                     $document->citation_count   = (!empty(@$info_article["Citations"])) ? $info_article["Citations"] : null;
                     $document->download_count   = (!empty(@$info_article["Downloads"])) ? $info_article["Downloads"] : null;
                     $document->keywords         = (!empty(@$info_article["Keywords"])) ? $info_article["Keywords"] : null;
@@ -215,15 +190,19 @@ class SpringerController extends Controller {
                 }
             }
         }
-        preg_match("/Keywords':'.*',/", $html_article, $output);
-        if (!empty($output)) 
-        {
-            $output     = $output[0];
-            $keyword    = str_replace(array("Keywords':'","',"), "", $output);            
-            $info['Keywords'] = $keyword;
+
+        if (!empty($html_keywords[0])) {
+            $html_keywords = $html_keywords[0];
+            preg_match_all("'<span class=\"Keyword\">(.*?)</span>'", $html_keywords, $output,  PREG_PATTERN_ORDER);
+            if (!empty($output)) 
+            {
+                $output     = $output[1];
+                $keyword    = implode(", ", $output);            
+                $info['Keywords'] = $keyword;
+            }
+            var_dump($info); exit;
+            return $info;
         }
-        
-        return $info;
     }
     
 }
