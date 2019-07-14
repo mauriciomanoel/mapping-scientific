@@ -59,6 +59,8 @@ class SpringerController extends Controller {
                     $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);                   
                     $article["bibtex"]          = json_encode($article); // save bibtex in json
                     $article["source"]          = Config::get('constants.source_springer');
+                    $article["keywords"]        = $article["keywords"];
+                    
                     $article["source_id"]       = (!empty($article["id"])) ? $article["id"] : null;
                     $article["file_name"]       = $file;
                     $article["type"]            = "article";
@@ -139,7 +141,6 @@ class SpringerController extends Controller {
                 Util::showMessage($url);                
                 $info_article = self::get_info($url);
                 if (!empty($info_article)) {   
-                    var_dump($info_article); exit;                 
                     $document->citation_count   = (!empty(@$info_article["Citations"])) ? $info_article["Citations"] : null;
                     $document->download_count   = (!empty(@$info_article["Downloads"])) ? $info_article["Downloads"] : null;
                     $document->keywords         = (!empty(@$info_article["Keywords"])) ? $info_article["Keywords"] : null;
@@ -200,7 +201,6 @@ class SpringerController extends Controller {
                 $keyword    = implode(", ", $output);            
                 $info['Keywords'] = $keyword;
             }
-            var_dump($info); exit;
             return $info;
         }
     }

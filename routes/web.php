@@ -25,8 +25,8 @@ Route::get('load-detail-acm', 'ACMController@load_detail');
 Route::get('import-elsevier-bibtex', 'ElsevierController@import_bibtex');
 Route::get('load-detail-elsevier', 'ElsevierController@load_detail');
 
-Route::get('import-capes-bibtex', 'CapesController@import_bibtex');
-Route::get('load-detail-capes', 'CapesController@load_detail');
+#Route::get('import-capes-bibtex', 'CapesController@import_bibtex');
+#Route::get('load-detail-capes', 'CapesController@load_detail');
 
 Route::get('import-springer-bibtex', 'SpringerController@import_bibtex');
 Route::get('load-detail-springer', 'SpringerController@load_detail');
