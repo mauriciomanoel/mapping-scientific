@@ -9,7 +9,9 @@ CREATE TEMPORARY TABLE IF NOT EXISTS review
 			FROM document where duplicate = 0 and authors is not null
 		)
 
-select source, 
+select 
+r.id,
+source, 
 title_slug, 
 r.title, 
 r.abstract, 
