@@ -22,13 +22,13 @@ use Config;
 class ElsevierController extends Controller {
 
     public static $parameter_query = array(
-                                     "string_1_2019_07_09" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*") ',
-                                     "string_2_2019_07_09" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")'
+                                     "Internet_of_Things_OR_IoT_OR_iomt_OR_health_AND_aged_people_OR_aged_population_OR_aging_population_OR_aging_people_AND_Smart_City_OR_Smart_Cities_OR_Smart_health_OR_Smart_home" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*") ',
+                                     "Internet_of_Things_OR_IoT_OR_iomt_OR_health_AND_elder_OR_old_people_OR_older_person_OR_senior_citizen_AND_Smart_City_OR_Smart_Cities_OR_Smart_health_OR_Smart_home" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")',
+                                     "Internet_of_Things_OR_IoT_OR_iomt_OR_health_AND_older_adult_AND_Smart_City_OR_Smart_Cities_OR_Smart_health_OR_Smart_home" => '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("older adult") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")'
                                     );
 
     public function import_bibtex() {
         
-        //$query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
         $path_file = storage_path() . "/data_files/elsevier/";
         $files = File::load($path_file);
         Util::showMessage("Start Import bibtex file from Elsevier Sciencedirect");

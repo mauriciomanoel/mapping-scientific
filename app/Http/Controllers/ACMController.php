@@ -35,6 +35,10 @@ class ACMController extends Controller {
             $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
             $entries = $listener->export();     // Get processed data from the Listener
             
+            
+
+                Util::showMessage("Total articles: " . count($entries));
+
             foreach($entries as $key => $article) {
                 $query = str_replace(array($path_file, ".bib"), "", $file);
                 
@@ -110,7 +114,6 @@ class ACMController extends Controller {
             $cookie         = WebService::getCookie($url);
             $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
             $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
-            var_dump($html_article); exit;
             $metrics        = HTML::getFromClass($html_article, "small-text", "td");
             $metrics        = trim(strip_tags(str_replace("·", "", $metrics[0])));
             $data_metrics   = explode("\n", $metrics);

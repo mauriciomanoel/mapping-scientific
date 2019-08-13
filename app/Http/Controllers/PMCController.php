@@ -30,7 +30,7 @@ class PMCController extends Controller {
         foreach($files as $file) 
         {
             Util::showMessage($file);
-
+/*
             $file = file_get_contents($file);
             $text = preg_replace(array_keys(Bibtex::$transliteration), array_values(Bibtex::$transliteration), $file);
             $values = explode("\n", $text);
@@ -44,11 +44,11 @@ class PMCController extends Controller {
                 }                    
             }
             $text = implode("\n", $values);
-            
+*/            
             $parser = new ParserCustom();             // Create a Parser
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser
-            $parser->parseString($text);          // or parseFile('/path/to/file.bib')
+            $parser->parseFile($file);          // or parseFile('/path/to/file.bib')
             $entries = $listener->export();     // Get processed data from the Listener
             Util::showMessage("Import " . count($entries) . " documents");
  
@@ -58,7 +58,7 @@ class PMCController extends Controller {
                 $article["search_string"]   = $query;
                 $article["pdf_link"]        = $article["url"];
                 $article["bibtex"]          = json_encode($article["_original"]); // save bibtex in json
-                $article["doi"]             = $article["doi"];
+                $article["doi"]             = (!empty($article["doi"])) ? $article["doi"] : "";
                 $article["source"]          = Config::get('constants.source_pmc');
                 $article["source_id"]       = $article["id"];
                 $article["file_name"]       = basename($file);
