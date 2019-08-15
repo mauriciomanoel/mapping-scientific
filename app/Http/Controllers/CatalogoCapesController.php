@@ -23,12 +23,18 @@ use Config;
 class CatalogoCapesController extends Controller {
     
 
+    public static $parameter_query = array(
+        "internet-of-things-or-iot-and-health" => '("Internet of Things" OR "IoT") AND "*health*"',
+        "iinternet-of-medical-things-or-iomt" => '"Internet of Medical Things" OR "iomt"',
+        "aal-or-ambient-assisted-living" => '"AAL" OR "Ambient Assisted Living"'
+       );
+
     public function import_bibtex_to_database() {
         
-        $path_file = storage_path() . "/data_files/catalogo_teses_dissertacoes/";
+        $path_file = storage_path() . "/data_files/catalogo_teses_dissertacoes/bib/";
         $files = File::load($path_file);
         
-        Util::showMessage("Start Import bibtex file from Elsevier Sciencedirect");
+        Util::showMessage("Start Import bibtex file from Catalogo Teses");
         try 
         {
             foreach($files as $file) 
@@ -102,7 +108,7 @@ class CatalogoCapesController extends Controller {
             Util::showMessage("Exception: " . $ex->getMessage());
         }
 
-        Util::showMessage("Finish Import bibtex file from Elsevier Sciencedirect");
+        Util::showMessage("Finish Import bibtex file from Catalogo Teses");
     }
 
     /**

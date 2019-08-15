@@ -23,7 +23,7 @@ class ACMController extends Controller {
     public function import_bibtex() {
 
         $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
-        $path_file = storage_path() . "/data_files/acm/";
+        $path_file = storage_path() . "/data_files/acm/bib/";
         $files = File::load($path_file);
         
         Util::showMessage("Start Import bibtex file from ACM");

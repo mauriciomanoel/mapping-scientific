@@ -30,7 +30,7 @@ class SpringerController extends Controller {
             $arrReplace[] = $value;
         }
 
-        $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
+        $query = '("Internet of Things" OR "IoT" OR "Internet of Medical Things" OR "iomt" OR "*health*" OR "AAL" OR "Ambient Assisted Living") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people" OR "older adult") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
         $path_file = storage_path() . "/data_files/springer/json/";
         $files = File::load($path_file);
 
@@ -44,7 +44,6 @@ class SpringerController extends Controller {
                 Util::showMessage($file);   
                 $text = file_get_contents($file);
                 $articles = json_decode($text, true);
-
                 Util::showMessage("Total articles: " . count($articles));
                 foreach($articles as $key => $article) {
 

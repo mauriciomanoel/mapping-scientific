@@ -23,28 +23,14 @@ class PMCController extends Controller {
     public function import_bibtex() {
 
         $query = '("Internet of Things" OR "IoT" OR "iomt" OR "*health*") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people" OR "aged population" OR "aging population" OR "aging people") AND ("Smart City" OR "Smart Cities" OR "Smart health" OR "Smart home*")';
-        $path_file = storage_path() . "/data_files/pmc/";
+        $path_file = storage_path() . "/data_files/pmc/bib/";
         $files = File::load($path_file);
 
         Util::showMessage("Start Import bibtex file from PMC");
         foreach($files as $file) 
         {
             Util::showMessage($file);
-/*
-            $file = file_get_contents($file);
-            $text = preg_replace(array_keys(Bibtex::$transliteration), array_values(Bibtex::$transliteration), $file);
-            $values = explode("\n", $text);
-            
-            $text = "";
-            foreach($values as $key => $value) {
-                //var_dump(substr($value,0,1)); exit;
-                if (substr($value,0,1) == "@") {
-                    $value = str_replace(array(" ", ".", "/", "-", "_"), "", $value);                        
-                    $values[$key] = $value;
-                }                    
-            }
-            $text = implode("\n", $values);
-*/            
+           
             $parser = new ParserCustom();             // Create a Parser
             $listener = new Listener();         // Create and configure a Listener
             $parser->addListener($listener);    // Attach the Listener to the Parser
