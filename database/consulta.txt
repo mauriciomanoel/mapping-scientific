@@ -24,7 +24,7 @@ r.url
 from review r
 inner join document d on d.id = r.id
 where texto is not null
-and (texto like '%Internet % Thing%' OR texto like '%Internet % Coisas%' OR texto like '%IoT%' OR texto like '%AAL%' OR texto like '%Active Assisted Living%' OR texto like '%Ambiente Assistido%' OR texto like '%Ambiente Inteligente%')
+and (texto like '%Internet % Thing%' OR texto like '%Internet % Coisas%' OR texto like '%IoT%' OR texto like '%AAL%' OR texto like '%Ambient%Assisted Living%' OR texto like '%Ambiente Assistido%' OR texto like '%Ambiente Inteligente%')
 and (texto like '%Medical%' OR texto like '%Health%')
 and (texto like '%elder%' OR texto like '%older person%' OR texto like '%older person%' OR texto like '%older adult%' OR texto like '%idos%')
 and (texto like '%Smart%' OR texto like "%cidades inteligentes%")
