@@ -20,19 +20,28 @@ Route::get('load-detail-ieee', 'IEEEController@load_detail');
 Route::get('download-pdf-ieee', 'IEEEController@download_pdf');
 
 Route::get('import-acm-bibtex', 'ACMController@import_bibtex');
+Route::get('import-acm-json', 'ACMController@import_json');
 Route::get('load-detail-acm', 'ACMController@load_detail');
 
-Route::get('import-elsevier-bibtex', 'ElsevierController@import_bibtex');
+// Route::get('import-elsevier-bibtex', 'ElsevierController@import_bibtex');
+Route::get('import-elsevier-json', 'ElsevierController@import_json');
 Route::get('load-detail-elsevier', 'ElsevierController@load_detail');
 
-#Route::get('import-capes-bibtex', 'CapesController@import_bibtex');
-#Route::get('load-detail-capes', 'CapesController@load_detail');
 
 Route::get('import-springer-bibtex', 'SpringerController@import_bibtex');
+Route::get('import-springer-json', 'SpringerController@import_json');
 Route::get('load-detail-springer', 'SpringerController@load_detail');
 
 Route::get('import-catalogo-capes-bibtex', 'CatalogoCapesController@import_bibtex_to_database');
 
 Route::get('import-pmc-bibtex', 'PMCController@import_bibtex');
+Route::get('import-pmc-json', 'PMCController@import_json');
+
+
 Route::get('import-pubmed-bibtex', 'PubMedController@import_bibtex');
+Route::get('import-pubmed-json', 'PubMedController@import_json');
+
+Route::get('import-scopus-bibtex', 'ScopusController@import_bibtex');
+Route::get('import-scopus-json', 'ScopusController@import_json');
+
 

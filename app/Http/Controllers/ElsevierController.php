@@ -19,18 +19,11 @@ use RenanBr\BibTexParser\ParserException;
 
 use Config;
 
-
-
- 
-
 class ElsevierController extends Controller {
 
-    public static $parameter_query = array(
-                                     "Internet_of_Things_OR_IoT_OR_Internet_of_Medical_Things_OR_iomt_OR_health_OR_AAL_OR_Ambient_Assisted_Living_AND_aged_population_OR_aging_population_OR_aging_people_OR_older_adult_AND_Smart_Cities_OR_Smart_City" => '("Internet of Things" OR "IoT" OR "Internet of Medical Things" OR "iomt" OR "*health*" OR "AAL" OR "Ambient Assisted Living") AND ("aged population" OR "aging population" OR "aging people" OR "older adult")  AND ("Smart Cities" OR "Smart City")',
-                                     "Internet_of_Things_OR_IoT_OR_Internet_of_Medical_Things_OR_iomt_OR_health_OR_AAL_OR_Ambient_Assisted_Living_AND_elder_OR_old_people_OR_older_person_OR_senior_citizen_OR_aged_people_AND_Smart_Cities_OR_Smart_City" => '("Internet of Things" OR "IoT" OR "Internet of Medical Things" OR "iomt" OR "*health*" OR "AAL" OR "Ambient Assisted Living") AND ("*elder*" OR "old people" OR "older person" OR "senior citizen" OR "aged people") AND ("Smart Cities" OR "Smart City")'
-                                    );
+    public static $query = null;
 
-    public function import_bibtex() {
+    public function import_json() {
         
         $path_file = storage_path() . "/data_files/elsevier/json/";
         $files = File::load($path_file);
@@ -58,16 +51,16 @@ class ElsevierController extends Controller {
                     // var_dump($article); exit;
                     $query = str_replace(array($path_file, ".json"), "", $file);
                     // Add new Parameter in variable article
-                    $article["search_string"] = self::$parameter_query[$query];
+                    $article["search_string"]   = self::$query;
                     $article["pdf_link"]        = !empty($article["link_pdf"]) ? $article["link_pdf"] : null;
                     $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);                   
                     $article["bibtex"]          = json_encode($article); // save bibtex in json
                     $article["source"]          = Config::get('constants.source_elsevier_sciencedirect');
                     $article["source_id"]       = null;
-                    $article["type"]            = "article";
                     $article["citation-key"]    = null;
                     $article["file_name"]       = $file;
-                    
+                    $article["author"]          = utf8_encode($article["author"]);
+
                     $duplicate = 0;
                     $duplicate_id = null;
                     // Search if article exists

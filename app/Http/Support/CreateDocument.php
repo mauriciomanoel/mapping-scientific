@@ -16,7 +16,7 @@ class CreateDocument {
             $author     = ctype_print($article["author"]) ? $article["author"] : utf8_decode($article["author"]); 
             $author     = str_replace(array("{", "}", "\"", "\'", "~", "\\", "`", "?"), '', $author);
         }
-        
+    
         $authors            = $author;
         $title              = $article["title"];
         $title_slug         = $article["title_slug"];        
