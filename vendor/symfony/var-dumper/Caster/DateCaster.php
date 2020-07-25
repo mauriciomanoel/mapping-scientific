@@ -31,7 +31,11 @@ class DateCaster
             .($location ? ($d->format('I') ? "\nDST On" : "\nDST Off") : '')
         ;
 
-        $a = [];
+        unset(
+            $a[Caster::PREFIX_DYNAMIC.'date'],
+            $a[Caster::PREFIX_DYNAMIC.'timezone'],
+            $a[Caster::PREFIX_DYNAMIC.'timezone_type']
+        );
         $a[$prefix.'date'] = new ConstStub(self::formatDateTime($d, $location ? ' e (P)' : ' P'), $title);
 
         $stub->class .= $d->format(' @U');
@@ -85,12 +89,12 @@ class DateCaster
 
     public static function castPeriod(\DatePeriod $p, array $a, Stub $stub, $isNested, $filter)
     {
-        if (\defined('HHVM_VERSION_ID') || \PHP_VERSION_ID < 50620 || (\PHP_VERSION_ID >= 70000 && \PHP_VERSION_ID < 70005)) { // see https://bugs.php.net/bug.php?id=71635
+        if (\defined('HHVM_VERSION_ID') || \PHP_VERSION_ID < 50620 || (\PHP_VERSION_ID >= 70000 && \PHP_VERSION_ID < 70005)) { // see https://bugs.php.net/71635
             return $a;
         }
 
         $dates = [];
-        if (\PHP_VERSION_ID >= 70107) { // see https://bugs.php.net/bug.php?id=74639
+        if (\PHP_VERSION_ID >= 70107) { // see https://bugs.php.net/74639
             foreach (clone $p as $i => $d) {
                 if (3 === $i) {
                     $now = new \DateTimeImmutable();

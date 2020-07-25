@@ -182,20 +182,23 @@ class SpringerController extends Controller {
                         // Create new Document
                         $document_new = CreateDocument::process($article);
 
-                        if ($document_new->year >= $document->year) {
-                            $document_new->save(); 
-                            $document->duplicate        = 1;
-                            $document->duplicate_id     = $document_new->id;
-                            $document->save();    
+                        if ($document_new->doi != $document->doi) {
+                            if ($document_new->year >= $document->year) {
+                                $document_new->save(); 
+                                $document->duplicate        = 1;
+                                $document->duplicate_id     = $document_new->id;
+                                $document->save();    
+                            } else {
+                                $document_new->duplicate        = 1;
+                                $document_new->duplicate_id     = $document->id;
+                                $document_new->save(); 
+                            }
+                            Util::showMessage("Duplicate article: " . $article["title"]  . " - " . $file);
+                            Util::showMessage("");
                         } else {
-                            $document_new->duplicate        = 1;
-                            $document_new->duplicate_id     = $document->id;
-                            $document_new->save(); 
+                            Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
+                            Util::showMessage("");
                         }
-                        
-
-                        Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
-                        Util::showMessage("");
                     }                
                 }
             }
