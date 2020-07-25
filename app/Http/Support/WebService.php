@@ -43,6 +43,7 @@ class WebService {
         curl_setopt( $ch, CURLOPT_USERAGENT, $user_agent);
         $output 	= curl_exec($ch);
         curl_close( $ch );
+        var_dump($output);
         return $output;
     }
 

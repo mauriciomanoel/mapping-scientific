@@ -1,17 +1,17 @@
 [
 	{
-		"id": "DIAMANTINI2016117",
+		"id": "SUMESH2019892",
 		"type": "article",
-		"title": "A goal-oriented, ontology-based methodology to support the design of AAL environments",
-		"author": "Claudia Diamantini and Alessandro Freddi and Sauro Longhi and Domenico Potena and Emanuele Storti",
-		"keywords": "Ambient assisted living, Ontology, Goal-oriented design methodology, Reasoning",
-		"doi": "https://doi.org/10.1016/j.eswa.2016.07.032",
-		"abstract": "One of the most critical issues in Ambient Assisted Living (AAL) is the design of systems that can evolve to meet the requirements of individuals as their needs and health conditions change. Although much work has been done on home and building automation systems for AAL, often referred to as assistive domotics, there is in fact still a substantial lack of solutions capable to support system designers in the early stage of development of such assistive systems. To this aim, the work contributes to the research on design of assistive domotic systems by presenting an ontology-driven methodology aimed to guide the development process. The novel contributions of the paper include the goal-oriented approach of the methodology, which involves the elicitation and analysis of AAL requirements and their formal representation in an ontology, where high-level goals are described in terms of subgoals and tasks, that are then linked to corresponding measures and devices. Moreover, logic-based reasoning enables more advanced functionalities useful at design time. We present a validation of the methodology showing typical use cases both related to the development from scratch of a domotic system with assistive capabilities starting from a set of high-level user requirements and the redesign of existing implementations according to changed requirements.",
-		"pages": "117 - 131",
-		"year": "2016",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S0957417416303797",
-		"journal": "Expert Systems with Applications",
-		"volume": "64"
+		"title": "On framework development for the dynamic prosumer coalition in a smart grid and its evaluation by analytic tools",
+		"author": "Sreenithya Sumesh and Aneesh Krishna and Vidyasagar Potdar and Shastri Nimmagadda",
+		"keywords": "Smart grid, Prosumer, Coalition, Game theory",
+		"doi": "https://doi.org/10.1016/j.procs.2019.09.249",
+		"abstract": "Managing prosumers participation in energy trading becomes complicated, as the number of prosumers in smart grid is expected to rise. In this situation, it is safe to group active prosumers into groups or coalitions. By utilising analytical tools, like game theory, the method for grouping or coalition formation of prosumers can be carefully studied. After analysing prosumers behaviour in energy profile, we propose a novel dynamic, decentralised prosumer coalition formation method based on game theory that can satisfy utility grid demands. A conceptual framework is developed for coalition formation and energy management among prosumers in a dynamic environment. This approach has the potential to increase the size and number of coalitions without a central controller to better manage renewable energy usage and trading with energy buyers. We validate the performance of adopting a game theoretic approach, assessing the strategy using open and shared data sources.",
+		"pages": "892 - 901",
+		"year": "2019",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050919314371",
+		"journal": "Procedia Computer Science",
+		"volume": "159"
 	},
 	{
 		"id": "DARAGMEH2012841",
@@ -28,20 +28,6 @@
 		"volume": "47"
 	},
 	{
-		"id": "SUMESH2019892",
-		"type": "article",
-		"title": "On framework development for the dynamic prosumer coalition in a smart grid and its evaluation by analytic tools",
-		"author": "Sreenithya Sumesh and Aneesh Krishna and Vidyasagar Potdar and Shastri Nimmagadda",
-		"keywords": "Smart grid, Prosumer, Coalition, Game theory",
-		"doi": "https://doi.org/10.1016/j.procs.2019.09.249",
-		"abstract": "Managing prosumers participation in energy trading becomes complicated, as the number of prosumers in smart grid is expected to rise. In this situation, it is safe to group active prosumers into groups or coalitions. By utilising analytical tools, like game theory, the method for grouping or coalition formation of prosumers can be carefully studied. After analysing prosumers behaviour in energy profile, we propose a novel dynamic, decentralised prosumer coalition formation method based on game theory that can satisfy utility grid demands. A conceptual framework is developed for coalition formation and energy management among prosumers in a dynamic environment. This approach has the potential to increase the size and number of coalitions without a central controller to better manage renewable energy usage and trading with energy buyers. We validate the performance of adopting a game theoretic approach, assessing the strategy using open and shared data sources.",
-		"pages": "892 - 901",
-		"year": "2019",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050919314371",
-		"journal": "Procedia Computer Science",
-		"volume": "159"
-	},
-	{
 		"id": "STOREY199597",
 		"type": "article",
 		"title": "Understanding database design expertise",
@@ -56,18 +42,46 @@
 		"volume": "16"
 	},
 	{
-		"id": "BRUNE2017442",
+		"id": "NIKNEJAD2020103529",
 		"type": "article",
-		"title": "Towards An Application Architecture For A Smart Online Service Network Platform For The Elderly",
-		"author": "Philipp Brune and Robert Rockmann",
-		"keywords": "Software Architecture, Web Development, Online Social Network, Service Description, Retrieval, Service Composition, Elderly People",
-		"doi": "https://doi.org/10.1016/j.procs.2017.08.289",
-		"abstract": "Online Social and Service Network Platforms for supporting elderly people with respect to their health and well-being have been discussed on the conceptual level by various authors. Here, in particular the so-called transition age between 55 and 75 is important and therefore has also been addressed, e.g. with respect to user interface (UI) requirements. As a logical next step, in this paper an application architecture for such a kind of online service network platform is proposed, designed consequently using state-of-the-art concepts like server-side JavaScript, NoSQL databases and machine learning. Since only few studies about such kind of modern software architectures exist in the literature, this is a first step towards analyzing their implications for web application development.",
-		"pages": "442 - 447",
-		"year": "2017",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050917316988",
-		"journal": "Procedia Computer Science",
-		"volume": "113"
+		"title": "A comprehensive overview of smart wearables: The state of the art literature, recent advances, and future challenges",
+		"author": "Naghmeh Niknejad and Waidah Binti Ismail and Abbas Mardani and Huchang Liao and Imran Ghani",
+		"keywords": "Smart wearables, Information systems, Potential factors, Weight analysis technique",
+		"doi": "https://doi.org/10.1016/j.engappai.2020.103529",
+		"abstract": "Smart wearables have gained considerable attention from Information Systems (IS) academics, business managers, and health practitioners. In spite of the availability of authentic research studies of smart wearables, there is still a lack of systematic review on the different aspects of smart wearables concept to find the current state of research, particularly from the perspective of IS field. Therefore, the predominant aim of this research is to review smart wearables literature, recent advances, and future challenges. Accordingly, a systematic literature review was conducted to explore smart wearables by reviewing previous studies from 2010 to 2019. For covering all related papers during these years, an integrated review protocol consisting of automatic and manual stages was pursued. 244 papers were identified to address smart wearables issues and challenges. According to the findings, it is observed that smart wearable studies have increased dramatically during the last years. Moreover, the results show that current studies covered different research themes which are related to smart wearables area, particularly user behavior, technology-focused, security and privacy, design, and social acceptability. Furthermore, based on the results of the weight analysis technique, perceived usefulness, attitude toward technology, social influence, and privacy concerns are identified as the best predictors of smart wearables adoption. Additionally, the results show that the Technology Acceptance Model (TAM) is the most commonly adopted theory in the smart wearable studies. The findings of this review would assist academics to realize the existing limitations and gaps as well as the future works for smart wearables research studies.",
+		"pages": "103529",
+		"year": "2020",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S0952197620300348",
+		"journal": "Engineering Applications of Artificial Intelligence",
+		"volume": "90"
+	},
+	{
+		"id": "TAN20111238",
+		"type": "article",
+		"title": "Design and Key Technology of Urban Landscape 3D Visualization System",
+		"author": "Jian Tan and  XiangtaoFan and Fuliang Deng",
+		"keywords": "Urban, landscape visualization, system, Design",
+		"doi": "https://doi.org/10.1016/j.proenv.2011.09.198",
+		"abstract": "Urban landscape 3D visualization system is the basic support system of Digital City, Digital China or Digital Earth, its research is also the key issue in the field of digital city. Therefore, this article selects urban landscape three- dimensional visualization system as research object In-depth analysis of R & D requirements of urban landscape 3D visualization system, the paper examines in detail the basic system structure, key technology, and targeted improved and optimization in its data management, event handling, and three-dimensional visualization engine, the effectiveness of these methods is proved in practice. On the other hand, the content of this article is only involved based part in urban landscape 3D visualization system, the parts solved includes the system infrastructure and visualization engine, while automatic scene construction and knowledge expression issues remain to be a further study.",
+		"pages": "1238 - 1243",
+		"year": "2011",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1878029611003938",
+		"journal": "Procedia Environmental Sciences",
+		"volume": "10"
+	},
+	{
+		"id": "GHAFFARIANHOSEINI2013593",
+		"type": "article",
+		"title": "The essence of future smart houses: From embedding ICT to adapting to sustainability principles",
+		"author": "AmirHosein GhaffarianHoseini and Nur Dalilah Dahlan and Umberto Berardi and Ali GhaffarianHoseini and Nastaran Makaremi",
+		"keywords": "Smart house, Intelligent building design, Smart city, Intelligent technological values",
+		"doi": "https://doi.org/10.1016/j.rser.2013.02.032",
+		"abstract": "In the context of intelligent environments, the smart houses are often pointed as one of the main constituents of smarter living environments. This study attempts to theoretically analyze case models of smart houses in order to identify their essence and characteristics. The results show that the most significant intelligent values embodied in smart houses embrace technologies of the functional automation. In fact, smart houses are substantially intertwined with integrated ICT technologies which aim to ensure comfortable living environments. Despite the identified challenges, the proliferation of smart houses into urban areas requires an integration of them in the city for creating intelligent environments. As a result, the promotion and integration of smart houses with other smarter elements of cities could archive a significant enhancement of the quality of life and a stronger urban sustainability.",
+		"pages": "593 - 607",
+		"year": "2013",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1364032113001342",
+		"journal": "Renewable and Sustainable Energy Reviews",
+		"volume": "24"
 	},
 	{
 		"id": "KAIMER2019445",
@@ -98,46 +112,18 @@
 		"volume": "154"
 	},
 	{
-		"id": "NIKNEJAD2020103529",
+		"id": "BRUNE2017442",
 		"type": "article",
-		"title": "A comprehensive overview of smart wearables: The state of the art literature, recent advances, and future challenges",
-		"author": "Naghmeh Niknejad and Waidah Binti Ismail and Abbas Mardani and Huchang Liao and Imran Ghani",
-		"keywords": "Smart wearables, Information systems, Potential factors, Weight analysis technique",
-		"doi": "https://doi.org/10.1016/j.engappai.2020.103529",
-		"abstract": "Smart wearables have gained considerable attention from Information Systems (IS) academics, business managers, and health practitioners. In spite of the availability of authentic research studies of smart wearables, there is still a lack of systematic review on the different aspects of smart wearables concept to find the current state of research, particularly from the perspective of IS field. Therefore, the predominant aim of this research is to review smart wearables literature, recent advances, and future challenges. Accordingly, a systematic literature review was conducted to explore smart wearables by reviewing previous studies from 2010 to 2019. For covering all related papers during these years, an integrated review protocol consisting of automatic and manual stages was pursued. 244 papers were identified to address smart wearables issues and challenges. According to the findings, it is observed that smart wearable studies have increased dramatically during the last years. Moreover, the results show that current studies covered different research themes which are related to smart wearables area, particularly user behavior, technology-focused, security and privacy, design, and social acceptability. Furthermore, based on the results of the weight analysis technique, perceived usefulness, attitude toward technology, social influence, and privacy concerns are identified as the best predictors of smart wearables adoption. Additionally, the results show that the Technology Acceptance Model (TAM) is the most commonly adopted theory in the smart wearable studies. The findings of this review would assist academics to realize the existing limitations and gaps as well as the future works for smart wearables research studies.",
-		"pages": "103529",
-		"year": "2020",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S0952197620300348",
-		"journal": "Engineering Applications of Artificial Intelligence",
-		"volume": "90"
-	},
-	{
-		"id": "RONG2020291",
-		"type": "article",
-		"title": "Artificial Intelligence in Healthcare: Review and Prediction Case Studies",
-		"author": "Guoguang Rong and Arnaldo Mendez and Elie Bou Assi and Bo Zhao and Mohamad Sawan",
-		"keywords": "Artificial intelligence, Machine learning, Deep learning, Neural network, Biomedical research, Healthcare applications, Epileptic seizure, Urinary bladder filling",
-		"doi": "https://doi.org/10.1016/j.eng.2019.08.015",
-		"abstract": "Artificial intelligence (AI) has been developing rapidly in recent years in terms of software algorithms, hardware implementation, and applications in a vast number of areas. In this review, we summarize the latest developments of applications of AI in biomedicine, including disease diagnostics, living assistance, biomedical information processing, and biomedical research. The aim of this review is to keep track of new scientific accomplishments, to understand the availability of technologies, to appreciate the tremendous potential of AI in biomedicine, and to provide researchers in related fields with inspiration. It can be asserted that, just like AI itself, the application of AI in biomedicine is still in its early stage. New progress and breakthroughs will continue to push the frontier and widen the scope of AI application, and fast developments are envisioned in the near future. Two case studies are provided to illustrate the prediction of epileptic seizure occurrences and the filling of a dysfunctional urinary bladder.",
-		"pages": "291 - 301",
-		"year": "2020",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S2095809919301535",
-		"journal": "Engineering",
-		"volume": "6"
-	},
-	{
-		"id": "BOLL2015511",
-		"type": "article",
-		"title": "User Interfaces with a Touch of Grey? – Towards a Specific UI Design for People in the Transition Age",
-		"author": "Friederike Boll and Philipp Brune",
-		"keywords": "Graphical User Interfaces, User-Centered Design, UI Development, Elderly People",
-		"doi": "https://doi.org/10.1016/j.procs.2015.08.377",
-		"abstract": "While applications and user interfaces (UI) for elderly people have been discussed by various authors, the specific requirements of people in the transition age from work life to retirement (55-75 years) have not been analyzed in detail yet. Therefore, in this paper we present results from a qualitative empirical analysis within this age group, evaluate their specific usage behavior and system requirements and derive basic UI design guidelines from it. The results indicate that indeed this age group differs in its requirements from older people (75+) mainly considered in the existing literature.",
-		"pages": "511 - 516",
-		"year": "2015",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050915025120",
+		"title": "Towards An Application Architecture For A Smart Online Service Network Platform For The Elderly",
+		"author": "Philipp Brune and Robert Rockmann",
+		"keywords": "Software Architecture, Web Development, Online Social Network, Service Description, Retrieval, Service Composition, Elderly People",
+		"doi": "https://doi.org/10.1016/j.procs.2017.08.289",
+		"abstract": "Online Social and Service Network Platforms for supporting elderly people with respect to their health and well-being have been discussed on the conceptual level by various authors. Here, in particular the so-called transition age between 55 and 75 is important and therefore has also been addressed, e.g. with respect to user interface (UI) requirements. As a logical next step, in this paper an application architecture for such a kind of online service network platform is proposed, designed consequently using state-of-the-art concepts like server-side JavaScript, NoSQL databases and machine learning. Since only few studies about such kind of modern software architectures exist in the literature, this is a first step towards analyzing their implications for web application development.",
+		"pages": "442 - 447",
+		"year": "2017",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050917316988",
 		"journal": "Procedia Computer Science",
-		"volume": "63"
+		"volume": "113"
 	},
 	{
 		"id": "DEFARIAS2017128",
@@ -154,6 +140,20 @@
 		"volume": "75"
 	},
 	{
+		"id": "BOLL2015511",
+		"type": "article",
+		"title": "User Interfaces with a Touch of Grey? – Towards a Specific UI Design for People in the Transition Age",
+		"author": "Friederike Boll and Philipp Brune",
+		"keywords": "Graphical User Interfaces, User-Centered Design, UI Development, Elderly People",
+		"doi": "https://doi.org/10.1016/j.procs.2015.08.377",
+		"abstract": "While applications and user interfaces (UI) for elderly people have been discussed by various authors, the specific requirements of people in the transition age from work life to retirement (55-75 years) have not been analyzed in detail yet. Therefore, in this paper we present results from a qualitative empirical analysis within this age group, evaluate their specific usage behavior and system requirements and derive basic UI design guidelines from it. The results indicate that indeed this age group differs in its requirements from older people (75+) mainly considered in the existing literature.",
+		"pages": "511 - 516",
+		"year": "2015",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050915025120",
+		"journal": "Procedia Computer Science",
+		"volume": "63"
+	},
+	{
 		"id": "SCHAPPERT2020121585",
 		"type": "article",
 		"title": "Sustainable consumption in the smart grid: From key points to eco-routine",
@@ -166,20 +166,6 @@
 		"url_article": "https://www.sciencedirect.com/science/article/pii/S0959652620316322",
 		"journal": "Journal of Cleaner Production",
 		"volume": "267"
-	},
-	{
-		"id": "CHATTERJEE2017353",
-		"type": "incollection",
-		"title": "Chapter V - Information Systems and Networks",
-		"author": "Amitabha Chatterjee",
-		"keywords": "Information system, information network, international information system, national information system, NISSAT, NATIS",
-		"publisher": "Chandos Publishing",
-		"doi": "https://doi.org/10.1016/B978-0-08-102025-8.00022-3",
-		"isbn": "978-0-08-102025-8",
-		"abstract": "A system, the aim of which is information retrieval, can be called an information retrieval system or in short information system. Any information system has three main components—Input unit, Processor, and Output unit. An information system may not always be bibliographic or textual. There can also be nonbibliographic or nontextual information systems. Again all bibliographic or textual information systems may not always be sponsored or maintained by libraries or information centers. An information system or network may be either subject-oriented or mission oriented. In a subject-oriented system, the orientation may be either toward science and technology covering physical sciences, life science, technology and interdisciplinary areas, or toward socioeconomic field covering behavioral sciences; and interdisciplinary areas; while in a mission-oriented system, the orientation may be toward public services, resources, production, or management. There may be two types of information system—centralized information center and collaborative/cooperative information system. Some well-known information systems at the international level are MEDLARS, OCLC, INIS, AGRIS, DEVSIS, etc., while those at the national level are ENVIS, BTISnet, INFLIBNET, etc. The structures and functions of these systems/networks have been described in this chapter.",
-		"pages": "353 - 426",
-		"year": "2017",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/B9780081020258000223"
 	},
 	{
 		"id": "SHARMA201663",

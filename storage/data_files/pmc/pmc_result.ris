@@ -1,0 +1,901 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Park, Soojin
+AU  - Park, Sungyong
+T1  - A Cloud-based Middleware for Self-Adaptive IoT-Collaboration Services
+LA  - eng
+SN  - 1424-8220
+Y1  - 2019/10/20
+AB  - The middleware framework for IoT collaboration services should provide efficient solutions to context awareness and uncertainty issues among multiple collaboration domains. However, existing middleware frameworks are mostly limited to a single system, and developing self-adaptive IoT collaboration services using existing frameworks requires developers to take considerable time and effort. Furthermore, the developed IoT collaboration services are often dependent on a particular domain, which cannot easily be referenced in other domains. This paper proposes a cloud-based middleware framework that provides a set of cloud services for self-adaptive IoT collaboration services. The proposed middleware framework is generic in the sense that it clearly separates domain-dependent components from the layers that leverage existing middleware frameworks. In addition, the proposed framework allows developers to upload domain-dependent components onto the cloud, search for registered components, and launch Virtual Machine (VM) running a new MAPE cycle via a convenient web-based interface. The feasibility of the proposed framework has been shown with a simulation of an IoT collaboration service that traces a criminal suspect. The performance evaluation shows that the proposed middleware framework runs with an overhead of only 6% compared to pure Java-based middleware and is scalable as the number of VMs increases up to 16.
+SP  - 4559
+VL  - 19
+IS  - 20
+AN  - 31635186
+UR  - https://pubmed.ncbi.nlm.nih.gov/31635186
+DO  - 10.3390/s19204559
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6832963/
+U1  - 31635186[pmid]
+U2  - PMC6832963[pmcid]
+U4  - s19204559[PII]
+J2  - Sensors (Basel)
+JF  - Sensors (Basel, Switzerland)
+KW  - cloud service
+KW  - internet of things
+KW  - middleware platform
+KW  - self-adaptation
+PB  - MDPI
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Kyazze, Michael
+AU  - Wesson, Janet
+AU  - Naudé, Kevin
+T1  - A conceptual framework for designing Ambient assisted living services for individuals with disabilities in Uganda and South Africa
+LA  - eng
+SN  - 2223-9170
+SN  - 2226-7220
+Y1  - 2019/08/26
+AB  - BACKGROUND: Individuals with disabilities experience difficulty in using various everyday technologies such as computers and smartphones. OBJECTIVES: To propose a conceptual framework that will lead to the development of practical and user friendly assistive technology. METHOD: A literature review of challenges faced by individuals with physical disabilities was carried out. Interviews with adults with physical disabilities in Kampala, Uganda, and Port Elizabeth, South Africa, identified three main challenges with regard to using technology: using a mobile phone, controlling an electronic environment and using a computer. RESULTS: The challenges identified can be solved by taking into consideration the needs of individuals with disabilities. However, the design of new technologies and interaction techniques, such as natural hand gestures and voice, as input mechanisms has able-bodied individuals in mind. Individuals with disabilities are considered as an afterthought. The main reason for this is that individuals with a disability are a minority and hence it may not make economic sense for technology innovators to cater for their unique needs. A lack of practical guidelines on how to design for individuals with disabilities is another reason why designing for individuals with disabilities is often an afterthought. CONCLUSION: This article proposes a conceptual framework that can be used by researchers and technology designers in order to design products that could cater for the unique needs of individuals with disabilities. The article also emphasises the importance of exploring alternative interaction techniques, as they could enable individuals with disabilities to fully utilise technologies such as smart phones, computers and smart home electronics.
+SP  - 477
+EP  - 477
+VL  - 8
+AN  - 31534916
+UR  - https://pubmed.ncbi.nlm.nih.gov/31534916
+DO  - 10.4102/ajod.v8i0.477
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6739529/
+U1  - 31534916[pmid]
+U2  - PMC6739529[pmcid]
+U4  - AJOD-8-477[PII]
+J2  - Afr J Disabil
+JF  - African journal of disability
+KW  - ambient assisted living
+KW  - disability
+KW  - quadriplegia
+KW  - requirements identification
+KW  - smart home
+PB  - AOSIS
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Marcos-Pablos, Samuel
+AU  - García-Peñalvo, Francisco José
+T1  - Technological Ecosystems in Care and Assistance: A Systematic Literature Review
+LA  - eng
+SN  - 1424-8220
+Y1  - 2019/02/09
+AB  - Applying the concepts of technological ecosystems to the care and assistance domain is an emerging field that has gained interest during the last years, as they allow to describe the complex relationships between actors in a technologically boosted care domain. In that context, this paper presents a systematic review and mapping of the literature to identify, analyse and classify the published research carried out to provide care and assistance services under a technological ecosystems' perspective. Thirty-seven papers were identified in the literature as relevant and analysed in detail (between 2003⁻2018). The main findings show that it is indeed an emerging field, as few of the found ecosystem proposals have been developed in the real world nor have they been tested with real users. In addition, a lot of research to date reports the proposal of platform-centric architectures developed over existing platforms not specifically developed for care and services provision. Employed sensor technologies for providing services have very diverse natures depending on the intended services to be provided. However, many of these technologies do not take into account medical standards. The degree of the ecosystems' openness to adding new devices greatly depends on the approach followed, such as the type of middleware considered. Thus, there is still much work to be done in order to equate other more established ecosystems such as business or software ecosystems.
+SP  - 708
+VL  - 19
+IS  - 3
+AN  - 30744096
+UR  - https://pubmed.ncbi.nlm.nih.gov/30744096
+DO  - 10.3390/s19030708
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6387066/
+U1  - 30744096[pmid]
+U2  - PMC6387066[pmcid]
+U4  - s19030708[PII]
+J2  - Sensors (Basel)
+JF  - Sensors (Basel, Switzerland)
+KW  - care and assistance technologies
+KW  - systematic literature review
+KW  - technological ecosystems
+KW  - *Biomedical Technology
+KW  - *Delivery of Health Care
+KW  - *Ecological Parameter Monitoring
+KW  - Humans
+KW  - *Monitoring, Physiologic
+KW  - *Self-Help Devices
+PB  - MDPI
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Rocha, Nelson Pacheco
+AU  - Queirós, Alexandra
+AU  - Augusto, Filipe
+AU  - Rodríguez, Yosvany Llerena
+AU  - Cardoso, Carlos
+AU  - Grade, José Miguel
+AU  - Quintas, João
+T1  - Information persistence services designed to support home care
+LA  - eng
+SN  - 2291-9694
+SN  - 2291-9694
+Y1  - 2015/03/10
+AB  - BACKGROUND: Due to the challenges faced by health and social care systems, in particular those related to actual demographic trends, home care emerges as a potentially cost-effective solution to answer the needs of citizens, and to allow the reallocation of resources to alternatives to hospitalization or institutionalization. OBJECTIVE: Home care services require cooperation between different actors, including health and social caregivers, care receivers, and their informal caregivers (eg, relatives or friends), across time, space, and organizational boundaries. Therefore, it is foreseeable that eHealth services can contribute to their improvement. The aim of this study is to evaluate information persistence services based on the Reference Information Model (RIM) of the Health Level Seven (HL7) version 3 to support formal caregivers, both health and social care providers, and informal caregivers in the context of home care services. METHODS: A pilot study was set up involving two Portuguese institutions that provide home care services for the elderly. Defining of information requirements was performed according to a comprehensive process. This included a review of the literature, observations of work activities, interviews with caregivers, care receivers and their relatives, analysis of paper documentation related to care receivers' histories, health conditions and care plans, and brainstorming groups involving specialized professionals. Following this, information objects were implemented and validated. RESULTS: The methodological approach, as well as the information persistence services, proved to be robust and adequate to specify, implement, and validate different types of information objects related to home care services for the elderly. This study also reinforces the application of the RIM of the HL7 version 3 beyond the strict scope of health care, allowing the persistence of not only health care information, but also information related to social assistance activities. CONCLUSIONS: This study contributes to the ongoing efforts related to the development of eHealth applications to improve the cooperation among formal health care and social caregivers, as well as care receivers and their informal caregivers.
+SP  - e15
+EP  - e15
+VL  - 3
+IS  - 1
+AN  - 25757462
+UR  - https://pubmed.ncbi.nlm.nih.gov/25757462
+DO  - 10.2196/medinform.3699
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4376150/
+U1  - 25757462[pmid]
+U2  - PMC4376150[pmcid]
+U4  - v3i1e15[PII]
+J2  - JMIR Med Inform
+JF  - JMIR medical informatics
+KW  - electronic health record
+KW  - home help services
+KW  - information management
+KW  - interoperability
+KW  - long-term care
+KW  - personal health record
+PB  - Gunther Eysenbach
+ER  - 
+TY  - JOUR
+DB  - PMC
+AU  - Rubchinsky, Leonid L
+AU  - Ahn, Sungwoo
+AU  - Klijn, Wouter
+AU  - Cumming, Ben
+AU  - Yates, Stuart
+AU  - Karakasis, Vasileios
+AU  - Peyser, Alexander
+AU  - Woodman, Marmaduke
+AU  - Diaz-Pier, Sandra
+AU  - Deraeve, James
+AU  - Vassena, Eliana
+AU  - Alexander, William
+AU  - Beeman, David
+AU  - Kudela, Pawel
+AU  - Boatman-Reich, Dana
+AU  - Anderson, William S
+AU  - Luque, Niceto R
+AU  - Naveros, Francisco
+AU  - Carrillo, Richard R
+AU  - Ros, Eduardo
+AU  - Arleo, Angelo
+AU  - Huth, Jacob
+AU  - Ichinose, Koki
+AU  - Park, Jihoon
+AU  - Kawai, Yuji
+AU  - Suzuki, Junichi
+AU  - Mori, Hiroki
+AU  - Asada, Minoru
+AU  - Oprisan, Sorinel A
+AU  - Dave, Austin I
+AU  - Babaie, Tahereh
+AU  - Robinson, Peter
+AU  - Tabas, Alejandro
+AU  - Andermann, Martin
+AU  - Rupp, André
+AU  - Balaguer-Ballester, Emili
+AU  - Lindén, Henrik
+AU  - Christensen, Rasmus K
+AU  - Nakamura, Mari
+AU  - Barkat, Tania R
+AU  - Tosi, Zach
+AU  - Beggs, John
+AU  - Lonardoni, Davide
+AU  - Boi, Fabio
+AU  - Di Marco, Stefano
+AU  - Maccione, Alessandro
+AU  - Berdondini, Luca
+AU  - Jędrzejewska-Szmek, Joanna
+AU  - Dorman, Daniel B
+AU  - Blackwell, Kim T
+AU  - Bauermeister, Christoph
+AU  - Keren, Hanna
+AU  - Braun, Jochen
+AU  - Dornas, João V
+AU  - Mavritsaki, Eirini
+AU  - Aldrovandi, Silvio
+AU  - Bridger, Emma
+AU  - Lim, Sukbin
+AU  - Brunel, Nicolas
+AU  - Buchin, Anatoly
+AU  - Kerr, Clifford Charles
+AU  - Chizhov, Anton
+AU  - Huberfeld, Gilles
+AU  - Miles, Richard
+AU  - Gutkin, Boris
+AU  - Spencer, Martin J
+AU  - Meffin, Hamish
+AU  - Grayden, David B
+AU  - Burkitt, Anthony N
+AU  - Davey, Catherine E
+AU  - Tao, Liangyu
+AU  - Tiruvadi, Vineet
+AU  - Ali, Rehman
+AU  - Mayberg, Helen
+AU  - Butera, Robert
+AU  - Gunay, Cengiz
+AU  - Lamb, Damon
+AU  - Calabrese, Ronald L
+AU  - Doloc-Mihu, Anca
+AU  - López-Madrona, Víctor J
+AU  - Matias, Fernanda S
+AU  - Pereda, Ernesto
+AU  - Mirasso, Claudio R
+AU  - Canals, Santiago
+AU  - Geminiani, Alice
+AU  - Pedrocchi, Alessandra
+AU  - D’Angelo, Egidio
+AU  - Casellato, Claudia
+AU  - Chauhan, Ankur
+AU  - Soman, Karthik
+AU  - Srinivasa Chakravarthy, V
+AU  - Muddapu, Vignayanandam R
+AU  - Chuang, Chao-Chun
+AU  - Chen, Nan-yow
+AU  - Bayati, Mehdi
+AU  - Melchior, Jan
+AU  - Wiskott, Laurenz
+AU  - Azizi, Amir Hossein
+AU  - Diba, Kamran
+AU  - Cheng, Sen
+AU  - Smirnova, Elena Y
+AU  - Yakimova, Elena G
+AU  - Chizhov, Anton V
+AU  - Chen, Nan-Yow
+AU  - Shih, Chi-Tin
+AU  - Florescu, Dorian
+AU  - Coca, Daniel
+AU  - Courtiol, Julie
+AU  - Jirsa, Viktor K
+AU  - Covolan, Roberto J M
+AU  - Teleńczuk, Bartosz
+AU  - Kempter, Richard
+AU  - Curio, Gabriel
+AU  - Destexhe, Alain
+AU  - Parker, Jessica
+AU  - Klishko, Alexander N
+AU  - Prilutsky, Boris I
+AU  - Cymbalyuk, Gennady
+AU  - Franke, Felix
+AU  - Hierlemann, Andreas
+AU  - da Silveira, Rava Azeredo
+AU  - Casali, Stefano
+AU  - Masoli, Stefano
+AU  - Rizza, Martina
+AU  - Rizza, Martina Francesca
+AU  - Masoli, Stefano
+AU  - Sun, Yinming
+AU  - Wong, Willy
+AU  - Farzan, Faranak
+AU  - Blumberger, Daniel M
+AU  - Daskalakis, Zafiris J
+AU  - Popovych, Svitlana
+AU  - Viswanathan, Shivakumar
+AU  - Rosjat, Nils
+AU  - Grefkes, Christian
+AU  - Daun, Silvia
+AU  - Gentiletti, Damiano
+AU  - Suffczynski, Piotr
+AU  - Gnatkovski, Vadym
+AU  - De Curtis, Marco
+AU  - Lee, Hyeonsu
+AU  - Paik, Se-Bum
+AU  - Choi, Woochul
+AU  - Jang, Jaeson
+AU  - Park, Youngjin
+AU  - Song, Jun Ho
+AU  - Song, Min
+AU  - Pallarés, Vicente
+AU  - Gilson, Matthieu
+AU  - Kühn, Simone
+AU  - Insabato, Andrea
+AU  - Deco, Gustavo
+AU  - Glomb, Katharina
+AU  - Ponce-Alvarez, Adrián
+AU  - Ritter, Petra
+AU  - Gilson, Matthieu
+AU  - Campo, Adria Tauste
+AU  - Thiele, Alexander
+AU  - Deeba, Farah
+AU  - Robinson, P A
+AU  - van Albada, Sacha J
+AU  - Rowley, Andrew
+AU  - Hopkins, Michael
+AU  - Schmidt, Maximilian
+AU  - Stokes, Alan B
+AU  - Lester, David R
+AU  - Furber, Steve
+AU  - Diesmann, Markus
+AU  - Barri, Alessandro
+AU  - Wiechert, Martin T
+AU  - DiGregorio, David A
+AU  - Dimitrov, Alexander G
+AU  - Vich, Catalina
+AU  - Berg, Rune W
+AU  - Guillamon, Antoni
+AU  - Ditlevsen, Susanne
+AU  - Cazé, Romain D
+AU  - Girard, Benoît
+AU  - Doncieux, Stéphane
+AU  - Doyon, Nicolas
+AU  - Boahen, Frank
+AU  - Desrosiers, Patrick
+AU  - Laurence, Edward
+AU  - Doyon, Nicolas
+AU  - Dubé, Louis J
+AU  - Eleonora, Russo
+AU  - Durstewitz, Daniel
+AU  - Schmidt, Dominik
+AU  - Mäki-Marttunen, Tuomo
+AU  - Krull, Florian
+AU  - Bettella, Francesco
+AU  - Metzner, Christoph
+AU  - Devor, Anna
+AU  - Djurovic, Srdjan
+AU  - Dale, Anders M
+AU  - Andreassen, Ole A
+AU  - Einevoll, Gaute T
+AU  - Næss, Solveig
+AU  - Ness, Torbjørn V
+AU  - Halnes, Geir
+AU  - Halgren, Eric
+AU  - Halnes, Geir
+AU  - Mäki-Marttunen, Tuomo
+AU  - Pettersen, Klas H
+AU  - Andreassen, Ole A
+AU  - Sætra, Marte J
+AU  - Hagen, Espen
+AU  - Schiffer, Alina
+AU  - Grzymisch, Axel
+AU  - Persike, Malte
+AU  - Ernst, Udo
+AU  - Harnack, Daniel
+AU  - Ernst, Udo A
+AU  - Tomen, Nergis
+AU  - Zucca, Stefano
+AU  - Pasquale, Valentina
+AU  - Pica, Giuseppe
+AU  - Molano-Mazón, Manuel
+AU  - Chiappalone, Michela
+AU  - Panzeri, Stefano
+AU  - Fellin, Tommaso
+AU  - Oie, Kelvin S
+AU  - Boothe, David L
+AU  - Crone, Joshua C
+AU  - Yu, Alfred B
+AU  - Felton, Melvin A, Jr
+AU  - Zulfiqar, Isma
+AU  - Moerel, Michelle
+AU  - De Weerd, Peter
+AU  - Formisano, Elia
+AU  - Boothe, David L
+AU  - Crone, Joshua C
+AU  - Felton, Melvin A, Jr
+AU  - Oie, Kelvin
+AU  - Franaszczuk, Piotr
+AU  - Diggelmann, Roland
+AU  - Fiscella, Michele
+AU  - Hierlemann, Andreas
+AU  - Franke, Felix
+AU  - Guarino, Domenico
+AU  - Antolík, Jan
+AU  - Davison, Andrew P
+AU  - Frègnac, Yves
+AU  - Etienne, Benjamin Xavier
+AU  - Frohlich, Flavio
+AU  - Lefebvre, Jérémie
+AU  - Marcos, Encarni
+AU  - Mattia, Maurizio
+AU  - Genovesio, Aldo
+AU  - Fedorov, Leonid A
+AU  - Dijkstra, Tjeerd MH
+AU  - Sting, Louisa
+AU  - Hock, Howard
+AU  - Giese, Martin A
+AU  - Buhry, Laure
+AU  - Langlet, Clément
+AU  - Giovannini, Francesco
+AU  - Verbist, Christophe
+AU  - Salvadé, Stefano
+AU  - Giugliano, Michele
+AU  - Henderson, James A
+AU  - Wernecke, Hendrik
+AU  - Sándor, Bulcsú
+AU  - Gros, Claudius
+AU  - Voges, Nicole
+AU  - Dabrovska, Paulina
+AU  - Riehle, Alexa
+AU  - Brochier, Thomas
+AU  - Grün, Sonja
+AU  - Gu, Yifan
+AU  - Gong, Pulin
+AU  - Dumont, Grégory
+AU  - Novikov, Nikita A
+AU  - Gutkin, Boris S
+AU  - Tewatia, Parul
+AU  - Eriksson, Olivia
+AU  - Kramer, Andrei
+AU  - Santos, Joao
+AU  - Jauhiainen, Alexandra
+AU  - Kotaleski, Jeanette H
+AU  - Belić, Jovana J
+AU  - Kumar, Arvind
+AU  - Kotaleski, Jeanette Hellgren
+AU  - Shimono, Masanori
+AU  - Hatano, Naomichi
+AU  - Ahmad, Subutai
+AU  - Cui, Yuwei
+AU  - Hawkins, Jeff
+AU  - Senk, Johanna
+AU  - Korvasová, Karolína
+AU  - Tetzlaff, Tom
+AU  - Helias, Moritz
+AU  - Kühn, Tobias
+AU  - Denker, Michael
+AU  - Mana, PierGianLuca
+AU  - Grün, Sonja
+AU  - Dahmen, David
+AU  - Schuecker, Jannis
+AU  - Goedeke, Sven
+AU  - Keup, Christian
+AU  - Goedeke, Sven
+AU  - Heuer, Katja
+AU  - Bakker, Rembrandt
+AU  - Tiesinga, Paul
+AU  - Toro, Roberto
+AU  - Qin, Wei
+AU  - Hadjinicolaou, Alex
+AU  - Grayden, David B
+AU  - Ibbotson, Michael R
+AU  - Kameneva, Tatiana
+AU  - Lytton, William W
+AU  - Mulugeta, Lealem
+AU  - Drach, Andrew
+AU  - Myers, Jerry G, Jr
+AU  - Horner, Marc
+AU  - Vadigepalli, Rajanikanth
+AU  - Morrison, Tina
+AU  - Walton, Marlei
+AU  - Steele, Martin
+AU  - Anthony Hunt, C
+AU  - Tam, Nicoladie
+AU  - Amaducci, Rodrigo
+AU  - Muñiz, Carlos
+AU  - Reyes-Sánchez, Manuel
+AU  - Rodríguez, Francisco B
+AU  - Varona, Pablo
+AU  - Cronin, Joseph T
+AU  - Hennig, Matthias H
+AU  - Iavarone, Elisabetta
+AU  - Yi, Jane
+AU  - Shi, Ying
+AU  - Zandt, Bas-Jan
+AU  - Van Geit, Werner
+AU  - Rössert, Christian
+AU  - Markram, Henry
+AU  - Hill, Sean
+AU  - O’Reilly, Christian
+AU  - Iavarone, Elisabetta
+AU  - Shi, Ying
+AU  - Perin, Rodrigo
+AU  - Lu, Huanxiang
+AU  - Zandt, Bas-Jan
+AU  - Bryson, Alexander
+AU  - Rössert, Christian
+AU  - Hadrava, Michal
+AU  - Hlinka, Jaroslav
+AU  - Hosaka, Ryosuke
+AU  - Olenik, Mark
+AU  - Houghton, Conor
+AU  - Iannella, Nicolangelo
+AU  - Launey, Thomas
+AU  - Kameneva, Tatiana
+AU  - Kotsakidis, Rebecca
+AU  - Meffin, Hamish
+AU  - Soriano, Jaymar
+AU  - Kubo, Takatomi
+AU  - Inoue, Takao
+AU  - Kida, Hiroyuki
+AU  - Yamakawa, Toshitaka
+AU  - Suzuki, Michiyasu
+AU  - Ikeda, Kazushi
+AU  - Abbasi, Samira
+AU  - Hudson, Amber E
+AU  - Heck, Detlef H
+AU  - Jaeger, Dieter
+AU  - Lee, Joel
+AU  - Abbasi, Samira
+AU  - Janušonis, Skirmantas
+AU  - Saggio, Maria Luisa
+AU  - Spiegler, Andreas
+AU  - Stacey, William C
+AU  - Bernard, Christophe
+AU  - Lillo, Davide
+AU  - Bernard, Christophe
+AU  - Petkoski, Spase
+AU  - Spiegler, Andreas
+AU  - Drakesmith, Mark
+AU  - Jones, Derek K
+AU  - Zadeh, Ali Sadegh
+AU  - Kambhampati, Chandra
+AU  - Karbowski, Jan
+AU  - Kaya, Zeynep Gokcen
+AU  - Lakretz, Yair
+AU  - Treves, Alessandro
+AU  - Li, Lily W
+AU  - Lizier, Joseph
+AU  - Kerr, Cliff C
+AU  - Masquelier, Timothée
+AU  - Kheradpisheh, Saeed Reza
+AU  - Kim, Hojeong
+AU  - Kim, Chang Sub
+AU  - Marakshina, Julia A
+AU  - Vartanov, Alexander V
+AU  - Neklyudova, Anastasia A
+AU  - Kozlovskiy, Stanislav A
+AU  - Kiselnikov, Andrey A
+AU  - Taniguchi, Kanako
+AU  - Kitano, Katsunori
+AU  - Schmitt, Oliver
+AU  - Lessmann, Felix
+AU  - Schwanke, Sebastian
+AU  - Eipert, Peter
+AU  - Meinhardt, Jennifer
+AU  - Beier, Julia
+AU  - Kadir, Kanar
+AU  - Karnitzki, Adrian
+AU  - Sellner, Linda
+AU  - Klünker, Ann-Christin
+AU  - Kuch, Lena
+AU  - Ruß, Frauke
+AU  - Jenssen, Jörg
+AU  - Wree, Andreas
+AU  - Sanz-Leon, Paula
+AU  - Knock, Stuart A
+AU  - Chien, Shih-Cheng
+AU  - Maess, Burkhard
+AU  - Knösche, Thomas R
+AU  - Cohen, Charles C
+AU  - Popovic, Marko A
+AU  - Klooster, Jan
+AU  - Kole, Maarten HP
+AU  - Roberts, Erik A
+AU  - Kopell, Nancy J
+AU  - Kepple, Daniel
+AU  - Giaffar, Hamza
+AU  - Rinberg, Dima
+AU  - Koulakov, Alex
+AU  - Forlim, Caroline Garcia
+AU  - Klock, Leonie
+AU  - Bächle, Johanna
+AU  - Stoll, Laura
+AU  - Giemsa, Patrick
+AU  - Fuchs, Marie
+AU  - Schoofs, Nikola
+AU  - Montag, Christiane
+AU  - Gallinat, Jürgen
+AU  - Lee, Ray X
+AU  - Stephens, Greg J
+AU  - Kuhn, Bernd
+AU  - Tauffer, Luiz
+AU  - Isope, Philippe
+AU  - Inoue, Katsuma
+AU  - Ohmura, Yoshiyuki
+AU  - Yonekura, Shogo
+AU  - Kuniyoshi, Yasuo
+AU  - Jang, Hyun Jae
+AU  - Kwag, Jeehyun
+AU  - de Kamps, Marc
+AU  - Lai, Yi Ming
+AU  - dos Santos, Filipa
+AU  - Lam, K P
+AU  - Andras, Peter
+AU  - Imperatore, Julia
+AU  - Helms, Jessica
+AU  - Tompa, Tamas
+AU  - Lavin, Antonieta
+AU  - Inkpen, Felicity H
+AU  - Ashby, Michael C
+AU  - Lepora, Nathan F
+AU  - Shifman, Aaron R
+AU  - Lewis, John E
+AU  - Zhang, Zhong
+AU  - Feng, Yeqian
+AU  - Tetzlaff, Christian
+AU  - Kulvicius, Tomas
+AU  - Li, Yinyun
+AU  - Pena, Rodrigo F O
+AU  - Bernardi, Davide
+AU  - Roque, Antonio C
+AU  - Lindner, Benjamin
+AU  - Bernardi, Davide
+AU  - Vellmer, Sebastian
+AU  - Saudargiene, Ausra
+AU  - Maninen, Tiina
+AU  - Havela, Riikka
+AU  - Linne, Marja-Leena
+AU  - Powanwe, Arthur
+AU  - Longtin, Andre
+AU  - Naveros, Francisco
+AU  - Garrido, Jesús A
+AU  - Graham, Joe W
+AU  - Dura-Bernal, Salvador
+AU  - Angulo, Sergio L
+AU  - Neymotin, Samuel A
+AU  - Antic, Srdjan D
+T1  - 26th Annual Computational Neuroscience Meeting (CNS*2017): Part 2
+LA  - eng
+SN  - 1471-2202
+Y1  - 2017/08/18
+SP  - 59
+VL  - 18
+IS  - Suppl 1
+AN  - PMC5592442
+UR  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5592442/
+DO  - 10.1186/s12868-017-0371-2
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5592442/
+U2  - PMC5592442[pmcid]
+J2  - BMC Neurosci
+JF  - BMC Neuroscience
+PB  - BioMed Central
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Mohr, David C
+AU  - Schueller, Stephen M
+AU  - Montague, Enid
+AU  - Burns, Michelle Nicole
+AU  - Rashidi, Parisa
+T1  - The behavioral intervention technology model: an integrated conceptual and technological framework for eHealth and mHealth interventions
+LA  - eng
+SN  - 1438-8871
+SN  - 1439-4456
+Y1  - 2014/06/05
+AB  - A growing number of investigators have commented on the lack of models to inform the design of behavioral intervention technologies (BITs). BITs, which include a subset of mHealth and eHealth interventions, employ a broad range of technologies, such as mobile phones, the Web, and sensors, to support users in changing behaviors and cognitions related to health, mental health, and wellness. We propose a model that conceptually defines BITs, from the clinical aim to the technological delivery framework. The BIT model defines both the conceptual and technological architecture of a BIT. Conceptually, a BIT model should answer the questions why, what, how (conceptual and technical), and when. While BITs generally have a larger treatment goal, such goals generally consist of smaller intervention aims (the "why") such as promotion or reduction of specific behaviors, and behavior change strategies (the conceptual "how"), such as education, goal setting, and monitoring. Behavior change strategies are instantiated with specific intervention components or "elements" (the "what"). The characteristics of intervention elements may be further defined or modified (the technical "how") to meet the needs, capabilities, and preferences of a user. Finally, many BITs require specification of a workflow that defines when an intervention component will be delivered. The BIT model includes a technological framework (BIT-Tech) that can integrate and implement the intervention elements, characteristics, and workflow to deliver the entire BIT to users over time. This implementation may be either predefined or include adaptive systems that can tailor the intervention based on data from the user and the user's environment. The BIT model provides a step towards formalizing the translation of developer aims into intervention components, larger treatments, and methods of delivery in a manner that supports research and communication between investigators on how to design, develop, and deploy BITs.
+SP  - e146
+EP  - e146
+VL  - 16
+IS  - 6
+AN  - 24905070
+UR  - https://pubmed.ncbi.nlm.nih.gov/24905070
+DO  - 10.2196/jmir.3077
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4071229/
+U1  - 24905070[pmid]
+U2  - PMC4071229[pmcid]
+U4  - v16i6e146[PII]
+J2  - J Med Internet Res
+JF  - Journal of medical Internet research
+KW  - behavioral intervention technology
+KW  - ehealth
+KW  - mhealth
+KW  - *Behavior Therapy
+KW  - *Health Behavior
+KW  - Humans
+KW  - Internet
+KW  - Models, Psychological
+KW  - Research Design
+KW  - *Telemedicine
+PB  - JMIR Publications Inc.
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Khattak, Asad Masood
+AU  - Akbar, Noman
+AU  - Aazam, Mohammad
+AU  - Ali, Taqdir
+AU  - Khan, Adil Mehmood
+AU  - Jeon, Seokhee
+AU  - Hwang, Myunggwon
+AU  - Lee, Sungyoung
+T1  - Context representation and fusion: advancements and opportunities
+LA  - eng
+SN  - 1424-8220
+Y1  - 2014/05/30
+AB  - The acceptance and usability of context-aware systems have given them the edge of wide use in various domains and has also attracted the attention of researchers in the area of context-aware computing. Making user context information available to such systems is the center of attention. However, there is very little emphasis given to the process of context representation and context fusion which are integral parts of context-aware systems. Context representation and fusion facilitate in recognizing the dependency/relationship of one data source on another to extract a better understanding of user context. The problem is more critical when data is emerging from heterogeneous sources of diverse nature like sensors, user profiles, and social interactions and also at different timestamps. Both the processes of context representation and fusion are followed in one way or another; however, they are not discussed explicitly for the realization of context-aware systems. In other words most of the context-aware systems underestimate the importance context representation and fusion. This research has explicitly focused on the importance of both the processes of context representation and fusion and has streamlined their existence in the overall architecture of context-aware systems' design and development. Various applications of context representation and fusion in context-aware systems are also highlighted in this research. A detailed review on both the processes is provided in this research with their applications. Future research directions (challenges) are also highlighted which needs proper attention for the purpose of achieving the goal of realizing context-aware systems.
+SP  - 9628
+EP  - 9668
+VL  - 14
+IS  - 6
+AN  - 24887042
+UR  - https://pubmed.ncbi.nlm.nih.gov/24887042
+DO  - 10.3390/s140609628
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4118369/
+U1  - 24887042[pmid]
+U2  - PMC4118369[pmcid]
+U4  - s140609628[PII]
+J2  - Sensors (Basel)
+JF  - Sensors (Basel, Switzerland)
+KW  - Automobile Driving
+KW  - Biometric Identification
+KW  - *Computing Methodologies
+KW  - *Delivery of Health Care, Integrated
+KW  - *Environmental Monitoring
+KW  - Humans
+KW  - Internet
+KW  - *Models, Theoretical
+KW  - Semantics
+KW  - *Signal Processing, Computer-Assisted
+PB  - MDPI
+ER  - 
+TY  - JOUR
+DB  - PubMed
+T1  - Abstracts from the 37th Annual Meeting of the Society of General Internal Medicine, 2014, San Diego, CA, USA
+LA  - eng
+SN  - 1525-1497
+SN  - 0884-8734
+Y1  - 2014/04/
+SP  - 1
+EP  - 545
+VL  - 29 Suppl 1
+IS  - Suppl 1
+AN  - 24737224
+UR  - https://pubmed.ncbi.nlm.nih.gov/24737224
+DO  - 10.1007/s11606-014-2834-9
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4429500/
+U1  - 24737224[pmid]
+U2  - PMC4429500[pmcid]
+J2  - J Gen Intern Med
+JF  - Journal of general internal medicine
+KW  - Animals
+KW  - Humans
+KW  - *Internal Medicine
+PB  - Springer US
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Chakraborty, Subrata
+AU  - Mengersen, Kerrie
+AU  - Fidge, Colin
+AU  - Ma, Lin
+AU  - Lassen, David
+T1  - Multifaceted Modelling of Complex Business Enterprises
+LA  - eng
+SN  - 1932-6203
+Y1  - 2015/08/06
+AB  - We formalise and present a new generic multifaceted complex system approach for modelling complex business enterprises. Our method has a strong focus on integrating the various data types available in an enterprise which represent the diverse perspectives of various stakeholders. We explain the challenges faced and define a novel approach to converting diverse data types into usable Bayesian probability forms. The data types that can be integrated include historic data, survey data, and management planning data, expert knowledge and incomplete data. The structural complexities of the complex system modelling process, based on various decision contexts, are also explained along with a solution. This new application of complex system models as a management tool for decision making is demonstrated using a railway transport case study. The case study demonstrates how the new approach can be utilised to develop a customised decision support model for a specific enterprise. Various decision scenarios are also provided to illustrate the versatility of the decision model at different phases of enterprise operations such as planning and control.
+SP  - e0134052
+EP  - e0134052
+VL  - 10
+IS  - 8
+AN  - 26247591
+UR  - https://pubmed.ncbi.nlm.nih.gov/26247591
+DO  - 10.1371/journal.pone.0134052
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4527780/
+U1  - 26247591[pmid]
+U2  - PMC4527780[pmcid]
+U4  - PONE-D-15-15544[PII]
+J2  - PLoS One
+JF  - PloS one
+KW  - Bayes Theorem
+KW  - Cost-Benefit Analysis
+KW  - Humans
+KW  - *Models, Theoretical
+PB  - Public Library of Science
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Koru, Güneş
+AU  - Alhuwail, Dari
+AU  - Rosati, Robert J
+T1  - Identifying the key performance improvement domains for home health agencies
+LA  - eng
+SN  - 2050-3121
+SN  - 2050-3121
+Y1  - 2015/12/15
+AB  - OBJECTIVE: The objective of this study was to support home health agencies (HHAs) in the United States (US) in their individualized quality assessment and performance improvement (QAPI) initiatives by identifying their key performance improvement domains (KPIDs). METHODS: Qualitative research was conducted by following the Framework method. Rich contextual data were obtained through focus group meetings participated by domain experts. The analysis results were further refined in an online forum and validated at a final meeting. RESULTS: Four focus groups involving a total of 20 participants resulted in useful discussions during which various perspectives were expressed by the expert participants. A well-defined set of 17 KPIDs emerged under four categories, namely, economical value, sociocultural sensitivity, interpersonal relationships, and clinical capabilities. CONCLUSIONS: The feedback we received from the focus groups indicates that performance improvement in HHAs is a lot more complicated than simply assessing whether certain clinical tasks are performed. The KPIDs identified in this study can help HHAs in their focused and individualized QAPI initiatives. Therefore, the results should be immediately relevant, interesting, and useful to the home care industry and policy makers in the US.
+SP  - 2050312115621924
+EP  - 2050312115621924
+VL  - 3
+AN  - 27092266
+UR  - https://pubmed.ncbi.nlm.nih.gov/27092266
+DO  - 10.1177/2050312115621924
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4821206/
+U1  - 27092266[pmid]
+U2  - PMC4821206[pmcid]
+U4  - 10.1177_2050312115621924[PII]
+J2  - SAGE Open Med
+JF  - SAGE open medicine
+KW  - Home care
+KW  - home health agencies
+KW  - quality and performance improvement
+PB  - SAGE Publications
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Lood, Qarin
+AU  - Ivanoff, Synneve Dahlin
+AU  - Dellenborg, Lisen
+AU  - Mårtensson, Lena
+T1  - Health-promotion in the context of ageing and migration: a call for person-centred integrated practice
+LA  - eng
+SN  - 1568-4156
+SN  - 1568-4156
+Y1  - 2014/03/03
+AB  - OBJECTIVE: For the aim of improving the implementation of a health-promoting intervention for older persons who are born abroad, this study aimed to explore health care professionals' experiences of facilitators and barriers for their possibilities to support a healthy ageing in the context of migration. METHODS: Qualitative data were collected from four focus groups with health professionals who all had experience of working with older persons who are born abroad. Data were analysed with the guidance from the method developed by Krueger and Casey, progressing from an empirical to an abstract level. RESULTS: FIVE DIFFERENT CONDITIONS WERE FOUND TO INFLUENCE SUPPORTING HEALTHY AGEING IN THE CONTEXT OF MIGRATION: Sense of belonging through significant others, Emotional bonds to a place called home, Expectations on health and support during the ageing process, Mutual understanding as a means for communication and Heterogeneity as a point of departure. The one comprehensive theme complexity describes how those aspects are interrelated in a complex and unpredictable way. CONCLUSIONS: The results point at the need for focusing on each person's experiences and health expectations, and the study provides a foundation for future research on the integration of whole-system and person-centred practice.
+SP  - e004
+EP  - e004
+VL  - 14
+AN  - 24605072
+UR  - https://pubmed.ncbi.nlm.nih.gov/24605072
+DO  - 10.5334/ijic.1162
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3943616/
+U1  - 24605072[pmid]
+U2  - PMC3943616[pmcid]
+J2  - Int J Integr Care
+JF  - International journal of integrated care
+KW  - healthcare inequities
+KW  - immigration and migration
+KW  - implementation
+KW  - integrated care
+KW  - person-centered care
+KW  - qualitative research
+PB  - Igitur publishing
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Alami, Hassane
+AU  - Gagnon, Marie-Pierre
+AU  - Fortin, Jean-Paul
+T1  - Some Multidimensional Unintended Consequences of Telehealth Utilization: A Multi-Project Evaluation Synthesis
+LA  - eng
+SN  - 2322-5939
+Y1  - 2019/06/01
+AB  - BACKGROUND: Telehealth initiatives have bloomed around the globe, but their integration and diffusion remain challenging because of the complex issues they raise. Available evidence around telehealth usually deals with its expected effects and benefits, but its unintended consequences (UCs) and influencing factors are little documented. This study aims to explore, describe and analyze multidimensional UCs that have been associated with the use of telehealth. METHODS: We performed a secondary analysis of the evaluations of 10 telehealth projects conducted over a 22-year period in the province of Quebec (Canada). All material was subjected to a qualitative thematic-pragmatic content analysis with triangulation of methodologies and data sources. We used the conceptual model of the UCs of health information technologies proposed by Bloomrosen et al to structure our analysis. RESULTS: Four major findings emerged from our analysis. First, telehealth utilization requires many adjustments, changes and negotiations often underestimated in the planning and initial phases of the projects. Second, telehealth may result in the emergence of new services corridors that disturb existing ones and involve several adjustments for organizations, such as additional investments and resources, but also the risk of fragmentation of services and the need to balance between standardization of practices and local innovation. Third, telehealth may accentuate power relations between stakeholders. Fourth, it may lead to significant changes in the responsibilities of each actor in the supply chain of services. Finally, current legislative and regulatory frameworks appear ill-adapted to many of the new realities brought by telehealth. CONCLUSION: This study provides a first attempt for an overview of the UCs associated with the use of telehealth. Future research-evaluation studies should be more sensitive to the multidimensional and interdependent factors that influence telehealth implementation and utilization as well as its impacts, intended or unintended, at all levels. Thus, a consideration of potential UCs should inform telehealth projects, from their planning until their scaling-up.
+SP  - 337
+EP  - 352
+VL  - 8
+IS  - 6
+AN  - 31256566
+UR  - https://pubmed.ncbi.nlm.nih.gov/31256566
+DO  - 10.15171/ijhpm.2019.12
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6600023/
+U1  - 31256566[pmid]
+U2  - PMC6600023[pmcid]
+J2  - Int J Health Policy Manag
+JF  - International journal of health policy and management
+KW  - *Evaluation
+KW  - *Healthcare Services
+KW  - *Implementation
+KW  - *Telehealth
+KW  - *Unintended Consequences
+KW  - Attitude of Health Personnel
+KW  - *Diffusion of Innovation
+KW  - Health Services Research
+KW  - Humans
+KW  - Medical Overuse/statistics & numerical data
+KW  - *Quality Assurance, Health Care
+KW  - Quebec
+KW  - Telemedicine/*organization & administration
+PB  - Kerman University of Medical Sciences
+ER  - 
+TY  - JOUR
+DB  - PubMed
+AU  - Lyseen, A K
+AU  - Nøhr, C
+AU  - Sørensen, E M
+AU  - Gudes, O
+AU  - Geraghty, E M
+AU  - Shaw, N T
+AU  - Bivona-Tellez, C
+AU  - IMIA Health GIS Working Group
+T1  - A Review and Framework for Categorizing Current Research and Development in Health Related Geographical Information Systems (GIS) Studies
+LA  - eng
+SN  - 2364-0502
+SN  - 0943-4747
+Y1  - 2014/08/15
+AB  - OBJECTIVES: The application of GIS in health science has increased over the last decade and new innovative application areas have emerged. This study reviews the literature and builds a framework to provide a conceptual overview of the domain, and to promote strategic planning for further research of GIS in health. METHOD: The framework is based on literature from the library databases Scopus and Web of Science. The articles were identified based on keywords and initially selected for further study based on titles and abstracts. A grounded theory-inspired method was applied to categorize the selected articles in main focus areas. Subsequent frequency analysis was performed on the identified articles in areas of infectious and non-infectious diseases and continent of origin. RESULTS: A total of 865 articles were included. Four conceptual domains within GIS in health sciences comprise the framework: spatial analysis of disease, spatial analysis of health service planning, public health, health technologies and tools. Frequency analysis by disease status and location show that malaria and schistosomiasis are the most commonly analyzed infectious diseases where cancer and asthma are the most frequently analyzed non-infectious diseases. Across categories, articles from North America predominate, and in the category of spatial analysis of diseases an equal number of studies concern Asia. CONCLUSION: Spatial analysis of diseases and health service planning are well-established research areas. The development of future technologies and new application areas for GIS and data-gathering technologies such as GPS, smartphones, remote sensing etc. will be nudging the research in GIS and health.
+SP  - 110
+EP  - 124
+VL  - 9
+IS  - 1
+AN  - 25123730
+UR  - https://pubmed.ncbi.nlm.nih.gov/25123730
+DO  - 10.15265/IY-2014-0008
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4287070/
+U1  - 25123730[pmid]
+U2  - PMC4287070[pmcid]
+U4  - me2014-0008[PII]
+J2  - Yearb Med Inform
+JF  - Yearbook of medical informatics
+KW  - *Epidemiology
+KW  - *cluster analysis
+KW  - *geographic information system
+KW  - *public health
+KW  - *spatial analysis
+KW  - *Epidemiology
+KW  - *Geographic Information Systems
+KW  - *Health Planning
+KW  - Health Services
+KW  - Humans
+KW  - Population Surveillance/methods
+KW  - *Public Health
+KW  - *Spatial Analysis
+PB  - Schattauer GmbH
+ER  - 

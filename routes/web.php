@@ -44,4 +44,9 @@ Route::get('import-pubmed-json', 'PubMedController@import_json');
 Route::get('import-scopus-bibtex', 'ScopusController@import_bibtex');
 Route::get('import-scopus-json', 'ScopusController@import_json');
 
+Route::get('import-engineering-village-json', 'EngineeringVillageController@import_json');
+
+
+
+
 

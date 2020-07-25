@@ -1,17 +1,17 @@
 [
 	{
-		"id": "DARAGMEH2012841",
+		"id": "DIAMANTINI2016117",
 		"type": "article",
-		"title": "Needs Assessment and Beyond in the Setup of Centers for Teaching and Learning Excellence: An-Najah University Center as a Case Study",
-		"author": "Abdel Karim Daragmeh and Denise Drane and Gregory Light",
-		"keywords": "Centers of Excellence, needs assessment, capacity building, micro-interventions, macro-interventions",
-		"doi": "https://doi.org/10.1016/j.sbspro.2012.06.745",
-		"abstract": "An-Najah University recently established a center for excellence in learning and teaching (CELT) in collaboration with Northwestern University. The main goal of the center is to support the universitys transition to a more learner-centered, technology-assisted environment. This paper focuses on the CELT Teaching Fellows Program, a program to build leadership capacity in learning and teaching. It also reports on key challenges which the center encountered when it began to engage with the university and its response to those challenges which included: i) developing a participation strategy, ii) creating multi-specialist teaching fellow teams, and iii) responding to macro-intervention requests.",
-		"pages": "841 - 847",
-		"year": "2012",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877042812024810",
-		"journal": "Procedia - Social and Behavioral Sciences",
-		"volume": "47"
+		"title": "A goal-oriented, ontology-based methodology to support the design of AAL environments",
+		"author": "Claudia Diamantini and Alessandro Freddi and Sauro Longhi and Domenico Potena and Emanuele Storti",
+		"keywords": "Ambient assisted living, Ontology, Goal-oriented design methodology, Reasoning",
+		"doi": "https://doi.org/10.1016/j.eswa.2016.07.032",
+		"abstract": "One of the most critical issues in Ambient Assisted Living (AAL) is the design of systems that can evolve to meet the requirements of individuals as their needs and health conditions change. Although much work has been done on home and building automation systems for AAL, often referred to as assistive domotics, there is in fact still a substantial lack of solutions capable to support system designers in the early stage of development of such assistive systems. To this aim, the work contributes to the research on design of assistive domotic systems by presenting an ontology-driven methodology aimed to guide the development process. The novel contributions of the paper include the goal-oriented approach of the methodology, which involves the elicitation and analysis of AAL requirements and their formal representation in an ontology, where high-level goals are described in terms of subgoals and tasks, that are then linked to corresponding measures and devices. Moreover, logic-based reasoning enables more advanced functionalities useful at design time. We present a validation of the methodology showing typical use cases both related to the development from scratch of a domotic system with assistive capabilities starting from a set of high-level user requirements and the redesign of existing implementations according to changed requirements.",
+		"pages": "117 - 131",
+		"year": "2016",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S0957417416303797",
+		"journal": "Expert Systems with Applications",
+		"volume": "64"
 	},
 	{
 		"id": "SUMESH2019892",
@@ -28,18 +28,18 @@
 		"volume": "159"
 	},
 	{
-		"id": "PATEL2014844",
+		"id": "DARAGMEH2012841",
 		"type": "article",
-		"title": "Beyond ubiquitous computing: The Malaysian HoneyBee project for Innovative Digital Economy",
-		"author": "Ahmed Patel and Rosdiadee Nordin and Ahmed Al-Haiqi",
-		"keywords": "Ad-hoc network, Decentralized network, Ensemble computing, HoneyBee, Security, Safety, Performance statistics",
-		"doi": "https://doi.org/10.1016/j.csi.2014.01.003",
-		"abstract": "In the proposed advanced computing environment, known as the HoneyBee Platform, various computing devices using single or multiple interfaces and technologies/standards need to communicate and cooperate efficiently with a certain level of security and safety measures. These computing devices may be supported by different types of operating systems with different features and levels of security support. In order to ensure that all operations within the environment can be carried out seamlessly in an ad-hoc manner, there is a need for a common mobile platform to be developed. The purpose of this long-term project is to investigate and implement a new functional layered model of the common mobile platform with secured and trusted ensemble computing architecture for an innovative Digital Economic Environment in the Malaysian context. This mobile platform includes a lightweight operating system to provide a common virtual environment, a middleware for providing basic functionalities of routing, resource and network management, as well as to provide security, privacy and a trusted environment. A generic application programming interface is provided for application developers to access underlying resources. The aim is for the developed platform to act as the building block for an ensemble environment, upon which higher level applications could be built. Considered as the most essential project in a series of related projects towards a more digital socio-economy in Malaysia, this article presents the design of the target computational platform as well as the conceptual framework for the HoneyBee project.",
-		"pages": "844 - 854",
-		"year": "2014",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S0920548914000063",
-		"journal": "Computer Standards & Interfaces",
-		"volume": "36"
+		"title": "Needs Assessment and Beyond in the Setup of Centers for Teaching and Learning Excellence: An-Najah University Center as a Case Study",
+		"author": "Abdel Karim Daragmeh and Denise Drane and Gregory Light",
+		"keywords": "Centers of Excellence, needs assessment, capacity building, micro-interventions, macro-interventions",
+		"doi": "https://doi.org/10.1016/j.sbspro.2012.06.745",
+		"abstract": "An-Najah University recently established a center for excellence in learning and teaching (CELT) in collaboration with Northwestern University. The main goal of the center is to support the universitys transition to a more learner-centered, technology-assisted environment. This paper focuses on the CELT Teaching Fellows Program, a program to build leadership capacity in learning and teaching. It also reports on key challenges which the center encountered when it began to engage with the university and its response to those challenges which included: i) developing a participation strategy, ii) creating multi-specialist teaching fellow teams, and iii) responding to macro-intervention requests.",
+		"pages": "841 - 847",
+		"year": "2012",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877042812024810",
+		"journal": "Procedia - Social and Behavioral Sciences",
+		"volume": "47"
 	},
 	{
 		"id": "STOREY199597",
@@ -56,18 +56,32 @@
 		"volume": "16"
 	},
 	{
-		"id": "BRUNE2017442",
+		"id": "RONG2020291",
 		"type": "article",
-		"title": "Towards An Application Architecture For A Smart Online Service Network Platform For The Elderly",
-		"author": "Philipp Brune and Robert Rockmann",
-		"keywords": "Software Architecture, Web Development, Online Social Network, Service Description, Retrieval, Service Composition, Elderly People",
-		"doi": "https://doi.org/10.1016/j.procs.2017.08.289",
-		"abstract": "Online Social and Service Network Platforms for supporting elderly people with respect to their health and well-being have been discussed on the conceptual level by various authors. Here, in particular the so-called transition age between 55 and 75 is important and therefore has also been addressed, e.g. with respect to user interface (UI) requirements. As a logical next step, in this paper an application architecture for such a kind of online service network platform is proposed, designed consequently using state-of-the-art concepts like server-side JavaScript, NoSQL databases and machine learning. Since only few studies about such kind of modern software architectures exist in the literature, this is a first step towards analyzing their implications for web application development.",
-		"pages": "442 - 447",
-		"year": "2017",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050917316988",
-		"journal": "Procedia Computer Science",
-		"volume": "113"
+		"title": "Artificial Intelligence in Healthcare: Review and Prediction Case Studies",
+		"author": "Guoguang Rong and Arnaldo Mendez and Elie Bou Assi and Bo Zhao and Mohamad Sawan",
+		"keywords": "Artificial intelligence, Machine learning, Deep learning, Neural network, Biomedical research, Healthcare applications, Epileptic seizure, Urinary bladder filling",
+		"doi": "https://doi.org/10.1016/j.eng.2019.08.015",
+		"abstract": "Artificial intelligence (AI) has been developing rapidly in recent years in terms of software algorithms, hardware implementation, and applications in a vast number of areas. In this review, we summarize the latest developments of applications of AI in biomedicine, including disease diagnostics, living assistance, biomedical information processing, and biomedical research. The aim of this review is to keep track of new scientific accomplishments, to understand the availability of technologies, to appreciate the tremendous potential of AI in biomedicine, and to provide researchers in related fields with inspiration. It can be asserted that, just like AI itself, the application of AI in biomedicine is still in its early stage. New progress and breakthroughs will continue to push the frontier and widen the scope of AI application, and fast developments are envisioned in the near future. Two case studies are provided to illustrate the prediction of epileptic seizure occurrences and the filling of a dysfunctional urinary bladder.",
+		"pages": "291 - 301",
+		"year": "2020",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S2095809919301535",
+		"journal": "Engineering",
+		"volume": "6"
+	},
+	{
+		"id": "NIKNEJAD2020103529",
+		"type": "article",
+		"title": "A comprehensive overview of smart wearables: The state of the art literature, recent advances, and future challenges",
+		"author": "Naghmeh Niknejad and Waidah Binti Ismail and Abbas Mardani and Huchang Liao and Imran Ghani",
+		"keywords": "Smart wearables, Information systems, Potential factors, Weight analysis technique",
+		"doi": "https://doi.org/10.1016/j.engappai.2020.103529",
+		"abstract": "Smart wearables have gained considerable attention from Information Systems (IS) academics, business managers, and health practitioners. In spite of the availability of authentic research studies of smart wearables, there is still a lack of systematic review on the different aspects of smart wearables concept to find the current state of research, particularly from the perspective of IS field. Therefore, the predominant aim of this research is to review smart wearables literature, recent advances, and future challenges. Accordingly, a systematic literature review was conducted to explore smart wearables by reviewing previous studies from 2010 to 2019. For covering all related papers during these years, an integrated review protocol consisting of automatic and manual stages was pursued. 244 papers were identified to address smart wearables issues and challenges. According to the findings, it is observed that smart wearable studies have increased dramatically during the last years. Moreover, the results show that current studies covered different research themes which are related to smart wearables area, particularly user behavior, technology-focused, security and privacy, design, and social acceptability. Furthermore, based on the results of the weight analysis technique, perceived usefulness, attitude toward technology, social influence, and privacy concerns are identified as the best predictors of smart wearables adoption. Additionally, the results show that the Technology Acceptance Model (TAM) is the most commonly adopted theory in the smart wearable studies. The findings of this review would assist academics to realize the existing limitations and gaps as well as the future works for smart wearables research studies.",
+		"pages": "103529",
+		"year": "2020",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S0952197620300348",
+		"journal": "Engineering Applications of Artificial Intelligence",
+		"volume": "90"
 	},
 	{
 		"id": "KAIMER2019445",
@@ -98,32 +112,18 @@
 		"volume": "154"
 	},
 	{
-		"id": "NIKNEJAD2020103529",
+		"id": "BRUNE2017442",
 		"type": "article",
-		"title": "A comprehensive overview of smart wearables: The state of the art literature, recent advances, and future challenges",
-		"author": "Naghmeh Niknejad and Waidah Binti Ismail and Abbas Mardani and Huchang Liao and Imran Ghani",
-		"keywords": "Smart wearables, Information systems, Potential factors, Weight analysis technique",
-		"doi": "https://doi.org/10.1016/j.engappai.2020.103529",
-		"abstract": "Smart wearables have gained considerable attention from Information Systems (IS) academics, business managers, and health practitioners. In spite of the availability of authentic research studies of smart wearables, there is still a lack of systematic review on the different aspects of smart wearables concept to find the current state of research, particularly from the perspective of IS field. Therefore, the predominant aim of this research is to review smart wearables literature, recent advances, and future challenges. Accordingly, a systematic literature review was conducted to explore smart wearables by reviewing previous studies from 2010 to 2019. For covering all related papers during these years, an integrated review protocol consisting of automatic and manual stages was pursued. 244 papers were identified to address smart wearables issues and challenges. According to the findings, it is observed that smart wearable studies have increased dramatically during the last years. Moreover, the results show that current studies covered different research themes which are related to smart wearables area, particularly user behavior, technology-focused, security and privacy, design, and social acceptability. Furthermore, based on the results of the weight analysis technique, perceived usefulness, attitude toward technology, social influence, and privacy concerns are identified as the best predictors of smart wearables adoption. Additionally, the results show that the Technology Acceptance Model (TAM) is the most commonly adopted theory in the smart wearable studies. The findings of this review would assist academics to realize the existing limitations and gaps as well as the future works for smart wearables research studies.",
-		"pages": "103529",
-		"year": "2020",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S0952197620300348",
-		"journal": "Engineering Applications of Artificial Intelligence",
-		"volume": "90"
-	},
-	{
-		"id": "BOLL2015511",
-		"type": "article",
-		"title": "User Interfaces with a Touch of Grey? – Towards a Specific UI Design for People in the Transition Age",
-		"author": "Friederike Boll and Philipp Brune",
-		"keywords": "Graphical User Interfaces, User-Centered Design, UI Development, Elderly People",
-		"doi": "https://doi.org/10.1016/j.procs.2015.08.377",
-		"abstract": "While applications and user interfaces (UI) for elderly people have been discussed by various authors, the specific requirements of people in the transition age from work life to retirement (55-75 years) have not been analyzed in detail yet. Therefore, in this paper we present results from a qualitative empirical analysis within this age group, evaluate their specific usage behavior and system requirements and derive basic UI design guidelines from it. The results indicate that indeed this age group differs in its requirements from older people (75+) mainly considered in the existing literature.",
-		"pages": "511 - 516",
-		"year": "2015",
-		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050915025120",
+		"title": "Towards An Application Architecture For A Smart Online Service Network Platform For The Elderly",
+		"author": "Philipp Brune and Robert Rockmann",
+		"keywords": "Software Architecture, Web Development, Online Social Network, Service Description, Retrieval, Service Composition, Elderly People",
+		"doi": "https://doi.org/10.1016/j.procs.2017.08.289",
+		"abstract": "Online Social and Service Network Platforms for supporting elderly people with respect to their health and well-being have been discussed on the conceptual level by various authors. Here, in particular the so-called transition age between 55 and 75 is important and therefore has also been addressed, e.g. with respect to user interface (UI) requirements. As a logical next step, in this paper an application architecture for such a kind of online service network platform is proposed, designed consequently using state-of-the-art concepts like server-side JavaScript, NoSQL databases and machine learning. Since only few studies about such kind of modern software architectures exist in the literature, this is a first step towards analyzing their implications for web application development.",
+		"pages": "442 - 447",
+		"year": "2017",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050917316988",
 		"journal": "Procedia Computer Science",
-		"volume": "63"
+		"volume": "113"
 	},
 	{
 		"id": "DEFARIAS2017128",
@@ -138,6 +138,20 @@
 		"url_article": "https://www.sciencedirect.com/science/article/pii/S0167739X16302163",
 		"journal": "Future Generation Computer Systems",
 		"volume": "75"
+	},
+	{
+		"id": "BOLL2015511",
+		"type": "article",
+		"title": "User Interfaces with a Touch of Grey? – Towards a Specific UI Design for People in the Transition Age",
+		"author": "Friederike Boll and Philipp Brune",
+		"keywords": "Graphical User Interfaces, User-Centered Design, UI Development, Elderly People",
+		"doi": "https://doi.org/10.1016/j.procs.2015.08.377",
+		"abstract": "While applications and user interfaces (UI) for elderly people have been discussed by various authors, the specific requirements of people in the transition age from work life to retirement (55-75 years) have not been analyzed in detail yet. Therefore, in this paper we present results from a qualitative empirical analysis within this age group, evaluate their specific usage behavior and system requirements and derive basic UI design guidelines from it. The results indicate that indeed this age group differs in its requirements from older people (75+) mainly considered in the existing literature.",
+		"pages": "511 - 516",
+		"year": "2015",
+		"url_article": "https://www.sciencedirect.com/science/article/pii/S1877050915025120",
+		"journal": "Procedia Computer Science",
+		"volume": "63"
 	},
 	{
 		"id": "SCHAPPERT2020121585",

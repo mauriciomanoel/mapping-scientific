@@ -9,7 +9,7 @@ class HTML {
         $finder = new \DomXPath($dom);
         $nodes = $finder->query("//" . $element . "[contains(@class, '$classname')]");
         $values = array();
-        
+        var_dump($nodes); exit;
         foreach($nodes as $node) {
             $values[] = $dom->saveHTML($node);
         }
@@ -22,6 +22,7 @@ class HTML {
         $nodes = $finder->query("//*[contains(@class, '$classname')]");
         $values = array();
         
+       
         foreach($nodes as $node) {
             $values[] = trim($node->getAttribute($attibutename));
         }

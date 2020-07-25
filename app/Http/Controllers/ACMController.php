@@ -120,7 +120,10 @@ class ACMController extends Controller {
                     $article["source"]          = Config::get('constants.source_acm');
                     $article["file_name"]       = $file;
                     $article["citation-key"]    = null;
-
+                    
+                    if (!empty($article["author"]))  {
+                        $article["author"] = utf8_decode($article["author"]);
+                    }
                     if (empty($article["abstract"]))  {
                         $article["abstract"] = null;
                     }
@@ -183,46 +186,45 @@ class ACMController extends Controller {
         $documents = Document::where(
             [
                 ['source', '=', Config::get('constants.source_acm')],
-                ['duplicate', '=', '0'],
+                ['duplicate', '=', 0],
             ])
             ->whereNotNull('source_id')
             ->whereNull('metrics')
             ->get();
 
+        Util::showMessage("Total Articles ACM " . count($documents));
         foreach($documents as $document) {
             $url            = Config::get('constants.url_acm_abstract') . $document->source_id;
-            Util::showMessage($url);
-            $user_agent     = Config::get('constants.user_agent');
-            $cookie         = WebService::getCookie($url);
-            $abstract       = trim(strip_tags(WebService::loadURL($url, $cookie, $user_agent))); // load abstract 
-            $html_article   = WebService::loadURL($document->document_url, $cookie, $user_agent);
-            $metrics        = HTML::getFromClass($html_article, "small-text", "td");
-            $metrics        = trim(strip_tags(str_replace("·", "", $metrics[0])));
-            $data_metrics   = explode("\n", $metrics);
-            $metric         = "";
-            $citation_count = null;
-            $download_count = null;
+
+            Util::showMessage("Load detail ACM $url");
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "Cookie: __cfduid=d5b814e8a29cfb65b2c691cd938a86b9b1595675813; JSESSIONID=a65b8b77-b28c-41e2-a2e1-deaf6e091b0a; SERVER=WZ6myaEXBLHhywl+EH5LRA==; MAID=XaCNL/TCQEBrnJqF+2cRIQ==; MACHINE_LAST_SEEN=2020-07-25T04%3A16%3A53.334-07%3A00; I2KBRCK=1"
+            ),
+            ));
+
+            $html_article = curl_exec($curl);
+            curl_close($curl);
+
+            if (empty($html_article)) {
+                Util::showMessage("HTML not found $url");
+                continue;
+            }
+            preg_match_all('/<div class="abstractSection abstractInFull">(.*?)<\/div>/s', $html_article, $conteudo, PREG_SET_ORDER, 0);
             
-            foreach($data_metrics as $data_metric) {
-                $data_metric = trim($data_metric);
-                if (strpos($data_metric, "Citation Count")) {
-                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);                    
-                    if ($filter !== "") {
-                        $citation_count = $filter;
-                    }
-                } else if (strpos($data_metric, "Downloads (cumulative)")) { 
-                    $filter = filter_var($data_metric, FILTER_SANITIZE_NUMBER_INT);
-                    if ($filter !== "") {
-                        $download_count = $filter;
-                    }
-                }
+            if (!empty($conteudo[0][1])) {
+                $document->abstract         = strip_tags($conteudo[0][1]);
             }
             
-            $metric = str_replace("\u00a0", "", json_encode($data_metrics));
-            $document->abstract         = $abstract;
-            $document->citation_count   = $citation_count;
-            $document->download_count   = $download_count;
-            $document->metrics          = $metric;
             $document->save();
             
             $rand = rand(2,4);

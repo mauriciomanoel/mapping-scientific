@@ -58,7 +58,9 @@ class SpringerController extends Controller {
                     $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);                   
                     $article["bibtex"]          = json_encode($article); // save bibtex in json
                     $article["source"]          = Config::get('constants.source_springer');
-                    $article["keywords"]        = $article["keywords"];
+                    if (empty($article["keywords"])) {
+                        $article["keywords"]        = null;
+                    }
                     
                     $article["source_id"]       = (!empty($article["id"])) ? $article["id"] : null;
                     $article["file_name"]       = $file;
@@ -139,7 +141,9 @@ class SpringerController extends Controller {
                     $article["document_url"]    = !empty($article["url_article"]) ? $article["url_article"] : (isset($article["url"]) ? $article["url"] : null);                   
                     $article["bibtex"]          = json_encode($article); // save bibtex in json
                     $article["source"]          = Config::get('constants.source_springer');
-                    $article["keywords"]        = $article["keywords"];                    
+                    if (empty($article["keywords"])) {
+                        $article["keywords"]        = null;
+                    }                 
                     $article["source_id"]       = (!empty($article["id"])) ? $article["id"] : null;
                     $article["citation-key"]    = null;
                     $article["file_name"]       = $file;
@@ -172,10 +176,24 @@ class SpringerController extends Controller {
 
                         $document_new->duplicate        = $duplicate;
                         $document_new->duplicate_id     = $duplicate_id;
-                        $document_new->save();
+                        $document_new->save();                        
+                    } else {
+
+                        // Create new Document
+                        $document_new = CreateDocument::process($article);
+
+                        if ($document_new->year >= $document->year) {
+                            $document_new->save(); 
+                            $document->duplicate        = 1;
+                            $document->duplicate_id     = $document_new->id;
+                            $document->save();    
+                        } else {
+                            $document_new->duplicate        = 1;
+                            $document_new->duplicate_id     = $document->id;
+                            $document_new->save(); 
+                        }
                         
 
-                    } else {
                         Util::showMessage("Article already exists: " . $article["title"]  . " - " . $file);
                         Util::showMessage("");
                     }                
